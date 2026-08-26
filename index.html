@@ -4,85 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>김민재 · MinJae Kim</title>
-<meta name="description" content="김민재의 프로젝트 인덱스 — AI 음성 비서부터 게임, 웹 플랫폼, 데스크톱 유틸리티, 컨셉 아카이브까지 24개 프로젝트를 정리한 개인 포트폴리오.">
+<meta name="description" content="김민재의 프로젝트 인덱스 — AI 음성 비서부터 게임, 웹 플랫폼, 데스크톱 유틸리티, 컨셉 아카이브까지 23개 프로젝트를 정리한 개인 포트폴리오.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%90%3C/text%3E%3C/svg%3E">
 <style>
   :root {
-    --paper: #F3F6FB;
-    --surface: #FFFFFF;
-    --surface-2: #E9EFF9;
-    --ink: #101E36;
-    --ink-soft: #4C5C7A;
-    --ink-faint: #7E8CA8;
-    --line: #CBD6E8;
-    --line-strong: #9FB0CC;
-    --accent: #A0692A;
-    --accent-ink: #7A4F1E;
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --ink-deep: #000000;
+    --text-2: #333333;
+    --text-3: #666666;
+    --line: rgba(17,17,17,0.16);
+    --line-strong: rgba(17,17,17,0.32);
+    --surface-soft: #F7F7F5;
 
-    --st-live: #2E8B57;
-    --st-done: #3661A0;
-    --st-wip: #1F8FA0;
-    --st-proto: #7256A8;
-    --st-paused: #707C8C;
+    --dark-bg: #111111;
+    --dark-ink: #FFFFFF;
+    --dark-text-2: rgba(255,255,255,0.72);
+    --dark-line: rgba(255,255,255,0.22);
 
     color-scheme: light;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #0A1524;
-      --surface: #111E33;
-      --surface-2: #172542;
-      --ink: #E8EEF9;
-      --ink-soft: #A3B2CC;
-      --ink-faint: #6F7F9E;
-      --line: #2A3B5C;
-      --line-strong: #3E5480;
-      --accent: #D9A85B;
-      --accent-ink: #EACB8C;
-
-      --st-live: #52BD84;
-      --st-done: #6C9BDE;
-      --st-wip: #45BBCD;
-      --st-proto: #A78CDA;
-      --st-paused: #97A4B8;
-
-      color-scheme: dark;
-    }
-  }
-
-  :root[data-theme="dark"] {
-    --paper: #0A1524;
-    --surface: #111E33;
-    --surface-2: #172542;
-    --ink: #E8EEF9;
-    --ink-soft: #A3B2CC;
-    --ink-faint: #6F7F9E;
-    --line: #2A3B5C;
-    --line-strong: #3E5480;
-    --accent: #D9A85B;
-    --accent-ink: #EACB8C;
-
-    --st-live: #52BD84;
-    --st-done: #6C9BDE;
-    --st-wip: #45BBCD;
-    --st-proto: #A78CDA;
-    --st-paused: #97A4B8;
-
-    color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
 
   body {
-    background: var(--paper);
+    background: var(--bg);
     color: var(--ink);
-    font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Segoe UI", sans-serif;
+    font-family: "Pretendard Variable", "Pretendard", -apple-system, "Apple SD Gothic Neo", "Helvetica Neue", Helvetica, "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
     line-height: 1.5;
-    background-image:
-      repeating-linear-gradient(to right, color-mix(in srgb, var(--line) 55%, transparent) 0, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px, transparent 88px),
-      repeating-linear-gradient(to bottom, color-mix(in srgb, var(--line) 55%, transparent) 0, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px, transparent 88px);
-    background-attachment: local;
+    -webkit-font-smoothing: antialiased;
   }
 
   .mono {
@@ -90,269 +40,331 @@
   }
 
   a { color: inherit; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
   .wrap {
-    max-width: 920px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 0 1.25rem 5rem;
+    padding: 0 1.5rem 6rem;
   }
 
-  /* ---------- Hero / title block ---------- */
-  header.hero {
-    padding: 3.2rem 0 1.6rem;
-  }
+  svg.qr-motif rect { fill: currentColor; }
 
-  .eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin: 0 0 0.9rem;
-  }
-
-  h1.name {
-    font-size: clamp(2.4rem, 8vw, 3.6rem);
-    line-height: 1.05;
+  /* ---------- MK signature ---------- */
+  .mk-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Pretendard Variable", "Pretendard", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 800;
-    letter-spacing: -0.01em;
-    margin: 0;
-    text-wrap: balance;
-  }
-
-  .name-en {
-    display: block;
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    color: var(--ink-soft);
-    margin-top: 0.6rem;
-    text-transform: uppercase;
-  }
-
-  .titleblock {
-    margin-top: 1.8rem;
-    border-top: 1px solid var(--line-strong);
-    border-bottom: 1px solid var(--line-strong);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .titleblock div {
-    padding: 0.65rem 0.9rem;
-    border-left: 1px solid var(--line);
-  }
-  .titleblock div:first-child { border-left: none; padding-left: 0; }
-
-  .titleblock .tb-label {
-    display: block;
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 0.25rem;
-  }
-  .titleblock .tb-value {
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+    letter-spacing: -0.03em;
     font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--ink);
-    font-variant-numeric: tabular-nums;
+    border: 1.5px solid currentColor;
+    padding: 0.28rem 0.5rem;
+    line-height: 1;
+  }
+  .mk-mark.large {
+    font-size: 2.6rem;
+    padding: 0.5rem 0.9rem;
+    border-width: 2px;
   }
 
-  /* ---------- Category nav ---------- */
+  /* ---------- Sticky nav ---------- */
   nav.catnav {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: color-mix(in srgb, var(--paper) 92%, transparent);
-    backdrop-filter: blur(6px);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
-    padding: 0.7rem 0;
-    margin-top: 0.4rem;
   }
+  nav.catnav .catnav-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  nav.catnav .mk-mark { flex: none; }
   nav.catnav .catnav-scroll {
     display: flex;
-    gap: 0.4rem;
+    gap: 1.35rem;
     overflow-x: auto;
     scrollbar-width: none;
-    padding: 0 0.1rem;
+    padding: 0.9rem 0;
   }
   nav.catnav .catnav-scroll::-webkit-scrollbar { display: none; }
   nav.catnav a {
     flex: none;
     font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--ink-soft);
-    border: 1px solid var(--line);
-    padding: 0.32rem 0.65rem;
+    color: var(--text-3);
     white-space: nowrap;
-    transition: border-color 0.15s ease, color 0.15s ease;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
-  nav.catnav a:hover { border-color: var(--line-strong); color: var(--ink); }
-  nav.catnav a.active { color: var(--accent-ink); border-color: var(--accent); }
+  nav.catnav a:hover { color: var(--ink); }
+  nav.catnav a.active { color: var(--ink); border-color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    padding: 2.75rem 0 0;
+  }
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.75rem;
+  }
+  .hero-top .qr-motif { color: var(--text-3); }
+
+  .eyebrow {
+    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 0 0 0.9rem;
+  }
+
+  h1.name {
+    font-size: clamp(2.5rem, 8.5vw, 4.6rem);
+    line-height: 0.98;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .name-en {
+    display: block;
+    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    color: var(--text-3);
+    margin-top: 0.7rem;
+    text-transform: uppercase;
+  }
+
+  .role {
+    font-size: clamp(1.7rem, 5.2vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 1.6rem 0 0;
+  }
+
+  .pitch {
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    color: var(--text-2);
+    max-width: 30rem;
+    line-height: 1.65;
+    margin: 1.15rem 0 0;
+  }
+
+  .meta-line {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 2rem 0 0;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ---------- Dark chapter band ---------- */
+  .work-intro {
+    background: var(--dark-bg);
+    color: var(--dark-ink);
+    margin-top: 2.75rem;
+  }
+  .work-intro .wrap { padding-top: 3.2rem; padding-bottom: 3.2rem; }
+  .work-intro .eyebrow { color: var(--dark-text-2); }
+  .work-intro h2 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.6rem;
+  }
+  .process-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.7rem;
+    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--dark-text-2);
+  }
+  .process-strip span.sep { color: rgba(255,255,255,0.4); }
 
   /* ---------- Category sections ---------- */
   section.category {
-    padding-top: 2.6rem;
-    scroll-margin-top: 4rem;
+    padding-top: 3rem;
+    scroll-margin-top: 4.2rem;
   }
 
   .category-head {
     display: flex;
     align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    border-bottom: 1px solid var(--line-strong);
-    padding-bottom: 0.6rem;
-    margin-bottom: 1.1rem;
+    gap: 0.9rem;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+  .category-head .cat-num {
+    font-size: 0.72rem;
+    color: var(--text-3);
   }
   .category-head h2 {
-    font-size: 1.15rem;
-    font-weight: 700;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     margin: 0;
-    letter-spacing: -0.005em;
-  }
-  .category-head .count {
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.72rem;
-    color: var(--ink-faint);
-    letter-spacing: 0.06em;
   }
 
-  .grid {
+  /* ---------- Work row ---------- */
+  .row {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 0.9rem;
-  }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    padding: 1.1rem 1.2rem 1.2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
+    grid-template-columns: 2.4rem 1fr;
+    column-gap: 1.1rem;
+    padding: 1.65rem 0;
+    border-bottom: 1px solid var(--line);
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.15s ease;
+    transform: translateY(8px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.2s ease;
   }
-  .card.in-view { opacity: 1; transform: translateY(0); }
-  .card:hover { border-color: var(--line-strong); }
+  .row.in-view { opacity: 1; transform: translateY(0); }
+  .row:hover { background: var(--surface-soft); }
 
-  .card-top {
+  .row-num {
+    font-size: 0.72rem;
+    color: var(--text-3);
+    padding-top: 0.2rem;
+  }
+
+  .row-head {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 0.6rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
-  .card h3 {
-    font-size: 1.02rem;
+  .row-head h3 {
+    font-size: 1.05rem;
     font-weight: 700;
+    letter-spacing: -0.005em;
     margin: 0;
-    line-height: 1.3;
-  }
-  .card .desc {
-    font-size: 0.88rem;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    margin: 0;
+    line-height: 1.35;
   }
 
+  .row-tags {
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-top: 0.4rem;
+  }
+  .row-tags span:not(:last-child)::after {
+    content: " · ";
+    color: var(--line-strong);
+  }
+
+  .row-desc {
+    font-size: 0.92rem;
+    color: var(--text-2);
+    line-height: 1.68;
+    max-width: 38rem;
+    margin: 0.6rem 0 0;
+  }
+
+  /* ---------- Status ---------- */
   .status {
     flex: none;
     font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    border: 1px solid;
+    padding: 0.22rem 0.5rem;
+    border-radius: 2px;
     white-space: nowrap;
   }
-  .status.live   { color: var(--st-live);   border-color: var(--st-live);   background: color-mix(in srgb, var(--st-live) 14%, transparent); }
-  .status.done   { color: var(--st-done);   border-color: var(--st-done);   background: color-mix(in srgb, var(--st-done) 14%, transparent); }
-  .status.wip    { color: var(--st-wip);    border-color: var(--st-wip);    background: color-mix(in srgb, var(--st-wip) 14%, transparent); }
-  .status.proto  { color: var(--st-proto);  border-color: var(--st-proto);  background: color-mix(in srgb, var(--st-proto) 14%, transparent); }
-  .status.paused { color: var(--st-paused); border-color: var(--st-paused); background: color-mix(in srgb, var(--st-paused) 14%, transparent); }
+  .status.filled  { background: var(--ink); color: #FFFFFF; }
+  .status.outline { border: 1px solid var(--ink); color: var(--ink); }
+  .status.muted   { border: 1px solid var(--text-3); color: var(--text-3); }
+  .status.faint   { border: 1px dotted var(--line-strong); color: var(--text-3); }
 
-  .tech {
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--dark-bg);
+    color: var(--dark-ink);
+    margin-top: 3rem;
+  }
+  footer .wrap {
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem;
+  }
+  footer .footer-role {
+    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark-text-2);
+  }
+  footer .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-top: 0.15rem;
-  }
-  .tech span {
+    gap: 0.4rem 1.4rem;
     font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.66rem;
-    color: var(--ink-faint);
-    border: 1px solid var(--line);
-    padding: 0.1rem 0.4rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
   }
-
-  footer {
-    margin-top: 4rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--line-strong);
+  footer .footer-links a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--dark-line);
+    transition: border-color 0.15s ease, opacity 0.15s ease;
+  }
+  footer .footer-links a:hover { border-color: var(--dark-ink); }
+  footer .footer-bottom {
+    width: 100%;
+    border-top: 1px solid var(--dark-line);
+    padding-top: 1.2rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.5rem;
     font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.7rem;
-    color: var(--ink-faint);
-    letter-spacing: 0.04em;
-  }
-  footer .footer-mail {
-    text-decoration: none;
-    border-bottom: 1px solid var(--line);
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-  footer .footer-mail:hover {
-    color: var(--accent-ink);
-    border-color: var(--accent);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    color: var(--dark-text-2);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .card { transition: none; opacity: 1; transform: none; }
+    .row { transition: none; opacity: 1; transform: none; }
   }
 
   @media (max-width: 520px) {
-    .titleblock { grid-template-columns: repeat(2, 1fr); }
-    .titleblock div:nth-child(3) { border-left: none; grid-column: 1 / -1; padding-left: 0; padding-top: 0.5rem; border-top: 1px solid var(--line); margin-top: 0.4rem; }
+    .row { grid-template-columns: 1.7rem 1fr; column-gap: 0.8rem; }
+    .hero-top { margin-bottom: 2rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-  <header class="hero">
-    <p class="eyebrow">Project Index</p>
-    <h1 class="name">김민재
-      <span class="name-en">MinJae Kim</span>
-    </h1>
-    <div class="titleblock">
-      <div>
-        <span class="tb-label">Projects</span>
-        <span class="tb-value">24</span>
-      </div>
-      <div>
-        <span class="tb-label">Categories</span>
-        <span class="tb-value">8</span>
-      </div>
-      <div>
-        <span class="tb-label">Updated</span>
-        <span class="tb-value">2026.08.25</span>
-      </div>
-    </div>
-  </header>
-
-  <nav class="catnav">
+<nav class="catnav">
+  <div class="catnav-inner">
+    <span class="mk-mark">MK</span>
     <div class="catnav-scroll">
       <a href="#cat-ai">AI &amp; 음성</a>
       <a href="#cat-game">게임</a>
@@ -363,355 +375,402 @@
       <a href="#cat-infra">데이터 &amp; 인프라</a>
       <a href="#cat-lab">LAB &amp; 컨셉</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-top">
+      <span class="mk-mark">MK</span>
+      <svg class="qr-motif" width="62" height="22" viewBox="0 0 62 22" aria-hidden="true">
+        <rect x="0" y="0" width="6" height="6"/><rect x="16" y="0" width="6" height="6"/><rect x="24" y="0" width="6" height="6"/><rect x="48" y="0" width="6" height="6"/>
+        <rect x="8" y="8" width="6" height="6"/><rect x="32" y="8" width="6" height="6"/><rect x="40" y="8" width="6" height="6"/><rect x="56" y="8" width="6" height="6"/>
+        <rect x="0" y="16" width="6" height="6"/><rect x="16" y="16" width="6" height="6"/><rect x="32" y="16" width="6" height="6"/><rect x="48" y="16" width="6" height="6"/>
+      </svg>
+    </div>
+    <p class="eyebrow">Project Index</p>
+    <h1 class="name">김민재
+      <span class="name-en">MinJae Kim</span>
+    </h1>
+    <p class="role">AI/AX PLANNER<br>&amp; CREATOR</p>
+    <p class="pitch">AI를 활용해 아이디어를 기획하고 실제로 작동하는 형태까지 제작합니다.</p>
+    <p class="meta-line mono">23 Projects · 8 Categories · Updated 2026.08.25</p>
+  </header>
+</div>
+
+<section class="work-intro">
+  <div class="wrap">
+    <p class="eyebrow mono">Index</p>
+    <h2>Work</h2>
+    <div class="process-strip">
+      <span>문제 발견</span><span class="sep">→</span>
+      <span>조사</span><span class="sep">→</span>
+      <span>구조화</span><span class="sep">→</span>
+      <span>AI 활용</span><span class="sep">→</span>
+      <span>빠른 프로토타입</span><span class="sep">→</span>
+      <span>검증</span><span class="sep">→</span>
+      <span>수정</span><span class="sep">→</span>
+      <span>실제 결과물</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
   <main>
 
     <section class="category" id="cat-ai">
       <div class="category-head">
+        <span class="cat-num mono">01</span>
         <h2>AI &amp; 음성</h2>
-        <span class="count mono">4</span>
       </div>
-      <div class="grid">
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">01</span>
+        <div>
+          <div class="row-head">
             <h3>Pia — 음성 어시스턴트</h3>
-            <span class="status wip">진행중</span>
+            <span class="status outline">진행중</span>
           </div>
-          <p class="desc">Windows용 상시 대기 음성 비서. 웨이크워드 인식과 명령 처리, 자체 번역 모듈을 내장하고 있으며 계속 기능이 추가되고 있는 핵심 프로젝트.</p>
-          <div class="tech">
-            <span>Python</span><span>STT/TTS</span><span>Windows</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Python</span><span>STT/TTS</span><span>Windows</span></p>
+          <p class="row-desc">Windows용 상시 대기 음성 비서. 웨이크워드 인식과 명령 처리, 자체 번역 모듈을 내장하고 있으며 계속 기능이 추가되고 있는 핵심 프로젝트.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">02</span>
+        <div>
+          <div class="row-head">
             <h3>STT — 실시간 음성변환</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">마이크와 시스템 오디오 루프백을 동시에 캡처해 faster-whisper로 실시간 텍스트 변환. Pia의 입력 파이프라인으로도 사용.</p>
-          <div class="tech">
-            <span>Python</span><span>faster-whisper</span><span>오디오 루프백</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Python</span><span>faster-whisper</span><span>오디오 루프백</span></p>
+          <p class="row-desc">마이크와 시스템 오디오 루프백을 동시에 캡처해 faster-whisper로 실시간 텍스트 변환. Pia의 입력 파이프라인으로도 사용.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">03</span>
+        <div>
+          <div class="row-head">
             <h3>Pia-Translate</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">Flutter와 ONNX Runtime으로 만든 오프라인 번역 앱. PC 없이 폰에서 완전히 로컬로 동작하며, 실기기 최종 확인만 남은 단계.</p>
-          <div class="tech">
-            <span>Flutter</span><span>ONNX Runtime</span><span>Android/iOS</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Flutter</span><span>ONNX Runtime</span><span>Android/iOS</span></p>
+          <p class="row-desc">Flutter와 ONNX Runtime으로 만든 오프라인 번역 앱. PC 없이 폰에서 완전히 로컬로 동작하며, 실기기 최종 확인만 남은 단계.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">04</span>
+        <div>
+          <div class="row-head">
             <h3>Pia 디스코드 봇</h3>
-            <span class="status live">운영중</span>
+            <span class="status filled">운영중</span>
           </div>
-          <p class="desc">Pia 학습용 음성 데이터를 모으기 위한 전용 디스코드 봇. Gemini 기반으로 채널을 자동 생성하고 호출어에 반응한다.</p>
-          <div class="tech">
-            <span>discord.py</span><span>Gemini API</span>
-          </div>
-        </article>
-
-      </div>
+          <p class="row-tags mono"><span>discord.py</span><span>Gemini API</span></p>
+          <p class="row-desc">Pia 학습용 음성 데이터를 모으기 위한 전용 디스코드 봇. Gemini 기반으로 채널을 자동 생성하고 호출어에 반응한다.</p>
+        </div>
+      </article>
     </section>
 
     <section class="category" id="cat-game">
       <div class="category-head">
+        <span class="cat-num mono">02</span>
         <h2>게임</h2>
-        <span class="count mono">2</span>
       </div>
-      <div class="grid">
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">01</span>
+        <div>
+          <div class="row-head">
             <h3>정애 — 로프 액션 심리 스릴러</h3>
-            <span class="status wip">진행중</span>
+            <span class="status outline">진행중</span>
           </div>
-          <p class="desc">로프, 퍼즐, 환각 연출로 알츠하이머로 인한 기억과 인지 변화를 플레이어가 직접 경험하게 만드는 2D 심리 스릴러. 총 7막 구조로 로프 물리 프로토타입을 구현했다.</p>
-          <div class="tech">
-            <span>Unity</span><span>C#</span><span>Narrative Design</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Unity</span><span>C#</span><span>Narrative Design</span></p>
+          <p class="row-desc">로프, 퍼즐, 환각 연출로 알츠하이머로 인한 기억과 인지 변화를 플레이어가 직접 경험하게 만드는 2D 심리 스릴러. 총 7막 구조로 로프 물리 프로토타입을 구현했다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">02</span>
+        <div>
+          <div class="row-head">
             <h3>2인 협동 리듬 게임</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">국제 게임잼에서 만든, 한 PC로 두 사람이 함께 즐기는 협동 리듬 게임. 공동 게이지와 Fever 시스템으로 "얼마나 함께 맞추는가"를 핵심 경험으로 설계했다.</p>
-          <div class="tech">
-            <span>Game Jam</span><span>2P Co-op</span><span>Rhythm</span>
-          </div>
-        </article>
-
-      </div>
+          <p class="row-tags mono"><span>Game Jam</span><span>2P Co-op</span><span>Rhythm</span></p>
+          <p class="row-desc">국제 게임잼에서 만든, 한 PC로 두 사람이 함께 즐기는 협동 리듬 게임. 공동 게이지와 Fever 시스템으로 "얼마나 함께 맞추는가"를 핵심 경험으로 설계했다.</p>
+        </div>
+      </article>
     </section>
 
     <section class="category" id="cat-web">
       <div class="category-head">
+        <span class="cat-num mono">03</span>
         <h2>웹 &amp; 플랫폼</h2>
-        <span class="count mono">5</span>
       </div>
-      <div class="grid">
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">01</span>
+        <div>
+          <div class="row-head">
             <h3>소프트웨어 플랫폼</h3>
-            <span class="status live">데모 배포됨</span>
+            <span class="status filled">데모 배포됨</span>
           </div>
-          <p class="desc">구독 기반으로 프로그램을 배포하는 웹 서비스. Vercel과 Neon으로 데모 환경을 구축해 게스트 계정으로 둘러볼 수 있다.</p>
-          <div class="tech">
-            <span>Next.js</span><span>PostgreSQL</span><span>Vercel</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Next.js</span><span>PostgreSQL</span><span>Vercel</span></p>
+          <p class="row-desc">구독 기반으로 프로그램을 배포하는 웹 서비스. Vercel과 Neon으로 데모 환경을 구축해 게스트 계정으로 둘러볼 수 있다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">02</span>
+        <div>
+          <div class="row-head">
             <h3>전주대 생활권 혼잡도 지도</h3>
-            <span class="status wip">진행중</span>
+            <span class="status outline">진행중</span>
           </div>
-          <p class="desc">수업 시간표와 현재 위치, 주변 상권 정보를 연결해 지금 갈 수 있는 장소를 추천하는 생활권 의사결정 서비스. 혼잡도·이동시간·영업시간까지 반영한다.</p>
-          <div class="tech">
-            <span>React</span><span>TypeScript</span><span>Leaflet</span><span>OCR</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>React</span><span>TypeScript</span><span>Leaflet</span><span>OCR</span></p>
+          <p class="row-desc">수업 시간표와 현재 위치, 주변 상권 정보를 연결해 지금 갈 수 있는 장소를 추천하는 생활권 의사결정 서비스. 혼잡도·이동시간·영업시간까지 반영한다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">03</span>
+        <div>
+          <div class="row-head">
             <h3>Pathlight</h3>
-            <span class="status proto">프로토타입</span>
+            <span class="status muted">프로토타입</span>
           </div>
-          <p class="desc">기존 가로등 인프라를 그대로 활용해 보행 경로에 따라 조명을 제어하는 스마트캠퍼스 안전 서비스. 기술뿐 아니라 법률·운영·사업성까지 검토한 해커톤 프로토타입.</p>
-          <div class="tech">
-            <span>React 19</span><span>TypeScript</span><span>OSRM</span><span>PWA</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>React 19</span><span>TypeScript</span><span>OSRM</span><span>PWA</span></p>
+          <p class="row-desc">기존 가로등 인프라를 그대로 활용해 보행 경로에 따라 조명을 제어하는 스마트캠퍼스 안전 서비스. 기술뿐 아니라 법률·운영·사업성까지 검토한 해커톤 프로토타입.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">04</span>
+        <div>
+          <div class="row-head">
             <h3>AXton Platform</h3>
-            <span class="status paused">보류</span>
+            <span class="status faint">보류</span>
           </div>
-          <p class="desc">소프트웨어 플랫폼 코드베이스를 포크한 스캐폴드. 인증·구독·라이선스 구조는 갖춰졌지만 아직 용도가 정해지지 않았다.</p>
-          <div class="tech">
-            <span>Next.js</span><span>Prisma</span><span>NextAuth</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Next.js</span><span>Prisma</span><span>NextAuth</span></p>
+          <p class="row-desc">소프트웨어 플랫폼 코드베이스를 포크한 스캐폴드. 인증·구독·라이선스 구조는 갖춰졌지만 아직 용도가 정해지지 않았다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">05</span>
+        <div>
+          <div class="row-head">
             <h3>우리집 냉장고</h3>
-            <span class="status proto">프로토타입</span>
+            <span class="status muted">프로토타입</span>
           </div>
-          <p class="desc">구매한 식재료가 실제 식사로 소비될 때까지 관리하는 AI Food Agent. 사용자가 직접 입력하지 않아도 구매·소비 정보로 재고를 추론하는 Zero-Input Inventory 구조로 문제를 재정의했다.</p>
-          <div class="tech">
-            <span>Next.js</span><span>Supabase</span><span>AI Recommendation</span>
-          </div>
-        </article>
-
-      </div>
+          <p class="row-tags mono"><span>Next.js</span><span>Supabase</span><span>AI Recommendation</span></p>
+          <p class="row-desc">구매한 식재료가 실제 식사로 소비될 때까지 관리하는 AI Food Agent. 사용자가 직접 입력하지 않아도 구매·소비 정보로 재고를 추론하는 Zero-Input Inventory 구조로 문제를 재정의했다.</p>
+        </div>
+      </article>
     </section>
 
     <section class="category" id="cat-util">
       <div class="category-head">
+        <span class="cat-num mono">04</span>
         <h2>데스크톱 유틸리티</h2>
-        <span class="count mono">5</span>
       </div>
-      <div class="grid">
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">01</span>
+        <div>
+          <div class="row-head">
             <h3>바탕화면 정리</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">핫키 한 번으로 바탕화면 파일을 자동 분류·정리. 유니티 프로젝트 폴더 인식과 정렬 후 아이콘 위치 고정까지 세부 버그를 해결했다.</p>
-          <div class="tech">
-            <span>Python</span><span>Windows API</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Python</span><span>Windows API</span></p>
+          <p class="row-desc">핫키 한 번으로 바탕화면 파일을 자동 분류·정리. 유니티 프로젝트 폴더 인식과 정렬 후 아이콘 위치 고정까지 세부 버그를 해결했다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">02</span>
+        <div>
+          <div class="row-head">
             <h3>PC 저장공간 정리</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">정크·중복·미디어 파일을 찾아 정리하는 도구. 비동기 스캔과 체크박스 단일클릭 개선을 마쳤으며, GUI 자동화는 UIA/BM_CLICK만으로 처리한다.</p>
-          <div class="tech">
-            <span>Python</span><span>UIA</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Python</span><span>UIA</span></p>
+          <p class="row-desc">정크·중복·미디어 파일을 찾아 정리하는 도구. 비동기 스캔과 체크박스 단일클릭 개선을 마쳤으며, GUI 자동화는 UIA/BM_CLICK만으로 처리한다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">03</span>
+        <div>
+          <div class="row-head">
             <h3>프로그램 리모컨</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">자주 쓰는 개발 프로그램을 단축키로 즉시 실행하는 런처. 디스코드 다크 테마 UI로 최종 확정했다.</p>
-          <div class="tech">
-            <span>Python</span><span>Windows</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Python</span><span>Windows</span></p>
+          <p class="row-desc">자주 쓰는 개발 프로그램을 단축키로 즉시 실행하는 런처. 디스코드 다크 테마 UI로 최종 확정했다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">04</span>
+        <div>
+          <div class="row-head">
             <h3>핸드모션</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">웹캠으로 손동작을 인식해 명령 입력에 활용하는 제스처 컨트롤 프로그램.</p>
-          <div class="tech">
-            <span>Python</span><span>OpenCV</span><span>MediaPipe</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>Python</span><span>OpenCV</span><span>MediaPipe</span></p>
+          <p class="row-desc">웹캠으로 손동작을 인식해 명령 입력에 활용하는 제스처 컨트롤 프로그램.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">05</span>
+        <div>
+          <div class="row-head">
             <h3>마법의 소라고둥</h3>
-            <span class="status proto">프리뷰</span>
+            <span class="status muted">프리뷰</span>
           </div>
-          <p class="desc">항상 위에 떠 있는 데스크톱 위젯 챗봇. 드래그·리사이즈·트레이 동작 등 UI는 완성됐지만 실제 AI 응답은 아직 연결 전이라 placeholder로 동작한다.</p>
-          <div class="tech">
-            <span>Next.js</span><span>Electron</span><span>Claude API 예정</span>
-          </div>
-        </article>
-
-      </div>
+          <p class="row-tags mono"><span>Next.js</span><span>Electron</span><span>Claude API 예정</span></p>
+          <p class="row-desc">항상 위에 떠 있는 데스크톱 위젯 챗봇. 드래그·리사이즈·트레이 동작 등 UI는 완성됐지만 실제 AI 응답은 아직 연결 전이라 placeholder로 동작한다.</p>
+        </div>
+      </article>
     </section>
 
     <section class="category" id="cat-devtool">
       <div class="category-head">
+        <span class="cat-num mono">05</span>
         <h2>개발자 도구</h2>
-        <span class="count mono">1</span>
       </div>
-      <div class="grid">
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">01</span>
+        <div>
+          <div class="row-head">
             <h3>ProjectBridge</h3>
-            <span class="status live">v1.0.0 배포됨</span>
+            <span class="status filled">v1.0.0 배포됨</span>
           </div>
-          <p class="desc">Claude Code로 여러 PC를 오가며 작업할 때, 코드가 아니라 결정사항·TODO·인수인계 같은 "작업 맥락"을 GitHub로 동기화하는 플러그인. 강제 푸시 금지, 커밋 전 비밀정보 스캔 등 안전장치를 갖췄다.</p>
-          <div class="tech">
-            <span>Claude Code Plugin</span><span>GitHub</span><span>Shell</span>
-          </div>
-        </article>
-
-      </div>
+          <p class="row-tags mono"><span>Claude Code Plugin</span><span>GitHub</span><span>Shell</span></p>
+          <p class="row-desc">Claude Code로 여러 PC를 오가며 작업할 때, 코드가 아니라 결정사항·TODO·인수인계 같은 "작업 맥락"을 GitHub로 동기화하는 플러그인. 강제 푸시 금지, 커밋 전 비밀정보 스캔 등 안전장치를 갖췄다.</p>
+        </div>
+      </article>
     </section>
 
     <section class="category" id="cat-bot">
       <div class="category-head">
+        <span class="cat-num mono">06</span>
         <h2>디스코드 봇</h2>
-        <span class="count mono">2</span>
       </div>
-      <div class="grid">
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">01</span>
+        <div>
+          <div class="row-head">
             <h3>디스코드 주크박스 봇</h3>
-            <span class="status paused">배포 대기</span>
+            <span class="status faint">배포 대기</span>
           </div>
-          <p class="desc">유튜브 음악을 재생하는 디스코드 봇. 로컬 PC 구동 버전은 완성했고, 정식 봇 토큰 발급을 기다리고 있다.</p>
-          <div class="tech">
-            <span>discord.py</span><span>YouTube</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>discord.py</span><span>YouTube</span></p>
+          <p class="row-desc">유튜브 음악을 재생하는 디스코드 봇. 로컬 PC 구동 버전은 완성했고, 정식 봇 토큰 발급을 기다리고 있다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">02</span>
+        <div>
+          <div class="row-head">
             <h3>게임잼 번역 중계 봇</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">다국어 게임잼 행사를 위한 봇. 언어별 채널을 만들고, 한 채널에 올라온 메시지를 웹훅으로 실시간 번역해 다른 채널에 그대로 중계한다.</p>
-          <div class="tech">
-            <span>Node.js</span><span>discord.js</span><span>MyMemory API</span>
-          </div>
-        </article>
-
-      </div>
+          <p class="row-tags mono"><span>Node.js</span><span>discord.js</span><span>MyMemory API</span></p>
+          <p class="row-desc">다국어 게임잼 행사를 위한 봇. 언어별 채널을 만들고, 한 채널에 올라온 메시지를 웹훅으로 실시간 번역해 다른 채널에 그대로 중계한다.</p>
+        </div>
+      </article>
     </section>
 
     <section class="category" id="cat-infra">
       <div class="category-head">
+        <span class="cat-num mono">07</span>
         <h2>데이터 &amp; 인프라</h2>
-        <span class="count mono">2</span>
       </div>
-      <div class="grid">
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">01</span>
+        <div>
+          <div class="row-head">
             <h3>Pia 학습 데이터베이스</h3>
-            <span class="status live">운영중</span>
+            <span class="status filled">운영중</span>
           </div>
-          <p class="desc">Pia의 음성·텍스트·레이블 학습 데이터를 보관하는 저장소. Railway에 미러 DB를 두어 외부 기기에서도 접속할 수 있다.</p>
-          <div class="tech">
-            <span>PostgreSQL</span><span>Railway</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>PostgreSQL</span><span>Railway</span></p>
+          <p class="row-desc">Pia의 음성·텍스트·레이블 학습 데이터를 보관하는 저장소. Railway에 미러 DB를 두어 외부 기기에서도 접속할 수 있다.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">02</span>
+        <div>
+          <div class="row-head">
             <h3>AXton 백업 스크립트</h3>
-            <span class="status done">완성</span>
+            <span class="status filled">완성</span>
           </div>
-          <p class="desc">ax_ton 스키마를 JSON으로 덤프해 커밋하는 2차 백업 유틸리티. 운영 DB가 원본, 이 저장소는 스냅샷 미러 역할만 한다.</p>
-          <div class="tech">
-            <span>Python</span><span>psycopg2</span>
-          </div>
-        </article>
-
-      </div>
+          <p class="row-tags mono"><span>Python</span><span>psycopg2</span></p>
+          <p class="row-desc">ax_ton 스키마를 JSON으로 덤프해 커밋하는 2차 백업 유틸리티. 운영 DB가 원본, 이 저장소는 스냅샷 미러 역할만 한다.</p>
+        </div>
+      </article>
     </section>
 
     <section class="category" id="cat-lab">
       <div class="category-head">
+        <span class="cat-num mono">08</span>
         <h2>LAB &amp; 컨셉</h2>
-        <span class="count mono">2</span>
       </div>
-      <div class="grid">
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">01</span>
+        <div>
+          <div class="row-head">
             <h3>마법에 관하여 — 세계관 컨셉</h3>
-            <span class="status proto">컨셉</span>
+            <span class="status muted">컨셉</span>
           </div>
-          <p class="desc">선천적 돌연변이로 생기는 마력이 결국 죽음으로 이어지는 세계관. 마력의 흡수·계승·부여 규칙을 설계해 게임 시스템으로 확장 가능한 형태로 정리했다. 세계관을 다듬은 새 기획 버전도 함께 진행 중.</p>
-          <div class="tech">
-            <span>World-building</span><span>System Design</span>
-          </div>
-        </article>
+          <p class="row-tags mono"><span>World-building</span><span>System Design</span></p>
+          <p class="row-desc">선천적 돌연변이로 생기는 마력이 결국 죽음으로 이어지는 세계관. 마력의 흡수·계승·부여 규칙을 설계해 게임 시스템으로 확장 가능한 형태로 정리했다. 세계관을 다듬은 새 기획 버전도 함께 진행 중.</p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-top">
+      <article class="row">
+        <span class="row-num mono">02</span>
+        <div>
+          <div class="row-head">
             <h3>손 추적 3D 스컬핑</h3>
-            <span class="status proto">리서치</span>
+            <span class="status muted">리서치</span>
           </div>
-          <p class="desc">마우스나 태블릿 대신 손의 움직임 자체를 3D 조형 입력으로 쓰는 인터랙션 아이디어. 다중 카메라 기반 삼각측량으로 깊이와 가려짐 문제를 푸는 방향을 조사했다.</p>
-          <div class="tech">
-            <span>HCI</span><span>Computer Vision</span>
-          </div>
-        </article>
-
-      </div>
+          <p class="row-tags mono"><span>HCI</span><span>Computer Vision</span></p>
+          <p class="row-desc">마우스나 태블릿 대신 손의 움직임 자체를 3D 조형 입력으로 쓰는 인터랙션 아이디어. 다중 카메라 기반 삼각측량으로 깊이와 가려짐 문제를 푸는 방향을 조사했다.</p>
+        </div>
+      </article>
     </section>
 
   </main>
-
-  <footer>
-    <span>김민재 · MinJae Kim</span>
-    <a href="mailto:c.minjae.k@gmail.com" class="footer-mail">c.minjae.k@gmail.com</a>
-    <span>Project Index — 2026.08.25</span>
-  </footer>
 </div>
+
+<footer>
+  <div class="wrap">
+    <span class="mk-mark large">MK</span>
+    <p class="footer-role">AI/AX Planner &amp; Creator</p>
+    <div class="footer-links">
+      <a href="mailto:c.minjae.k@gmail.com">c.minjae.k@gmail.com</a>
+      <a href="https://mkim.vercel.app">mkim.vercel.app</a>
+    </div>
+    <div class="footer-bottom">
+      <span>김민재 · MinJae Kim</span>
+      <span>Project Index — 2026.08.25</span>
+    </div>
+  </div>
+</footer>
 
 <script>
   (function () {
-    var cards = document.querySelectorAll('.card');
+    var rows = document.querySelectorAll('.row');
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -721,9 +780,9 @@
           }
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      cards.forEach(function (c) { io.observe(c); });
+      rows.forEach(function (r) { io.observe(r); });
     } else {
-      cards.forEach(function (c) { c.classList.add('in-view'); });
+      rows.forEach(function (r) { r.classList.add('in-view'); });
     }
 
     var links = Array.prototype.slice.call(document.querySelectorAll('nav.catnav a'));
