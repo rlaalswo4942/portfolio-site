@@ -250,28 +250,29 @@ section.category {
 
 /* ---------- Project grid ---------- */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem 2.2rem;
+  margin-top: 0.3rem;
 }
 
 a.card {
-  background: var(--bg);
+  flex: 1 1 250px;
+  max-width: 320px;
+  background: transparent;
   color: inherit;
   text-decoration: none;
-  padding: 1.4rem 1.3rem 1.3rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.2s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 a.card.in-view { opacity: 1; transform: translateY(0); }
-a.card:hover { background: var(--surface-soft); }
 a.card:hover .card-title { text-decoration: underline; text-underline-offset: 3px; }
+a.card:hover .card-more { color: var(--ink); }
 
 .card-num {
   font-size: 0.66rem;
