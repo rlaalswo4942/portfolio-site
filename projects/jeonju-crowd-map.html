@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전주대 생활권 혼잡도 지도 · 김민재</title>
+<meta name="description" content="수업 시간표와 현재 위치, 주변 상권 정보를 연결해 지금 갈 수 있는 장소를 추천하는 생활권 의사결정 서비스.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%90%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="detail-nav">
+  <div class="catnav-inner">
+    <a class="back-link" href="../index.html">← Index</a>
+    <span class="mk-mark">MK</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="detail-head">
+    <p class="detail-tags">웹 &amp; 플랫폼 · Campus · Congestion Map · 2026 · <span class="status outline">진행중</span> · <span class="status muted">Mock Data</span></p>
+    <h1>전주대 생활권 혼잡도 지도</h1>
+    <div class="detail-links">
+      <span class="placeholder">실제 서비스 링크 추가 예정</span>
+      <span class="placeholder">GitHub 링크 추가 예정</span>
+    </div>
+  </header>
+
+  <p class="hook">"전주대 생활권에서 지금 어디가 붐비고, 어디가 한산할까?" — 통신사·GPS·공공센서 3소스 가중합으로 구역별 혼잡도 점수를 계산해 4단계로 표시한다.</p>
+
+  <div class="shot-strip">
+    <div class="shot-ph">지도<br>추가 예정</div>
+    <div class="shot-ph">경로<br>추가 예정</div>
+    <div class="shot-ph">혼잡도 상세<br>추가 예정</div>
+  </div>
+
+  <div class="stat-grid">
+    <div>
+      <div class="stat-num">6개</div>
+      <div class="stat-label">혼잡도 구역</div>
+      <div class="stat-ref mono">mockBlocks.ts</div>
+    </div>
+    <div>
+      <div class="stat-num">3종</div>
+      <div class="stat-label">융합 소스 (통신사50·GPS30·센서20%)</div>
+      <div class="stat-ref mono">CrowdFusionService.ts</div>
+    </div>
+    <div>
+      <div class="stat-num">4단계</div>
+      <div class="stat-label">혼잡도 분류</div>
+      <div class="stat-ref mono">utils/congestion.ts</div>
+    </div>
+  </div>
+
+  <section class="d-block">
+    <h2>Main Features</h2>
+    <ul>
+      <li>지도에서 장소 탐색 + 구역 혼잡도 확인</li>
+      <li>장소명·메뉴 검색, 카테고리 필터</li>
+      <li>도보·차량 선택 시 거리·경로·소요시간 계산</li>
+      <li>혼잡도·시간표 기반 방문 장소 추천</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>Data · Method · Validation · Limitation</h2>
+    <div class="quad-grid">
+      <div>
+        <h3>Data</h3>
+        <p>통신사·GPS·공공센서 3종, 전부 Mock Provider — 실 API 연동 없음</p>
+      </div>
+      <div>
+        <h3>Method</h3>
+        <p>3소스 가중합(50/30/20%) → 0~100점 → 4단계 분류 → 직전값 대비 추이</p>
+      </div>
+      <div>
+        <h3>Validation</h3>
+        <p>배포 서비스에서 시나리오 전환 직접 테스트: 38→86점, 유지→증가 확인</p>
+      </div>
+      <div>
+        <h3>Limitation</h3>
+        <p>지도 색상 오버레이 없음(코드 감사로 확인) · 혼잡/매우혼잡 동일색 · 갱신 1회성</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-block">
+    <h2>Stack &amp; Role</h2>
+    <p class="stack-line mono">React 19 · TypeScript · Vite · Tailwind v4 · Zustand · Leaflet · OSRM · Tesseract.js</p>
+    <div class="role-tags">
+      <span>Problem Framing</span><span>Zone Structure</span><span>Congestion Logic</span><span>Code Audit</span><span>Decision Making</span>
+    </div>
+    <p class="role-caption">개인 프로젝트 · 코드 구현 · Claude Code 협업</p>
+  </section>
+
+  <section class="d-block todo-block">
+    <h2>Coming Soon</h2>
+    <p>실제 스크린샷과 실 서비스 링크는 준비되는 대로 채워 넣을 예정입니다.</p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="mk-mark large">MK</span>
+    <p class="footer-role">AI/AX Planner &amp; Creator</p>
+    <div class="footer-links">
+      <a href="mailto:c.minjae.k@gmail.com">c.minjae.k@gmail.com</a>
+      <a href="https://mkim.vercel.app">mkim.vercel.app</a>
+    </div>
+    <div class="footer-bottom">
+      <span>김민재 · MinJae Kim</span>
+      <span>Project Index — 2026.08.26</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -6,358 +6,7 @@
 <title>김민재 · MinJae Kim</title>
 <meta name="description" content="김민재의 프로젝트 인덱스 — AI 음성 비서부터 게임, 웹 플랫폼, 데스크톱 유틸리티, 컨셉 아카이브까지 23개 프로젝트를 정리한 개인 포트폴리오.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%90%3C/text%3E%3C/svg%3E">
-<style>
-  :root {
-    --bg: #FFFFFF;
-    --ink: #111111;
-    --ink-deep: #000000;
-    --text-2: #333333;
-    --text-3: #666666;
-    --line: rgba(17,17,17,0.16);
-    --line-strong: rgba(17,17,17,0.32);
-    --surface-soft: #F7F7F5;
-
-    --dark-bg: #111111;
-    --dark-ink: #FFFFFF;
-    --dark-text-2: rgba(255,255,255,0.72);
-    --dark-line: rgba(255,255,255,0.22);
-
-    color-scheme: light;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: "Pretendard Variable", "Pretendard", -apple-system, "Apple SD Gothic Neo", "Helvetica Neue", Helvetica, "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .mono {
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-  }
-
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-
-  .wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 1.5rem 6rem;
-  }
-
-  svg.qr-motif rect { fill: currentColor; }
-
-  /* ---------- MK signature ---------- */
-  .mk-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Pretendard Variable", "Pretendard", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    font-size: 0.95rem;
-    border: 1.5px solid currentColor;
-    padding: 0.28rem 0.5rem;
-    line-height: 1;
-  }
-  .mk-mark.large {
-    font-size: 2.6rem;
-    padding: 0.5rem 0.9rem;
-    border-width: 2px;
-  }
-
-  /* ---------- Sticky nav ---------- */
-  nav.catnav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav.catnav .catnav-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  nav.catnav .mk-mark { flex: none; }
-  nav.catnav .catnav-scroll {
-    display: flex;
-    gap: 1.35rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding: 0.9rem 0;
-  }
-  nav.catnav .catnav-scroll::-webkit-scrollbar { display: none; }
-  nav.catnav a {
-    flex: none;
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--text-3);
-    white-space: nowrap;
-    padding-bottom: 0.35rem;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s ease, color 0.2s ease;
-  }
-  nav.catnav a:hover { color: var(--ink); }
-  nav.catnav a.active { color: var(--ink); border-color: var(--ink); }
-
-  /* ---------- Hero ---------- */
-  header.hero {
-    padding: 2.75rem 0 0;
-  }
-  .hero-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2.75rem;
-  }
-  .hero-top .qr-motif { color: var(--text-3); }
-
-  .eyebrow {
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--text-3);
-    margin: 0 0 0.9rem;
-  }
-
-  h1.name {
-    font-size: clamp(2.5rem, 8.5vw, 4.6rem);
-    line-height: 0.98;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin: 0;
-    text-wrap: balance;
-  }
-  .name-en {
-    display: block;
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    color: var(--text-3);
-    margin-top: 0.7rem;
-    text-transform: uppercase;
-  }
-
-  .role {
-    font-size: clamp(1.7rem, 5.2vw, 2.75rem);
-    font-weight: 800;
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-    margin: 1.6rem 0 0;
-  }
-
-  .pitch {
-    font-size: clamp(1rem, 2.2vw, 1.1rem);
-    color: var(--text-2);
-    max-width: 30rem;
-    line-height: 1.65;
-    margin: 1.15rem 0 0;
-  }
-
-  .meta-line {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-3);
-    margin: 2rem 0 0;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  /* ---------- Work intro (text + rule, no color block) ---------- */
-  .work-intro {
-    margin-top: 2.5rem;
-    padding: 2rem 0 2.4rem;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--ink);
-  }
-  .work-intro h2 {
-    font-size: clamp(1.4rem, 3.6vw, 1.9rem);
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    margin: 0 0 1.2rem;
-  }
-  .process-strip {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 0.7rem;
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    color: var(--text-2);
-  }
-  .process-strip span.sep { color: var(--text-3); }
-
-  /* ---------- Category sections ---------- */
-  section.category {
-    padding-top: 3rem;
-    scroll-margin-top: 4.2rem;
-  }
-
-  .category-head {
-    display: flex;
-    align-items: baseline;
-    gap: 0.9rem;
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 0.7rem;
-    margin-bottom: 0.4rem;
-  }
-  .category-head .cat-num {
-    font-size: 0.72rem;
-    color: var(--text-3);
-  }
-  .category-head h2 {
-    font-size: 1.05rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin: 0;
-  }
-
-  /* ---------- Work row ---------- */
-  .row {
-    display: grid;
-    grid-template-columns: 2.4rem 1fr;
-    column-gap: 1.1rem;
-    padding: 1.65rem 0;
-    border-bottom: 1px solid var(--line);
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.2s ease;
-  }
-  .row.in-view { opacity: 1; transform: translateY(0); }
-  .row:hover { background: var(--surface-soft); }
-
-  .row-num {
-    font-size: 0.72rem;
-    color: var(--text-3);
-    padding-top: 0.2rem;
-  }
-
-  .row-head {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-  .row-head h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: -0.005em;
-    margin: 0;
-    line-height: 1.35;
-  }
-
-  .row-tags {
-    font-size: 0.66rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-3);
-    margin-top: 0.4rem;
-  }
-  .row-tags span:not(:last-child)::after {
-    content: " · ";
-    color: var(--line-strong);
-  }
-
-  .row-desc {
-    font-size: 0.92rem;
-    color: var(--text-2);
-    line-height: 1.68;
-    max-width: 38rem;
-    margin: 0.6rem 0 0;
-  }
-
-  /* ---------- Status ---------- */
-  .status {
-    flex: none;
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.6rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.5rem;
-    border-radius: 2px;
-    white-space: nowrap;
-  }
-  .status.filled  { background: var(--ink); color: #FFFFFF; }
-  .status.outline { border: 1px solid var(--ink); color: var(--ink); }
-  .status.muted   { border: 1px solid var(--text-3); color: var(--text-3); }
-  .status.faint   { border: 1px dotted var(--line-strong); color: var(--text-3); }
-
-  /* ---------- Footer ---------- */
-  footer {
-    background: var(--dark-bg);
-    color: var(--dark-ink);
-    margin-top: 3rem;
-  }
-  footer .wrap {
-    padding-top: 3.5rem;
-    padding-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.4rem;
-  }
-  footer .footer-role {
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--dark-text-2);
-  }
-  footer .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 1.4rem;
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.04em;
-  }
-  footer .footer-links a {
-    text-decoration: none;
-    border-bottom: 1px solid var(--dark-line);
-    transition: border-color 0.15s ease, opacity 0.15s ease;
-  }
-  footer .footer-links a:hover { border-color: var(--dark-ink); }
-  footer .footer-bottom {
-    width: 100%;
-    border-top: 1px solid var(--dark-line);
-    padding-top: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-    font-size: 0.66rem;
-    letter-spacing: 0.06em;
-    color: var(--dark-text-2);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .row { transition: none; opacity: 1; transform: none; }
-  }
-
-  @media (max-width: 520px) {
-    .row { grid-template-columns: 1.7rem 1fr; column-gap: 0.8rem; }
-    .hero-top { margin-bottom: 2rem; }
-  }
-</style>
+<link rel="stylesheet" href="assets/theme.css">
 </head>
 <body>
 
@@ -393,7 +42,7 @@
     </h1>
     <p class="role">AI/AX PLANNER<br>&amp; CREATOR</p>
     <p class="pitch">AI를 활용해 아이디어를 기획하고 실제로 작동하는 형태까지 제작합니다.</p>
-    <p class="meta-line mono">23 Projects · 8 Categories · Updated 2026.08.25</p>
+    <p class="meta-line mono">23 Projects · 8 Categories · Updated 2026.08.26</p>
   </header>
 </div>
 
@@ -422,54 +71,53 @@
         <span class="cat-num mono">01</span>
         <h2>AI &amp; 음성</h2>
       </div>
+      <div class="grid">
 
-      <article class="row">
-        <span class="row-num mono">01</span>
-        <div>
-          <div class="row-head">
-            <h3>Pia — 음성 어시스턴트</h3>
+        <a class="card" href="projects/pia.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
             <span class="status outline">진행중</span>
           </div>
-          <p class="row-tags mono"><span>Python</span><span>STT/TTS</span><span>Windows</span></p>
-          <p class="row-desc">Windows용 상시 대기 음성 비서. 웨이크워드 인식과 명령 처리, 자체 번역 모듈을 내장하고 있으며 계속 기능이 추가되고 있는 핵심 프로젝트.</p>
-        </div>
-      </article>
+          <h3 class="card-title">Pia — 음성 어시스턴트</h3>
+          <p class="card-tags mono"><span>Python</span><span>STT/TTS</span><span>Windows</span></p>
+          <p class="card-desc">Windows용 상시 대기 음성 비서. 웨이크워드 인식과 명령 처리, 자체 번역 모듈을 내장하고 있으며 계속 기능이 추가되고 있는 핵심 프로젝트.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">02</span>
-        <div>
-          <div class="row-head">
-            <h3>STT — 실시간 음성변환</h3>
+        <a class="card" href="projects/stt.html">
+          <div class="card-top">
+            <span class="card-num mono">02</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Python</span><span>faster-whisper</span><span>오디오 루프백</span></p>
-          <p class="row-desc">마이크와 시스템 오디오 루프백을 동시에 캡처해 faster-whisper로 실시간 텍스트 변환. Pia의 입력 파이프라인으로도 사용.</p>
-        </div>
-      </article>
+          <h3 class="card-title">STT — 실시간 음성변환</h3>
+          <p class="card-tags mono"><span>Python</span><span>faster-whisper</span><span>오디오 루프백</span></p>
+          <p class="card-desc">마이크와 시스템 오디오 루프백을 동시에 캡처해 faster-whisper로 실시간 텍스트 변환. Pia의 입력 파이프라인으로도 사용.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">03</span>
-        <div>
-          <div class="row-head">
-            <h3>Pia-Translate</h3>
+        <a class="card" href="projects/pia-translate.html">
+          <div class="card-top">
+            <span class="card-num mono">03</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Flutter</span><span>ONNX Runtime</span><span>Android/iOS</span></p>
-          <p class="row-desc">Flutter와 ONNX Runtime으로 만든 오프라인 번역 앱. PC 없이 폰에서 완전히 로컬로 동작하며, 실기기 최종 확인만 남은 단계.</p>
-        </div>
-      </article>
+          <h3 class="card-title">Pia-Translate</h3>
+          <p class="card-tags mono"><span>Flutter</span><span>ONNX Runtime</span><span>Android/iOS</span></p>
+          <p class="card-desc">Flutter와 ONNX Runtime으로 만든 오프라인 번역 앱. PC 없이 폰에서 완전히 로컬로 동작하며, 실기기 최종 확인만 남은 단계.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">04</span>
-        <div>
-          <div class="row-head">
-            <h3>Pia 디스코드 봇</h3>
+        <a class="card" href="projects/pia-discord-bot.html">
+          <div class="card-top">
+            <span class="card-num mono">04</span>
             <span class="status filled">운영중</span>
           </div>
-          <p class="row-tags mono"><span>discord.py</span><span>Gemini API</span></p>
-          <p class="row-desc">Pia 학습용 음성 데이터를 모으기 위한 전용 디스코드 봇. Gemini 기반으로 채널을 자동 생성하고 호출어에 반응한다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">Pia 디스코드 봇</h3>
+          <p class="card-tags mono"><span>discord.py</span><span>Gemini API</span></p>
+          <p class="card-desc">Pia 학습용 음성 데이터를 모으기 위한 전용 디스코드 봇. Gemini 기반으로 채널을 자동 생성하고 호출어에 반응한다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
     </section>
 
     <section class="category" id="cat-game">
@@ -477,30 +125,31 @@
         <span class="cat-num mono">02</span>
         <h2>게임</h2>
       </div>
+      <div class="grid">
 
-      <article class="row">
-        <span class="row-num mono">01</span>
-        <div>
-          <div class="row-head">
-            <h3>정애 — 로프 액션 심리 스릴러</h3>
+        <a class="card" href="projects/jeonghae.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
             <span class="status outline">진행중</span>
           </div>
-          <p class="row-tags mono"><span>Unity</span><span>C#</span><span>Narrative Design</span></p>
-          <p class="row-desc">로프, 퍼즐, 환각 연출로 알츠하이머로 인한 기억과 인지 변화를 플레이어가 직접 경험하게 만드는 2D 심리 스릴러. 총 7막 구조로 로프 물리 프로토타입을 구현했다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">정애 — 로프 액션 심리 스릴러</h3>
+          <p class="card-tags mono"><span>Unity</span><span>C#</span><span>Narrative Design</span></p>
+          <p class="card-desc">로프, 퍼즐, 환각 연출로 알츠하이머로 인한 기억과 인지 변화를 플레이어가 직접 경험하게 만드는 2D 심리 스릴러. 총 7막 구조로 로프 물리 프로토타입을 구현했다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">02</span>
-        <div>
-          <div class="row-head">
-            <h3>2인 협동 리듬 게임</h3>
+        <a class="card" href="projects/rhythm-jam.html">
+          <div class="card-top">
+            <span class="card-num mono">02</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Game Jam</span><span>2P Co-op</span><span>Rhythm</span></p>
-          <p class="row-desc">국제 게임잼에서 만든, 한 PC로 두 사람이 함께 즐기는 협동 리듬 게임. 공동 게이지와 Fever 시스템으로 "얼마나 함께 맞추는가"를 핵심 경험으로 설계했다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">2인 협동 리듬 게임</h3>
+          <p class="card-tags mono"><span>Game Jam</span><span>2P Co-op</span><span>Rhythm</span></p>
+          <p class="card-desc">국제 게임잼에서 만든, 한 PC로 두 사람이 함께 즐기는 협동 리듬 게임. 공동 게이지와 Fever 시스템으로 "얼마나 함께 맞추는가"를 핵심 경험으로 설계했다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
     </section>
 
     <section class="category" id="cat-web">
@@ -508,66 +157,64 @@
         <span class="cat-num mono">03</span>
         <h2>웹 &amp; 플랫폼</h2>
       </div>
+      <div class="grid">
 
-      <article class="row">
-        <span class="row-num mono">01</span>
-        <div>
-          <div class="row-head">
-            <h3>소프트웨어 플랫폼</h3>
+        <a class="card" href="projects/software-platform.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
             <span class="status filled">데모 배포됨</span>
           </div>
-          <p class="row-tags mono"><span>Next.js</span><span>PostgreSQL</span><span>Vercel</span></p>
-          <p class="row-desc">구독 기반으로 프로그램을 배포하는 웹 서비스. Vercel과 Neon으로 데모 환경을 구축해 게스트 계정으로 둘러볼 수 있다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">소프트웨어 플랫폼</h3>
+          <p class="card-tags mono"><span>Next.js</span><span>PostgreSQL</span><span>Vercel</span></p>
+          <p class="card-desc">구독 기반으로 프로그램을 배포하는 웹 서비스. Vercel과 Neon으로 데모 환경을 구축해 게스트 계정으로 둘러볼 수 있다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">02</span>
-        <div>
-          <div class="row-head">
-            <h3>전주대 생활권 혼잡도 지도</h3>
+        <a class="card" href="projects/jeonju-crowd-map.html">
+          <div class="card-top">
+            <span class="card-num mono">02</span>
             <span class="status outline">진행중</span>
           </div>
-          <p class="row-tags mono"><span>React</span><span>TypeScript</span><span>Leaflet</span><span>OCR</span></p>
-          <p class="row-desc">수업 시간표와 현재 위치, 주변 상권 정보를 연결해 지금 갈 수 있는 장소를 추천하는 생활권 의사결정 서비스. 혼잡도·이동시간·영업시간까지 반영한다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">전주대 생활권 혼잡도 지도</h3>
+          <p class="card-tags mono"><span>React</span><span>TypeScript</span><span>Leaflet</span><span>OCR</span></p>
+          <p class="card-desc">수업 시간표와 현재 위치, 주변 상권 정보를 연결해 지금 갈 수 있는 장소를 추천하는 생활권 의사결정 서비스. 혼잡도·이동시간·영업시간까지 반영한다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">03</span>
-        <div>
-          <div class="row-head">
-            <h3>Pathlight</h3>
+        <a class="card" href="projects/pathlight.html">
+          <div class="card-top">
+            <span class="card-num mono">03</span>
             <span class="status muted">프로토타입</span>
           </div>
-          <p class="row-tags mono"><span>React 19</span><span>TypeScript</span><span>OSRM</span><span>PWA</span></p>
-          <p class="row-desc">기존 가로등 인프라를 그대로 활용해 보행 경로에 따라 조명을 제어하는 스마트캠퍼스 안전 서비스. 기술뿐 아니라 법률·운영·사업성까지 검토한 해커톤 프로토타입.</p>
-        </div>
-      </article>
+          <h3 class="card-title">Pathlight</h3>
+          <p class="card-tags mono"><span>React 19</span><span>TypeScript</span><span>OSRM</span><span>PWA</span></p>
+          <p class="card-desc">기존 가로등 인프라를 그대로 활용해 보행 경로에 따라 조명을 제어하는 스마트캠퍼스 안전 서비스. 기술뿐 아니라 법률·운영·사업성까지 검토한 해커톤 프로토타입.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">04</span>
-        <div>
-          <div class="row-head">
-            <h3>AXton Platform</h3>
+        <a class="card" href="projects/axton-platform.html">
+          <div class="card-top">
+            <span class="card-num mono">04</span>
             <span class="status faint">보류</span>
           </div>
-          <p class="row-tags mono"><span>Next.js</span><span>Prisma</span><span>NextAuth</span></p>
-          <p class="row-desc">소프트웨어 플랫폼 코드베이스를 포크한 스캐폴드. 인증·구독·라이선스 구조는 갖춰졌지만 아직 용도가 정해지지 않았다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">AXton Platform</h3>
+          <p class="card-tags mono"><span>Next.js</span><span>Prisma</span><span>NextAuth</span></p>
+          <p class="card-desc">소프트웨어 플랫폼 코드베이스를 포크한 스캐폴드. 인증·구독·라이선스 구조는 갖춰졌지만 아직 용도가 정해지지 않았다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">05</span>
-        <div>
-          <div class="row-head">
-            <h3>우리집 냉장고</h3>
+        <a class="card" href="projects/home-fridge.html">
+          <div class="card-top">
+            <span class="card-num mono">05</span>
             <span class="status muted">프로토타입</span>
           </div>
-          <p class="row-tags mono"><span>Next.js</span><span>Supabase</span><span>AI Recommendation</span></p>
-          <p class="row-desc">구매한 식재료가 실제 식사로 소비될 때까지 관리하는 AI Food Agent. 사용자가 직접 입력하지 않아도 구매·소비 정보로 재고를 추론하는 Zero-Input Inventory 구조로 문제를 재정의했다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">우리집 냉장고</h3>
+          <p class="card-tags mono"><span>Next.js</span><span>Supabase</span><span>AI Recommendation</span></p>
+          <p class="card-desc">구매한 식재료가 실제 식사로 소비될 때까지 관리하는 AI Food Agent. 사용자가 직접 입력하지 않아도 구매·소비 정보로 재고를 추론하는 Zero-Input Inventory 구조로 문제를 재정의했다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
     </section>
 
     <section class="category" id="cat-util">
@@ -575,66 +222,64 @@
         <span class="cat-num mono">04</span>
         <h2>데스크톱 유틸리티</h2>
       </div>
+      <div class="grid">
 
-      <article class="row">
-        <span class="row-num mono">01</span>
-        <div>
-          <div class="row-head">
-            <h3>바탕화면 정리</h3>
+        <a class="card" href="projects/desktop-cleanup.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Python</span><span>Windows API</span></p>
-          <p class="row-desc">핫키 한 번으로 바탕화면 파일을 자동 분류·정리. 유니티 프로젝트 폴더 인식과 정렬 후 아이콘 위치 고정까지 세부 버그를 해결했다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">바탕화면 정리</h3>
+          <p class="card-tags mono"><span>Python</span><span>Windows API</span></p>
+          <p class="card-desc">핫키 한 번으로 바탕화면 파일을 자동 분류·정리. 유니티 프로젝트 폴더 인식과 정렬 후 아이콘 위치 고정까지 세부 버그를 해결했다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">02</span>
-        <div>
-          <div class="row-head">
-            <h3>PC 저장공간 정리</h3>
+        <a class="card" href="projects/storage-cleanup.html">
+          <div class="card-top">
+            <span class="card-num mono">02</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Python</span><span>UIA</span></p>
-          <p class="row-desc">정크·중복·미디어 파일을 찾아 정리하는 도구. 비동기 스캔과 체크박스 단일클릭 개선을 마쳤으며, GUI 자동화는 UIA/BM_CLICK만으로 처리한다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">PC 저장공간 정리</h3>
+          <p class="card-tags mono"><span>Python</span><span>UIA</span></p>
+          <p class="card-desc">정크·중복·미디어 파일을 찾아 정리하는 도구. 비동기 스캔과 체크박스 단일클릭 개선을 마쳤으며, GUI 자동화는 UIA/BM_CLICK만으로 처리한다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">03</span>
-        <div>
-          <div class="row-head">
-            <h3>프로그램 리모컨</h3>
+        <a class="card" href="projects/remocon.html">
+          <div class="card-top">
+            <span class="card-num mono">03</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Python</span><span>Windows</span></p>
-          <p class="row-desc">자주 쓰는 개발 프로그램을 단축키로 즉시 실행하는 런처. 디스코드 다크 테마 UI로 최종 확정했다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">프로그램 리모컨</h3>
+          <p class="card-tags mono"><span>Python</span><span>Windows</span></p>
+          <p class="card-desc">자주 쓰는 개발 프로그램을 단축키로 즉시 실행하는 런처. 디스코드 다크 테마 UI로 최종 확정했다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">04</span>
-        <div>
-          <div class="row-head">
-            <h3>핸드모션</h3>
+        <a class="card" href="projects/gesture-control.html">
+          <div class="card-top">
+            <span class="card-num mono">04</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Python</span><span>OpenCV</span><span>MediaPipe</span></p>
-          <p class="row-desc">웹캠으로 손동작을 인식해 명령 입력에 활용하는 제스처 컨트롤 프로그램.</p>
-        </div>
-      </article>
+          <h3 class="card-title">핸드모션</h3>
+          <p class="card-tags mono"><span>Python</span><span>OpenCV</span><span>MediaPipe</span></p>
+          <p class="card-desc">웹캠으로 손동작을 인식해 명령 입력에 활용하는 제스처 컨트롤 프로그램.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">05</span>
-        <div>
-          <div class="row-head">
-            <h3>마법의 소라고둥</h3>
+        <a class="card" href="projects/magic-conch.html">
+          <div class="card-top">
+            <span class="card-num mono">05</span>
             <span class="status muted">프리뷰</span>
           </div>
-          <p class="row-tags mono"><span>Next.js</span><span>Electron</span><span>Claude API 예정</span></p>
-          <p class="row-desc">항상 위에 떠 있는 데스크톱 위젯 챗봇. 드래그·리사이즈·트레이 동작 등 UI는 완성됐지만 실제 AI 응답은 아직 연결 전이라 placeholder로 동작한다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">마법의 소라고둥</h3>
+          <p class="card-tags mono"><span>Next.js</span><span>Electron</span><span>Claude API 예정</span></p>
+          <p class="card-desc">항상 위에 떠 있는 데스크톱 위젯 챗봇. 드래그·리사이즈·트레이 동작 등 UI는 완성됐지만 실제 AI 응답은 아직 연결 전이라 placeholder로 동작한다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
     </section>
 
     <section class="category" id="cat-devtool">
@@ -642,18 +287,20 @@
         <span class="cat-num mono">05</span>
         <h2>개발자 도구</h2>
       </div>
+      <div class="grid">
 
-      <article class="row">
-        <span class="row-num mono">01</span>
-        <div>
-          <div class="row-head">
-            <h3>ProjectBridge</h3>
+        <a class="card" href="projects/projectbridge.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
             <span class="status filled">v1.0.0 배포됨</span>
           </div>
-          <p class="row-tags mono"><span>Claude Code Plugin</span><span>GitHub</span><span>Shell</span></p>
-          <p class="row-desc">Claude Code로 여러 PC를 오가며 작업할 때, 코드가 아니라 결정사항·TODO·인수인계 같은 "작업 맥락"을 GitHub로 동기화하는 플러그인. 강제 푸시 금지, 커밋 전 비밀정보 스캔 등 안전장치를 갖췄다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">ProjectBridge</h3>
+          <p class="card-tags mono"><span>Claude Code Plugin</span><span>GitHub</span><span>Shell</span></p>
+          <p class="card-desc">Claude Code로 여러 PC를 오가며 작업할 때, 코드가 아니라 결정사항·TODO·인수인계 같은 "작업 맥락"을 GitHub로 동기화하는 플러그인. 강제 푸시 금지, 커밋 전 비밀정보 스캔 등 안전장치를 갖췄다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
     </section>
 
     <section class="category" id="cat-bot">
@@ -661,30 +308,31 @@
         <span class="cat-num mono">06</span>
         <h2>디스코드 봇</h2>
       </div>
+      <div class="grid">
 
-      <article class="row">
-        <span class="row-num mono">01</span>
-        <div>
-          <div class="row-head">
-            <h3>디스코드 주크박스 봇</h3>
+        <a class="card" href="projects/jukebox-bot.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
             <span class="status faint">배포 대기</span>
           </div>
-          <p class="row-tags mono"><span>discord.py</span><span>YouTube</span></p>
-          <p class="row-desc">유튜브 음악을 재생하는 디스코드 봇. 로컬 PC 구동 버전은 완성했고, 정식 봇 토큰 발급을 기다리고 있다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">디스코드 주크박스 봇</h3>
+          <p class="card-tags mono"><span>discord.py</span><span>YouTube</span></p>
+          <p class="card-desc">유튜브 음악을 재생하는 디스코드 봇. 로컬 PC 구동 버전은 완성했고, 정식 봇 토큰 발급을 기다리고 있다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">02</span>
-        <div>
-          <div class="row-head">
-            <h3>게임잼 번역 중계 봇</h3>
+        <a class="card" href="projects/gamejam-translate-bot.html">
+          <div class="card-top">
+            <span class="card-num mono">02</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Node.js</span><span>discord.js</span><span>MyMemory API</span></p>
-          <p class="row-desc">다국어 게임잼 행사를 위한 봇. 언어별 채널을 만들고, 한 채널에 올라온 메시지를 웹훅으로 실시간 번역해 다른 채널에 그대로 중계한다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">게임잼 번역 중계 봇</h3>
+          <p class="card-tags mono"><span>Node.js</span><span>discord.js</span><span>MyMemory API</span></p>
+          <p class="card-desc">다국어 게임잼 행사를 위한 봇. 언어별 채널을 만들고, 한 채널에 올라온 메시지를 웹훅으로 실시간 번역해 다른 채널에 그대로 중계한다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
     </section>
 
     <section class="category" id="cat-infra">
@@ -692,30 +340,31 @@
         <span class="cat-num mono">07</span>
         <h2>데이터 &amp; 인프라</h2>
       </div>
+      <div class="grid">
 
-      <article class="row">
-        <span class="row-num mono">01</span>
-        <div>
-          <div class="row-head">
-            <h3>Pia 학습 데이터베이스</h3>
+        <a class="card" href="projects/pia-database.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
             <span class="status filled">운영중</span>
           </div>
-          <p class="row-tags mono"><span>PostgreSQL</span><span>Railway</span></p>
-          <p class="row-desc">Pia의 음성·텍스트·레이블 학습 데이터를 보관하는 저장소. Railway에 미러 DB를 두어 외부 기기에서도 접속할 수 있다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">Pia 학습 데이터베이스</h3>
+          <p class="card-tags mono"><span>PostgreSQL</span><span>Railway</span></p>
+          <p class="card-desc">Pia의 음성·텍스트·레이블 학습 데이터를 보관하는 저장소. Railway에 미러 DB를 두어 외부 기기에서도 접속할 수 있다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">02</span>
-        <div>
-          <div class="row-head">
-            <h3>AXton 백업 스크립트</h3>
+        <a class="card" href="projects/axton-backup.html">
+          <div class="card-top">
+            <span class="card-num mono">02</span>
             <span class="status filled">완성</span>
           </div>
-          <p class="row-tags mono"><span>Python</span><span>psycopg2</span></p>
-          <p class="row-desc">ax_ton 스키마를 JSON으로 덤프해 커밋하는 2차 백업 유틸리티. 운영 DB가 원본, 이 저장소는 스냅샷 미러 역할만 한다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">AXton 백업 스크립트</h3>
+          <p class="card-tags mono"><span>Python</span><span>psycopg2</span></p>
+          <p class="card-desc">ax_ton 스키마를 JSON으로 덤프해 커밋하는 2차 백업 유틸리티. 운영 DB가 원본, 이 저장소는 스냅샷 미러 역할만 한다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
     </section>
 
     <section class="category" id="cat-lab">
@@ -723,30 +372,31 @@
         <span class="cat-num mono">08</span>
         <h2>LAB &amp; 컨셉</h2>
       </div>
+      <div class="grid">
 
-      <article class="row">
-        <span class="row-num mono">01</span>
-        <div>
-          <div class="row-head">
-            <h3>마법에 관하여 — 세계관 컨셉</h3>
+        <a class="card" href="projects/magic-lore.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
             <span class="status muted">컨셉</span>
           </div>
-          <p class="row-tags mono"><span>World-building</span><span>System Design</span></p>
-          <p class="row-desc">선천적 돌연변이로 생기는 마력이 결국 죽음으로 이어지는 세계관. 마력의 흡수·계승·부여 규칙을 설계해 게임 시스템으로 확장 가능한 형태로 정리했다. 세계관을 다듬은 새 기획 버전도 함께 진행 중.</p>
-        </div>
-      </article>
+          <h3 class="card-title">마법에 관하여 — 세계관 컨셉</h3>
+          <p class="card-tags mono"><span>World-building</span><span>System Design</span></p>
+          <p class="card-desc">선천적 돌연변이로 생기는 마력이 결국 죽음으로 이어지는 세계관. 마력의 흡수·계승·부여 규칙을 설계해 게임 시스템으로 확장 가능한 형태로 정리했다. 세계관을 다듬은 새 기획 버전도 함께 진행 중.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
 
-      <article class="row">
-        <span class="row-num mono">02</span>
-        <div>
-          <div class="row-head">
-            <h3>손 추적 3D 스컬핑</h3>
+        <a class="card" href="projects/hand-sculpt.html">
+          <div class="card-top">
+            <span class="card-num mono">02</span>
             <span class="status muted">리서치</span>
           </div>
-          <p class="row-tags mono"><span>HCI</span><span>Computer Vision</span></p>
-          <p class="row-desc">마우스나 태블릿 대신 손의 움직임 자체를 3D 조형 입력으로 쓰는 인터랙션 아이디어. 다중 카메라 기반 삼각측량으로 깊이와 가려짐 문제를 푸는 방향을 조사했다.</p>
-        </div>
-      </article>
+          <h3 class="card-title">손 추적 3D 스컬핑</h3>
+          <p class="card-tags mono"><span>HCI</span><span>Computer Vision</span></p>
+          <p class="card-desc">마우스나 태블릿 대신 손의 움직임 자체를 3D 조형 입력으로 쓰는 인터랙션 아이디어. 다중 카메라 기반 삼각측량으로 깊이와 가려짐 문제를 푸는 방향을 조사했다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
     </section>
 
   </main>
@@ -762,14 +412,14 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.08.25</span>
+      <span>Project Index — 2026.08.26</span>
     </div>
   </div>
 </footer>
 
 <script>
   (function () {
-    var rows = document.querySelectorAll('.row');
+    var cards = document.querySelectorAll('.card');
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -779,9 +429,9 @@
           }
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      rows.forEach(function (r) { io.observe(r); });
+      cards.forEach(function (c) { io.observe(c); });
     } else {
-      rows.forEach(function (r) { r.classList.add('in-view'); });
+      cards.forEach(function (c) { c.classList.add('in-view'); });
     }
 
     var links = Array.prototype.slice.call(document.querySelectorAll('nav.catnav a'));

@@ -1,0 +1,589 @@
+:root {
+  --bg: #FFFFFF;
+  --ink: #111111;
+  --ink-deep: #000000;
+  --text-2: #333333;
+  --text-3: #666666;
+  --line: rgba(17,17,17,0.16);
+  --line-strong: rgba(17,17,17,0.32);
+  --surface-soft: #F7F7F5;
+
+  --dark-bg: #111111;
+  --dark-ink: #FFFFFF;
+  --dark-text-2: rgba(255,255,255,0.72);
+  --dark-line: rgba(255,255,255,0.22);
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard Variable", "Pretendard", -apple-system, "Apple SD Gothic Neo", "Helvetica Neue", Helvetica, "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mono {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+}
+
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+svg.qr-motif rect { fill: currentColor; }
+
+/* ---------- MK signature ---------- */
+.mk-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pretendard Variable", "Pretendard", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-size: 0.95rem;
+  border: 1.5px solid currentColor;
+  padding: 0.28rem 0.5rem;
+  line-height: 1;
+}
+.mk-mark.large {
+  font-size: 2.6rem;
+  padding: 0.5rem 0.9rem;
+  border-width: 2px;
+}
+
+/* ---------- Sticky nav ---------- */
+nav.catnav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+nav.catnav .catnav-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+nav.catnav .mk-mark { flex: none; }
+nav.catnav .catnav-scroll {
+  display: flex;
+  gap: 1.35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0.9rem 0;
+}
+nav.catnav .catnav-scroll::-webkit-scrollbar { display: none; }
+nav.catnav a {
+  flex: none;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-3);
+  white-space: nowrap;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+nav.catnav a:hover { color: var(--ink); }
+nav.catnav a.active { color: var(--ink); border-color: var(--ink); }
+
+/* ---------- Detail-page back link ---------- */
+nav.detail-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding: 0.9rem 0;
+}
+nav.detail-nav .catnav-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav.detail-nav .back-link {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-3);
+  transition: color 0.15s ease;
+}
+nav.detail-nav .back-link:hover { color: var(--ink); }
+
+/* ---------- Hero ---------- */
+header.hero {
+  padding: 2.75rem 0 0;
+}
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.75rem;
+}
+.hero-top .qr-motif { color: var(--text-3); }
+
+.eyebrow {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 0 0 0.9rem;
+}
+
+h1.name {
+  font-size: clamp(2.5rem, 8.5vw, 4.6rem);
+  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+.name-en {
+  display: block;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--text-3);
+  margin-top: 0.7rem;
+  text-transform: uppercase;
+}
+
+.role {
+  font-size: clamp(1.7rem, 5.2vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 1.6rem 0 0;
+}
+
+.pitch {
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  color: var(--text-2);
+  max-width: 30rem;
+  line-height: 1.65;
+  margin: 1.15rem 0 0;
+}
+
+.meta-line {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 2rem 0 0;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- Work intro (text + rule, no color block) ---------- */
+.work-intro {
+  margin-top: 2.5rem;
+  padding: 2rem 0 2.4rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--ink);
+}
+.work-intro h2 {
+  font-size: clamp(1.4rem, 3.6vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.2rem;
+}
+.process-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.7rem;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--text-2);
+}
+.process-strip span.sep { color: var(--text-3); }
+
+/* ---------- Category sections ---------- */
+section.category {
+  padding-top: 3rem;
+  scroll-margin-top: 4.2rem;
+}
+
+.category-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.7rem;
+  margin-bottom: 1rem;
+}
+.category-head .cat-num {
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+.category-head h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* ---------- Project grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+a.card {
+  background: var(--bg);
+  color: inherit;
+  text-decoration: none;
+  padding: 1.4rem 1.3rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.2s ease;
+}
+a.card.in-view { opacity: 1; transform: translateY(0); }
+a.card:hover { background: var(--surface-soft); }
+a.card:hover .card-title { text-decoration: underline; text-underline-offset: 3px; }
+
+.card-num {
+  font-size: 0.66rem;
+  color: var(--text-3);
+}
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+.card-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.32;
+  margin: 0;
+}
+.card-tags {
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.card-tags span:not(:last-child)::after {
+  content: " · ";
+  color: var(--line-strong);
+}
+.card-desc {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+.card-more {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-top: 0.3rem;
+}
+
+/* ---------- Status ---------- */
+.status {
+  flex: none;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.status.filled  { background: var(--ink); color: #FFFFFF; }
+.status.outline { border: 1px solid var(--ink); color: var(--ink); }
+.status.muted   { border: 1px solid var(--text-3); color: var(--text-3); }
+.status.faint   { border: 1px dotted var(--line-strong); color: var(--text-3); }
+
+/* ---------- Detail page ---------- */
+.detail-head {
+  padding-top: 2.5rem;
+}
+.detail-tags {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.1rem;
+}
+.detail-head h1 {
+  font-size: clamp(1.8rem, 5.5vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin: 0 0 1.3rem;
+  text-wrap: balance;
+}
+.detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+.detail-links a {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  padding: 0.4rem 0.75rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.detail-links a:hover { background: var(--ink); color: #FFFFFF; }
+.detail-links .placeholder {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  border: 1px dotted var(--line-strong);
+  padding: 0.4rem 0.75rem;
+}
+
+.hook {
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--ink);
+  border-top: 1px solid var(--ink);
+  padding-top: 1.5rem;
+  margin: 0 0 2.2rem;
+  max-width: 42rem;
+}
+
+.shot-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 2.4rem;
+}
+.shot-ph {
+  aspect-ratio: 4 / 3;
+  background: var(--surface-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+}
+
+.d-block {
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--line);
+}
+.d-block:first-of-type { border-top: none; padding-top: 0; }
+.d-block h2 {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  font-weight: 600;
+  margin: 0 0 0.9rem;
+}
+.d-block ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.d-block li {
+  font-size: 0.92rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.d-block p {
+  font-size: 0.92rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 42rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+.stat-grid .stat-num {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+}
+.stat-grid .stat-label {
+  font-size: 0.8rem;
+  color: var(--text-2);
+  margin-top: 0.35rem;
+}
+.stat-grid .stat-ref {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.66rem;
+  color: var(--text-3);
+  margin-top: 0.2rem;
+}
+
+.quad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.quad-grid > div {
+  background: var(--bg);
+  padding: 1.1rem 1.2rem;
+}
+.quad-grid h3 {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 0 0 0.5rem;
+}
+.quad-grid p {
+  font-size: 0.84rem;
+  color: var(--text-2);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.stack-line {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+.role-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+.role-tags span {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  border: 1px solid var(--line);
+  padding: 0.18rem 0.45rem;
+}
+.role-caption {
+  font-size: 0.8rem;
+  color: var(--text-3);
+  margin-top: 0.9rem;
+}
+
+.todo-block {
+  background: var(--surface-soft);
+}
+.todo-block p { color: var(--text-3); }
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--dark-bg);
+  color: var(--dark-ink);
+  margin-top: 3rem;
+}
+footer .wrap {
+  padding-top: 3.5rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.4rem;
+}
+footer .footer-role {
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dark-text-2);
+}
+footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+footer .footer-links a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--dark-line);
+  transition: border-color 0.15s ease, opacity 0.15s ease;
+}
+footer .footer-links a:hover { border-color: var(--dark-ink); }
+footer .footer-bottom {
+  width: 100%;
+  border-top: 1px solid var(--dark-line);
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--dark-text-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.card { transition: none; opacity: 1; transform: none; }
+}
+
+@media (max-width: 520px) {
+  .hero-top { margin-bottom: 2rem; }
+  .shot-strip { grid-template-columns: 1fr; }
+}
