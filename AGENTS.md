@@ -2,71 +2,111 @@
 
 김민재 개인 포트폴리오. 정적 HTML 사이트, 빌드 도구 없음(순수 HTML/CSS/JS).
 
-## 구조
+## ⚠ 가장 먼저 읽을 것: 2단 구조
+
+명함에 이미 `mkim.vercel.app`으로 QR코드가 인쇄되어 있어서 **이 주소는 절대 바꿀 수 없음**. 하지만 Vercel이 이 프로젝트에서 반복적으로 배포가 영구히 멈추는 장애를 겪어서(아래 "Vercel 장애 이력" 참고), 다음과 같이 분리했다(2026-08-26).
 
 ```
-index.html              메인 인덱스 — 히어로 + 카테고리별 프로젝트 그리드
+mkim.vercel.app                              ← QR코드가 가리키는 주소. 순수 리다이렉트 전용.
+        │  (meta refresh + JS로 즉시 이동)
+        ▼
+rlaalswo4942.github.io/portfolio-site/       ← 실제 콘텐츠. 이 저장소를 GitHub Pages로 서빙.
+```
+
+- **실제 콘텐츠 수정은 전부 이 저장소(GitHub Pages)에서 한다.** `main`에 push하면 GitHub Pages가 자동으로 다시 빌드한다(보통 1분 이내, 안정적).
+- `mkim.vercel.app` 쪽은 **다시는 재배포하지 않는다.** 별도의 독립된 임시 폴더에서 딱 한 번 배포된 상태로 그대로 둔다. 이 저장소의 git 히스토리와도 무관하다(git 연동 안 되어 있음, 의도적).
+- `mkim.vercel.app`의 리다이렉트 페이지 소스는 아래 "리다이렉트 페이지 원본" 섹션에 그대로 백업해뒀다 — 혹시 그 프로젝트도 재생성해야 할 일이 생기면 이 내용 그대로 다시 배포하면 됨.
+
+## 구조 (GitHub Pages 쪽, 실제 콘텐츠)
+
+```
+index.html              메인 인덱스 — 히어로 + 카테고리별 프로젝트 목록
 assets/theme.css         전체 페이지 공용 스타일시트 (index + 모든 상세 페이지가 공유)
 projects/<slug>.html     프로젝트별 개별 상세 페이지 (23개)
 ```
 
 - 디자인 시스템: 화이트 배경 + `#111111` 잉크 모노크롬. 색상 대신 명암(채움/윤곽/흐림)으로 상태 표현.
+- 프로젝트 목록은 격자 박스가 아니라 `flex-wrap` 기반의 여백 중심 나열(`​.grid`/`a.card`, 하드보더 없음) — 명확한 구획선 없이 부드럽게 흐르는 느낌 유지할 것.
 - 모든 페이지가 `assets/theme.css` 하나를 공유하므로, 스타일 변경은 이 파일 한 곳만 고치면 전체에 반영됨.
 - 상세 페이지는 섹션 구조가 통일되어 있음: 헤더(태그+제목+링크) → hook 문장 → 스크린샷 자리(placeholder) → Main Features → (선택) Data/Method/Validation/Limitation → Stack & Role → Coming Soon.
 - 실제 스크린샷·GitHub 링크·검증 수치가 없는 프로젝트는 `<span class="placeholder">...추가 예정</span>` 또는 `.todo-block`으로 비워둠 — 지어내지 말고 실제 자료가 생기면 그때 채울 것.
+- 저장소는 **공개(public)**임 — GitHub Pages 무료 플랜이 비공개 저장소를 지원하지 않아서 2026-08-26에 전환함. 민감한 내용(비밀키 등) 절대 커밋하지 말 것.
 
 ## 새 프로젝트 추가하는 법
 
 1. `index.html`의 해당 카테고리 `<div class="grid">` 안에 카드 추가 (기존 카드 복사해서 텍스트만 교체, `href="projects/<slug>.html"`)
 2. `projects/` 폴더에 기존 상세 페이지 하나를 복사해서 `<slug>.html`로 저장, 내용 교체 (`../assets/theme.css` 상대경로 유지)
 3. 카테고리 프로젝트 수가 바뀌면 `index.html` 상단 `Projects` 통계 숫자도 갱신
-4. 커밋 + push (아래 배포 절차 참고)
+4. 커밋 + push — 그게 끝. GitHub Pages가 자동으로 반영한다.
 
-## 배포
-
-**주 경로 (자동)**: GitHub(`rlaalswo4942/portfolio-site`)에 Vercel Git 연동이 붙어 있음. `main`에 push하면 자동으로 `mkim.vercel.app`에 배포됨. 평소엔 그냥 커밋 + push만 하면 됨.
-
-```
+```bash
 git add -A && git commit -m "..." && git push origin main
 ```
 
-**수동 경로 (필요시)**: 즉시 확인하고 싶거나 자동 배포가 안 됐을 때.
-
-```
-vercel deploy --prod --yes
-```
-
-이 명령은 오래 걸릴 수 있으니(아래 장애 참고) `run_in_background: true`로 실행하고 충분히 기다릴 것 — 90~100초 타임아웃으로 강제 종료하지 말 것.
-
-## ⚠ 알려진 장애: 배포가 "Building…"에서 영구히 멈춤
-
-**증상**: `vercel deploy` 또는 git push 배포가 `Building…`에서 멈추고, `vercel ls`로 봐도 상태가 `UNKNOWN`으로 몇 분~몇십 분째 안 바뀜. `vercel inspect --logs`로도 로그가 전혀 안 나옴.
-
-**원인**: Vercel(Hobby 플랜) 쪽에서 이 프로젝트의 빌드 큐 슬롯이 막히는 문제로 추정(2026-08-26 최소 2회 재현, 원인 특정 못함 — 계정/CLI/네트워크 문제 아님, 무관한 새 프로젝트는 항상 즉시 성공했음). 개별 배포를 `vercel remove <deployment-url>`로 지워도 큐는 안 풀림. 12분간 전혀 개입하지 않고 관찰해도 저절로 안 풀림 — "느려서 그런가" 하고 더 기다리는 건 의미 없음.
-
-**유일하게 확인된 해결책**: 프로젝트 자체를 삭제하고 동일한 이름으로 재생성. 이렇게 하면 `mkim.vercel.app` 주소(별칭)는 그대로 유지되면서 큐만 초기화됨. 지금까지 두 번 다 이 방법으로 즉시 해결됨.
-
+배포 확인:
 ```bash
-# 1. 프로젝트 전체 삭제 (배포 하나가 아니라 프로젝트 자체)
-vercel remove mkim --yes
-
-# 2. 동일한 이름으로 재생성 + 현재 폴더 연결
-cd portfolio-site
-rm -rf .vercel
-vercel project add mkim
-vercel link --yes --project mkim
-
-# 3. Git 연동 다시 붙이기 (재생성하면 끊김)
-vercel git connect https://github.com/rlaalswo4942/portfolio-site.git --yes
-
-# 4. 배포
-vercel deploy --prod --yes
+gh api repos/rlaalswo4942/portfolio-site/pages/builds/latest   # status: "built" 되면 반영 완료
+curl -s https://rlaalswo4942.github.io/portfolio-site/
 ```
-
-`vercel remove mkim --yes`는 Claude Code 자동 모드 분류기가 가끔(항상은 아님) 막을 수 있음 — 막히면 사용자에게 직접 터미널에서 실행해달라고 요청할 것. 절대 다른 이름으로 새 프로젝트를 만들지 말 것(명함 QR코드에 `mkim.vercel.app` 주소가 이미 박혀있어서 주소가 바뀌면 안 됨).
 
 ## 하지 말 것
 
-- `vercel deploy`를 짧은 타임아웃으로 여러 번 중복 실행 (겹쳐서 꼬일 수 있음)
-- 멈춘 배포를 보고 성급하게 여러 번 `vercel remove`만 반복 (개별 배포 삭제는 효과 없음 — 프로젝트를 통째로 지워야 함)
-- 도메인 이름(`mkim`) 변경
+- `mkim.vercel.app` 프로젝트를 재배포하지 말 것 (아래 예외 상황 제외)
+- 저장소를 다시 비공개로 전환하지 말 것 (GitHub Pages가 꺼짐)
+- `index.html`/`projects/*.html`의 상대경로(`assets/theme.css`, `projects/...`, `../index.html`) 구조를 깨지 말 것 — GitHub Pages가 서브패스(`/portfolio-site/`)에서 서빙되므로 절대경로(`/assets/...`)로 바꾸면 깨짐
+
+---
+
+## Vercel 장애 이력 (참고용 — 이제 일상 작업엔 영향 없음)
+
+2026-08-26, `mkim.vercel.app`에 배포할 때마다 `vercel deploy`/`vercel ls`가 `UNKNOWN` 상태로 영구히 멈추는 장애를 반복적으로 겪음. 확인된 패턴: **프로젝트를 삭제 후 재생성하면 그 직후 첫 배포만 항상 성공하고, 그 이후 배포는(CLI든 Git 자동배포든) 다시 멈춘다.** 계정/CLI/네트워크 문제 아님(무관한 새 프로젝트는 항상 정상), 로컬 세션 재연결로도 해결 안 됨, 막힌 배포만 지워도 뒤에 대기 중인 배포는 안 풀림 — Vercel 백엔드 쪽 문제로 추정, 근본 원인 미상.
+
+이 문제 때문에 위의 2단 구조(Vercel=1회성 리다이렉트, GitHub Pages=실제 콘텐츠)로 전환함. **이제 콘텐츠를 아무리 자주 바꿔도 Vercel을 다시 건드릴 일이 없으므로 이 장애와 무관하다.**
+
+### 예외: mkim.vercel.app 리다이렉트 자체를 재생성해야 하는 경우
+
+(예: 실 콘텐츠 호스팅 주소가 바뀌었거나, Vercel 프로젝트가 완전히 사라졌거나 등 — 극히 드묾)
+
+```bash
+# 1. 새로운 독립 폴더 준비 (이 저장소와 무관하게, git 연결 없이)
+mkdir mkim-redirect && cd mkim-redirect
+# 아래 "리다이렉트 페이지 원본"을 index.html로 저장
+
+# 2. 기존 프로젝트가 있다면 삭제 (Claude Code 자동 모드 분류기가 막을 수 있음 — 막히면 사용자가 직접 터미널에서 실행)
+vercel remove mkim --yes
+
+# 3. 재생성 + 링크 + 배포 (git connect는 절대 하지 말 것 — 재발 방지)
+vercel project add mkim
+vercel link --yes --project mkim
+vercel deploy --prod --yes
+
+# 4. 자동 별칭이 mkim.vercel.app으로 안 잡힐 수 있음 — 수동 지정 필수
+vercel alias set <방금 나온 production URL> mkim.vercel.app
+
+# 5. ⚠ 배포 보호(SSO Protection)가 기본 켜져 있어서 방문자가 로그인 페이지로 튕길 수 있음 — 반드시 끌 것
+vercel project protection disable mkim --sso
+```
+
+배포 후 항상 `curl -s https://mkim.vercel.app | grep github.io`로 로그인 페이지가 아니라 리다이렉트 페이지가 나오는지 확인할 것.
+
+### 리다이렉트 페이지 원본
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="0; url=https://rlaalswo4942.github.io/portfolio-site/">
+<link rel="canonical" href="https://rlaalswo4942.github.io/portfolio-site/">
+<title>김민재 · MinJae Kim</title>
+<style>
+  body { font-family: -apple-system, sans-serif; background: #fff; color: #111; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+  a { color: #111; }
+</style>
+<script>location.replace("https://rlaalswo4942.github.io/portfolio-site/");</script>
+</head>
+<body>
+  <p>이동 중입니다… 자동으로 넘어가지 않으면 <a href="https://rlaalswo4942.github.io/portfolio-site/">여기를 클릭하세요</a>.</p>
+</body>
+</html>
+```
