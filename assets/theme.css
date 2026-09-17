@@ -393,28 +393,6 @@ a.card:hover .card-more { color: var(--ink); }
   max-width: 42rem;
 }
 
-.shot-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-  margin-bottom: 2.4rem;
-}
-.shot-ph {
-  aspect-ratio: 4 / 3;
-  background: var(--surface-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-  font-size: 0.66rem;
-  letter-spacing: 0.04em;
-  color: var(--text-3);
-}
-
 .d-block {
   padding: 1.8rem 0;
   border-top: 1px solid var(--line);
@@ -586,5 +564,4 @@ footer .footer-bottom {
 
 @media (max-width: 520px) {
   .hero-top { margin-bottom: 2rem; }
-  .shot-strip { grid-template-columns: 1fr; }
 }
