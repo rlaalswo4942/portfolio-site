@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Drawer — 시사·주식 서랍 앱 · 김민재</title>
+<meta name="description" content="세계 시사 정보와 국내 주식 데이터를 완전히 분리해서 수집하는 Android 앱. 168시간 실측 데이터 규칙을 통과한 종목에만 신호를 생성한다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%90%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="detail-nav">
+  <div class="catnav-inner">
+    <a class="back-link" href="../index.html">← Index</a>
+    <span class="mk-mark">MK</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="detail-head">
+    <p class="detail-tags">웹 &amp; 플랫폼 · 2026 · <span class="status outline">진행중</span></p>
+    <h1>Market Drawer — 시사·주식 서랍 앱</h1>
+    <div class="detail-links">
+      <span class="placeholder">GitHub 링크 추가 예정</span>
+    </div>
+  </header>
+
+  <p class="hook">세계 시사 정보와 국내 주식 데이터를 완전히 분리해서 수집하고, 최초 관측 후 168시간 이상 실데이터가 쌓여 조건을 통과한 종목에만 신호를 주는 Android 앱.</p>
+
+  <section class="d-block">
+    <h2>Main Features</h2>
+    <ul>
+      <li>시사 서랍과 주식 서랍을 데이터 모델·API·알림 채널·탭까지 전부 분리</li>
+      <li>최초 실측값 이후 168시간 미만이면 어떤 경우에도 추천 금지 — 결측치 임의 보간, 과거 데이터 소급 생성 금지</li>
+      <li>실거래 대신 페이퍼 트레이딩으로 수익 거래 10회를 통과해야 복리 재투자 잠금 해제</li>
+      <li>GitHub Actions로 매시간 자동 수집, FCM data-only 푸시로 서버·클라이언트 알림 동기화</li>
+      <li>AI는 기사·공시 요약에만 사용하고 최종 추천 점수는 결정론적 규칙 엔진이 계산</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>Stack &amp; Role</h2>
+    <p class="stack-line mono">Kotlin/Android · FastAPI · SQLAlchemy · Firebase Cloud Messaging · GitHub Actions</p>
+    <div class="role-tags">
+      <span>제품 기획</span><span>168시간 규칙 설계</span><span>수집 파이프라인 구현</span>
+    </div>
+    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
+  </section>
+
+  <section class="d-block todo-block">
+    <h2>Coming Soon</h2>
+    <p>현재 비공개 저장소로 개발 중입니다. 실제 스크린샷과 검증 로그, GitHub 링크는 준비되는 대로 채워 넣을 예정입니다.</p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="mk-mark large">MK</span>
+    <p class="footer-role">AI/AX Planner &amp; Creator</p>
+    <div class="footer-links">
+      <a href="mailto:c.minjae.k@gmail.com">c.minjae.k@gmail.com</a>
+      <a href="https://mkim.vercel.app">mkim.vercel.app</a>
+    </div>
+    <div class="footer-bottom">
+      <span>김민재 · MinJae Kim</span>
+      <span>Project Index — 2026.08.26</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
