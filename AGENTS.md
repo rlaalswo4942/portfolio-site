@@ -22,15 +22,16 @@ rlaalswo4942.github.io/portfolio-site/       ← 실제 콘텐츠. 이 저장소
 ```
 index.html              메인 인덱스 — 히어로 + 카테고리별 프로젝트 목록
 assets/theme.css         전체 페이지 공용 스타일시트 (index + 모든 상세 페이지가 공유)
-projects/<slug>.html     프로젝트별 개별 상세 페이지 (23개)
+projects/<slug>.html     프로젝트별 개별 상세 페이지
 ```
 
 - 디자인 시스템: 화이트 배경 + `#111111` 잉크 모노크롬. 색상 대신 명암(채움/윤곽/흐림)으로 상태 표현.
 - 프로젝트 목록은 격자 박스가 아니라 `flex-wrap` 기반의 여백 중심 나열(`​.grid`/`a.card`, 하드보더 없음) — 명확한 구획선 없이 부드럽게 흐르는 느낌 유지할 것.
 - 모든 페이지가 `assets/theme.css` 하나를 공유하므로, 스타일 변경은 이 파일 한 곳만 고치면 전체에 반영됨.
-- 상세 페이지는 섹션 구조가 통일되어 있음: 헤더(태그+제목+링크) → hook 문장 → 스크린샷 자리(placeholder) → Main Features → (선택) Data/Method/Validation/Limitation → Stack & Role → Coming Soon.
-- 실제 스크린샷·GitHub 링크·검증 수치가 없는 프로젝트는 `<span class="placeholder">...추가 예정</span>` 또는 `.todo-block`으로 비워둠 — 지어내지 말고 실제 자료가 생기면 그때 채울 것.
+- 상세 페이지는 섹션 구조가 통일되어 있음: 헤더(태그+제목+링크) → hook 문장 → Main Features → (선택) Known Issues · Next Steps / Data·Method·Validation·Limitation → Stack & Role → (선택) Coming Soon. **스크린샷 placeholder 블록(`.shot-strip`/`.shot-ph`)은 2026-09-17에 전부 제거했으니 새로 만들 때 다시 넣지 말 것.**
+- 실제 GitHub 링크·검증 수치가 없는 프로젝트는 `<span class="placeholder">...추가 예정</span>`으로 비워둠 — 지어내지 말고 실제 자료가 생기면 그때 채울 것.
 - 저장소는 **공개(public)**임 — GitHub Pages 무료 플랜이 비공개 저장소를 지원하지 않아서 2026-08-26에 전환함. 민감한 내용(비밀키 등) 절대 커밋하지 말 것.
+- **이 저장소는 사용자가 다른 세션/기기에서도 직접 커밋한다.** 작업 시작 전 반드시 `git fetch && git log HEAD..origin/main --oneline`으로 로컬에 없는 원격 커밋이 있는지 확인할 것. 있다면 각 커밋의 실제 diff(`git show <hash>`)를 읽고 겹치는 프로젝트가 이미 다른 이름/형태로 추가돼 있지 않은지 확인한 뒤 병합할 것 — 그냥 push하면 reject되고, 확인 없이 force하면 사용자의 다른 세션 작업을 날린다.
 
 ## 새 프로젝트 추가하는 법
 
