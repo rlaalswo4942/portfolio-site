@@ -31,10 +31,17 @@
   <section class="d-block">
     <h2>Main Features</h2>
     <ul>
-      <li>정크/중복/미디어 파일 비동기 스캔</li>
-      <li>체크박스 단일클릭으로 삭제 대상 선택</li>
-      <li>GUI 자동화는 커서 대신 UIA/BM_CLICK만 사용해 안정성 확보</li>
+      <li>모든 고정 드라이브를 대상으로 정크/오래된 대용량/중복 설치파일/미디어 파일 스캔</li>
+      <li>"스캔(드라이런) → 사용자 체크 → 실제 실행"의 2단계 구조 — 스캔 자체는 절대 디스크를 바꾸지 않음</li>
+      <li>5중 안전장치: 시스템 경로 화이트리스트 제외, 레지스트리 기반 설치 프로그램 자동 보호, 드라이런 우선, 사용 중 파일 자동 보호, 중복 탐지는 설치파일류로만 한정</li>
+      <li>격리함에서 복원하거나 "삭제확인" 문구를 직접 입력해야 영구 삭제</li>
+      <li>별도 Runspace에서 완전 비동기로 스캔해 GUI가 멈추지 않음, 체크박스는 한 번 클릭으로 바로 토글</li>
     </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>PowerShell의 함정들</h2>
+    <p>이 도구를 만들며 겪은 PowerShell 특유의 함정이 많았다: 빈 배열을 그냥 반환하면 호출부에서 null로 취급되고, 항목이 딱 1개인 컬렉션을 반환하면 자동으로 낱개로 풀려버려 타입이 깨진다(콤마 연산자로 감싸야 진짜 컬렉션으로 반환됨). 체크박스도 처음엔 첫 클릭이 선택만 되고 토글은 두 번째 클릭에야 됐는데, 셀 편집 방식 대신 항상 살아있는 일반 컨트롤로 바꿔서 해결했다. 이런 재발방지 원칙 9가지를 정리해두었다.</p>
   </section>
 
   <section class="d-block">
@@ -42,14 +49,15 @@
     <ul>
       <li>정크 파일과 아닌 파일, "비어있다"고 인식하지만 실제로는 필요한 경우 등 세부 판단 기준을 아직 다 파악하지 못함</li>
       <li>관리자 권한 등이 없어 삭제는 사용자가 직접 확인해야 하는 문제가 있음 — 보완 예정</li>
+      <li>탭별 세부 상호작용은 기능 구현은 끝났지만 풀 테스트가 아직 필요한 상태</li>
     </ul>
   </section>
 
   <section class="d-block">
     <h2>Stack &amp; Role</h2>
-    <p class="stack-line mono">Python · UIA</p>
+    <p class="stack-line mono">PowerShell 5.1 · WPF · Runspace(비동기 스캔) · 레지스트리 크롤링</p>
     <div class="role-tags">
-      <span>스캔 로직 구현</span><span>GUI 자동화 설계</span>
+      <span>스캔 로직 구현</span><span>안전장치 설계</span><span>GUI 구현</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
   </section>
@@ -70,7 +78,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.08.26</span>
+      <span>Project Index — 2026.09.27</span>
     </div>
   </div>
 </footer>

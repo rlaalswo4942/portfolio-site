@@ -31,8 +31,11 @@
   <section class="d-block">
     <h2>Main Features</h2>
     <ul>
-      <li>웹캠으로 손동작 인식</li>
-      <li>인식한 동작을 명령 입력으로 매핑</li>
+      <li>MediaPipe로 손 랜드마크를 실시간 인식해 PPT/PDF 슬라이드 제어·마우스 조작·단축키 실행·방사형 메뉴 호출까지 지원</li>
+      <li>상태머신: IDLE → ACTIVE(손바닥 유지) → 등록 흐름(카운트다운→녹화→저장) / 마우스 모드(검지) / 방사형 메뉴(주먹)로 분기</li>
+      <li>커스텀 제스처는 30프레임으로 리샘플링해 저장, 이후 프레임당 평균 오차로 최근접 템플릿 매칭</li>
+      <li>제스처 실행 로그를 별도 스레드로 중앙 DB에 비동기 기록 — 카메라 루프가 DB 쓰기 때문에 밀리지 않도록 분리</li>
+      <li>PyInstaller 배포용 exe와 스크립트 실행 두 환경 모두 지원</li>
     </ul>
   </section>
 
@@ -40,6 +43,8 @@
     <h2>Known Issues · Next Steps</h2>
     <ul>
       <li>아직 개발 중인 프로그램 — 인식 정확도와 동작 보정 등 보완할 점이 있음</li>
+      <li>커스텀 제스처 슬롯 10개가 전부 미설정 상태로 남아있음</li>
+      <li>alias(제스처가 다른 제스처를 가리키는 기능)가 서로를 순환 참조하면 무한루프가 될 수 있어, 방문한 이름을 기록해두고 다시 만나면 끊는 방식으로 방지해둠</li>
     </ul>
   </section>
 
@@ -50,7 +55,7 @@
 
   <section class="d-block">
     <h2>Stack &amp; Role</h2>
-    <p class="stack-line mono">Python · OpenCV · MediaPipe</p>
+    <p class="stack-line mono">Python · OpenCV · MediaPipe · pystray · PyInstaller · psycopg2</p>
     <div class="role-tags">
       <span>제스처 인식 구현</span><span>HCI 리서치</span>
     </div>
@@ -73,7 +78,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.08.26</span>
+      <span>Project Index — 2026.09.27</span>
     </div>
   </div>
 </footer>

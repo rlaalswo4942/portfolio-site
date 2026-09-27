@@ -32,17 +32,32 @@
   <section class="d-block">
     <h2>Main Features</h2>
     <ul>
-      <li>구독형 소프트웨어 배포 웹 서비스</li>
-      <li>Vercel + Neon(PostgreSQL)으로 데모 환경 구축</li>
-      <li>게스트 계정으로 실제 서비스 흐름 체험 가능</li>
+      <li>핵심 비즈니스 로직: 매달 결제 확인 → 끊기면 3회 경고 후 사용 차단 → 재구독 시 기존 데이터 복원</li>
+      <li>제품별 가격 모델(무료/일회성/구독), GitHub Release와 연동해 안정/베타 채널 자동 분류 + 강제 업데이트 플래그</li>
+      <li>관리자 비주얼 에디터 — 요소를 클릭해 속성 패널에서 바로 편집</li>
+      <li>데스크톱 앱 연동 API(라이선스 검증, 최신 버전 조회, 사용 이벤트 수집)까지 구현</li>
+      <li>Vercel + Neon(PostgreSQL)으로 데모 환경 구축, 게스트 계정으로 실제 서비스 흐름 체험 가능</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>보안 감사 3차례</h2>
+    <p>스스로 세 차례 보안 감사를 진행해 총 14건을 수정했다: 1차는 경로 탐색·로그인 무제한 시도·이메일 열거 등 7건, 2차는 헤더 인젝션·메모리 누수 등 3건(+ CI에 보안 검사 자동화 추가), 3차는 다운로드 API가 파일 전체를 메모리에 올려 생기는 서비스 거부 위험 등을 스트리밍 방식으로 교체. 매번 위험도를 매겨 우선순위대로 처리하고, CI에 정적분석을 편입시켜 재발을 막는 방식으로 진행했다.</p>
+  </section>
+
+  <section class="d-block">
+    <h2>Known Issues · Next Steps</h2>
+    <ul>
+      <li>1차(사이트+배포), 2차(가격모델·인라인 에디터) 로드맵은 완료. 3차(실제 결제 연동)는 아직 미착수 — 상업적으로는 아직 미완성</li>
+      <li>운영 DB는 "개발 단계 로컬 → 출시 시점 Oracle Cloud 무료 VM"으로 옮겨 5년 비용을 최소화하는 전략을 세워둠</li>
     </ul>
   </section>
 
   <section class="d-block">
     <h2>Stack &amp; Role</h2>
-    <p class="stack-line mono">Next.js · PostgreSQL · Vercel</p>
+    <p class="stack-line mono">Next.js · Prisma · PostgreSQL · NextAuth · Vercel + Neon</p>
     <div class="role-tags">
-      <span>서비스 기획</span><span>풀스택 구현</span><span>배포</span>
+      <span>서비스 기획</span><span>풀스택 구현</span><span>보안 감사</span><span>배포</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
   </section>
@@ -63,7 +78,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.08.26</span>
+      <span>Project Index — 2026.09.27</span>
     </div>
   </div>
 </footer>

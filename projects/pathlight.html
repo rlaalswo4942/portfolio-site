@@ -62,17 +62,22 @@
   </section>
 
   <section class="d-block">
+    <h2>Known Issues · Next Steps</h2>
+    <ul>
+      <li>처음엔 바닥 센서로 실제 가로등을 제어하는 방향(ESP32 등)을 검토했으나, 설치비·승인 부담 때문에 "신규 하드웨어 설치 없이 기존 가로등과 무료 API만 쓴다"는 방향으로 피벗함 — README가 이 전환 이전 설계를 그대로 설명하고 있어 실제 코드(관리자 토글 기준)와 어긋난 상태</li>
+      <li>가로등 위치는 실제 OpenStreetMap 데이터만 쓰고 없으면 0개로 정직하게 표시 — 처음엔 경로를 따라 합성 생성했다가 실제 데이터로 교체함</li>
+      <li>기본 도보 경로 서버(router.project-osrm.org)의 "보행자용" 엔드포인트가 실은 차량 경로와 완전히 같은 값을 반환한다는 걸 직접 검증으로 발견 — 실제 보행자 속도 프로파일을 쓰는 FOSSGIS 서버로 교체</li>
+      <li>긴급 조명 강제 활성화 버튼이 실제로는 그 기능을 호출하는 곳이 없어 동작하지 않는 죽은 코드 상태로 남아있음 — 아직 미수정</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
     <h2>Stack &amp; Role</h2>
     <p class="stack-line mono">React · TypeScript · Vite · PWA · Capacitor · Leaflet · OSRM · Nominatim</p>
     <div class="role-tags">
       <span>Problem Framing</span><span>Feasibility Review</span><span>Legal Review</span><span>Business Model</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
-  </section>
-
-  <section class="d-block todo-block">
-    <h2>Coming Soon</h2>
-    <p>실제 스크린샷과 상세 사용 흐름은 준비되는 대로 채워 넣을 예정입니다.</p>
   </section>
 </div>
 
@@ -86,7 +91,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.08.26</span>
+      <span>Project Index — 2026.09.27</span>
     </div>
   </div>
 </footer>

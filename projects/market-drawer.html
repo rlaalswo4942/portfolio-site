@@ -19,7 +19,7 @@
 
 <div class="wrap">
   <header class="detail-head">
-    <p class="detail-tags">웹 &amp; 플랫폼 · 2026 · <span class="status outline">진행중</span></p>
+    <p class="detail-tags">모바일 앱 · 2026 · <span class="status outline">진행중</span></p>
     <h1>Market Drawer — 시사·주식 서랍 앱</h1>
     <div class="detail-links">
       <span class="placeholder">GitHub 링크 추가 예정</span>
@@ -36,6 +36,19 @@
       <li>실거래 대신 페이퍼 트레이딩으로 수익 거래 10회를 통과해야 복리 재투자 잠금 해제</li>
       <li>GitHub Actions로 매시간 자동 수집, FCM data-only 푸시로 서버·클라이언트 알림 동기화</li>
       <li>AI는 기사·공시 요약에만 사용하고 최종 추천 점수는 결정론적 규칙 엔진이 계산</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>레드팀 리뷰 5라운드</h2>
+    <p>요구사항 충실도·데이터 무결성·신뢰성·UX·유지보수성 5개 축으로 스스로를 5라운드 검수했다. 1라운드는 78/100 — 샘플이 희박해도 시간만 지나면 통과되거나, 매도가 추천 이력 없이도 일어날 수 있었다. 최소 샘플·거래일 조건을 추가하고 진입/이탈 임계값을 분리(히스테리시스)해 5라운드 모두 100/100을 받았다. 복리 재투자 규칙도 "수익 거래 10회 달성 시 해제"로 시작했다가, "포트폴리오가 주간 10회 넘게 원금 아래로 떨어지면 복리를 끄고 고정 사이즈로 되돌아간다"는 리스크 기반 규칙으로 다시 정의했다 — 드로다운이 잦다는 것 자체가 전략이 재투자 자금을 맡기기엔 불안정하다는 뜻이라는 게 코드 주석에 남아있다.</p>
+  </section>
+
+  <section class="d-block">
+    <h2>Known Issues · Next Steps</h2>
+    <ul>
+      <li>실거래 인가된 데이터 공급자 연결, 프로덕션 인증/rate limiting, 백테스트 기반 임계값 보정, 법률·컴플라이언스 검토가 전부 미착수</li>
+      <li>수집 주기가 계획한 20분이 아니라 실제로는 2~5시간 간격으로 도는 문제가 있어, 168시간 안에 최소 샘플을 채우기 빠듯한 상황 — 개선 안 되면 외부 크론으로 깨우는 방식을 검토 중</li>
     </ul>
   </section>
 
@@ -64,7 +77,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.08.26</span>
+      <span>Project Index — 2026.09.27</span>
     </div>
   </div>
 </footer>
