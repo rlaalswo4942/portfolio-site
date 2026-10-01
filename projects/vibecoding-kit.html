@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>바이브코딩 설치 키트 · 김민재</title>
+<meta name="description" content="더블클릭 한 번으로 Git, VS Code, Claude Code를 설치하고 첫 대화용 프롬프트까지 준비해주는 입문자용 설치 패키지.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%90%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="detail-nav">
+  <div class="catnav-inner">
+    <a class="back-link" href="../index.html">← Index</a>
+    <span class="mk-mark">MK</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="detail-head">
+    <p class="detail-tags">개발자 도구 · 2026 · <span class="status filled">배포중</span></p>
+    <h1>바이브코딩 설치 키트</h1>
+    <div class="detail-links">
+      <a href="../downloads/vibecoding-kit/바이브코딩_설치패키지.zip" download>전체 폴더 다운로드 (ZIP · 111KB) ↓</a>
+    </div>
+  </header>
+
+  <p class="hook">VS Code도 Claude Code도 처음인 사람이 "실행.bat" 더블클릭 한 번으로 설치를 마치고, 첫 대화에 붙여 넣을 설정 프롬프트까지 클립보드에 받아 바로 바이브코딩을 시작하게 만든 설치 패키지.</p>
+
+  <section class="d-block">
+    <h2>Main Features</h2>
+    <ul>
+      <li>Windows: 관리자 권한으로 자동 재실행 후 winget으로 Git·VS Code를 설치하고, Claude Code 공식 설치 스크립트와 VS Code 확장까지 한 번에 설치</li>
+      <li>이미 설치된 PC에서는 설치 단계를 건너뛰고 VS Code와 Claude 로그인 창만 바로 띄움 — 다음부터는 같은 실행.bat이 런처 역할</li>
+      <li>설정 프롬프트(한국어 답변, 가장 간단한 방법 우선, 되돌리기 어려운 작업 전 확인, 실행 검증)를 자동으로 클립보드에 복사</li>
+      <li>Mac: VS Code·Node.js 설치 여부를 확인하고, 확장 설치와 바탕화면 연습 폴더(my-first-app) 생성까지 자동화</li>
+      <li>자동화할 수 없는 로그인 단계와 winget 미설치, SmartScreen 경고, 압축 안 풀고 실행 같은 실패 사례를 사용법.txt와 PDF 가이드에 정리</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>Downloads</h2>
+    <p>폴더 전체를 받으려면 위의 ZIP을 받아 <b>압축을 푼 뒤</b> 실행하세요. 아래는 같은 폴더의 파일을 하나씩 받을 수 있는 링크입니다.</p>
+    <ul>
+      <li><a href="../downloads/vibecoding-kit/바이브코딩_설치패키지/Claude%20Code%20%2B%20VSCode%20설치%20가이드.pdf" target="_blank" rel="noopener">Claude Code + VSCode 설치 가이드.pdf</a> — 수동 설치 1~5단계와 문제 해결 표</li>
+      <li><a href="../downloads/vibecoding-kit/바이브코딩_설치패키지/사용법.txt" download>사용법.txt</a> — Windows·Mac 빠른 안내</li>
+      <li><a href="../downloads/vibecoding-kit/바이브코딩_설치패키지/프롬프트.txt" download>프롬프트.txt</a> — 첫 대화용 설정 문구</li>
+      <li><a href="../downloads/vibecoding-kit/바이브코딩_설치패키지/Windows/실행.bat" download>Windows/실행.bat</a> + <a href="../downloads/vibecoding-kit/바이브코딩_설치패키지/Windows/setup.ps1" download>setup.ps1</a> — 두 파일을 같은 폴더에 둬야 동작</li>
+      <li><a href="../downloads/vibecoding-kit/바이브코딩_설치패키지/Mac/Claude%20Code%20자동설정%20(Mac).command" download>Mac/Claude Code 자동설정 (Mac).command</a> — 받은 뒤 <code>chmod +x</code> 필요</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>Known Issues · Next Steps</h2>
+    <ul>
+      <li>Mac은 VS Code와 Node.js를 직접 설치해야 함 — Homebrew 기반 자동 설치는 미구현</li>
+      <li>서명되지 않은 스크립트라 Windows SmartScreen·macOS Gatekeeper 경고가 뜸 (안내문으로 대응 중)</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>Stack &amp; Role</h2>
+    <p class="stack-line mono">PowerShell · Batch · Bash · winget · Claude Code · VS Code</p>
+    <div class="role-tags">
+      <span>입문자 온보딩 설계</span><span>설치 자동화 스크립트</span><span>가이드 문서 작성</span>
+    </div>
+    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="mk-mark large">MK</span>
+    <p class="footer-role">AI/AX Planner &amp; Creator</p>
+    <div class="footer-links">
+      <a href="mailto:c.minjae.k@gmail.com">c.minjae.k@gmail.com</a>
+      <a href="https://mkim.vercel.app">mkim.vercel.app</a>
+    </div>
+    <div class="footer-bottom">
+      <span>김민재 · MinJae Kim</span>
+      <span>Project Index — 2026.10.01</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
