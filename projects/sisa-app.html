@@ -22,7 +22,7 @@
     <p class="detail-tags">모바일 앱 · 2026 · <span class="status outline">진행중</span></p>
     <h1>시사 서랍</h1>
     <div class="detail-links">
-      <span class="placeholder">GitHub 링크 추가 예정</span>
+      <a href="https://github.com/rlaalswo4942/sisa-collector" target="_blank" rel="noopener">뉴스 수집기 GitHub ↗</a>
     </div>
   </header>
 
@@ -33,20 +33,22 @@
     <ul>
       <li>Market Drawer에서 주식 서랍을 걷어내고 시사 서랍만 남긴 포크</li>
       <li>매시간 세계 뉴스를 자동 수집, Gemini로 기사 요약</li>
-      <li>하루 세 번(오전 7시·낮 12시·저녁 6시) 안 읽은 기사만 모아 알림 발송 — 새 소식 없으면 알림도 안 보냄</li>
+      <li>하루 세 번(오전 8시·낮 12시·저녁 6시) 안 읽은 기사만 모아 알림 발송 — 새 소식 없으면 알림도 안 보냄</li>
       <li>PC를 켜두지 않아도 완전히 자동으로 동작 (아래 참고)</li>
+      <li>앱 안 진단 로그 화면 — USB·adb 연결 없이도 휴대폰에서 바로 로그를 보고 클립보드로 복사</li>
     </ul>
   </section>
 
   <section class="d-block">
     <h2>PC 없이 돌아가게 만들기</h2>
-    <p>처음엔 PC에서 서버·스케줄러·터널 프로그램 3개를 계속 띄워둬야 했고, 실제로 아침 7시 브리핑을 한 번 놓친 사고가 있었다. 그래서 전체를 Cloudflare Workers + D1(서버리스 SQLite)으로 옮겼는데, 이 샌드박스 환경에서만 겪는 문제들이 이어졌다: 암호화 라이브러리가 아예 작동하지 않아 푸시 인증에 필요한 서명을 표준 라이브러리만으로 직접 구현해야 했고, 요청 하나당 처리 가능한 작업 수 제한 때문에 대량 삽입 로직을 다시 짰고, Google이 Cloudflare의 공유 IP 대역 자체를 차단하고 있어서 뉴스 수집과 AI 요약은 결국 GitHub Actions 쪽으로 옮겼다. 지금은 "수집·요약은 GitHub Actions, 조회·알림·크론은 Cloudflare Worker"로 역할을 나눠 PC 없이도 완전 자동으로 돈다.</p>
+    <p>처음엔 PC에서 서버·스케줄러·터널 프로그램 3개를 계속 띄워둬야 했고, 실제로 아침 7시 브리핑을 한 번 놓친 사고가 있었다. 그래서 전체를 Cloudflare Workers + D1(서버리스 SQLite)으로 옮겼는데, 이 샌드박스 환경에서만 겪는 문제들이 이어졌다: 암호화 라이브러리가 아예 작동하지 않아 푸시 인증에 필요한 서명을 표준 라이브러리만으로 직접 구현해야 했고, 요청 하나당 처리 가능한 작업 수 제한 때문에 대량 삽입 로직을 다시 짰고, Google이 Cloudflare의 공유 IP 대역 자체를 차단하고 있어서 뉴스 수집과 AI 요약은 결국 GitHub Actions 쪽으로 옮겼다. 지금은 "수집·요약은 GitHub Actions, 조회·알림·크론은 Cloudflare Worker"로 역할을 나눠 PC 없이도 완전 자동으로 돈다. 수집기는 공개 저장소(sisa-collector)로 분리했다 — Worker가 매시간 40분에 수집을 호출하고, 그 토큰이 만료돼도 6시간마다 자체 스케줄로 도는 안전망이 있으며, 새 기사가 없으면 브라우저 설치 같은 무거운 단계는 건너뛴다.</p>
   </section>
 
   <section class="d-block">
     <h2>Known Issues · Next Steps</h2>
     <ul>
       <li>Market Drawer와 Firebase 패키지명을 그대로 재사용 중이라, 같은 기기에 두 앱을 동시에 설치할 수 없음 — 분리 필요</li>
+      <li>캐시가 계속 쌓이던 문제와 일일 초기화 누락은 진단 후 수정함(2026-09-28), 아침 브리핑은 실사용에 맞춰 8시로 옮김(2026-10-01)</li>
       <li>README가 아직 예전 PC 운영 방식을 기준으로 쓰여 있어, Cloudflare 이전 이후의 실제 구조와 어긋나 있음</li>
     </ul>
   </section>
@@ -71,7 +73,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.09.27</span>
+      <span>Project Index — 2026.10.15</span>
     </div>
   </div>
 </footer>

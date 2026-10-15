@@ -565,3 +565,23 @@ footer .footer-bottom {
 @media (max-width: 520px) {
   .hero-top { margin-bottom: 2rem; }
 }
+
+/* ---------- Sub-site list (card + detail) ---------- */
+.card-sub {
+  list-style: none;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.66rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+.card-sub li::before { content: "└ "; color: var(--text-3); }
+.site-list a {
+  color: var(--ink);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}

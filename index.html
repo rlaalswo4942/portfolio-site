@@ -22,6 +22,7 @@
       <a href="#cat-devtool">개발자 도구</a>
       <a href="#cat-bot">디스코드 봇</a>
       <a href="#cat-infra">데이터 &amp; 인프라</a>
+      <a href="#cat-study">학습 &amp; 교육</a>
     </div>
   </div>
 </nav>
@@ -42,7 +43,7 @@
     </h1>
     <p class="role">AI/AX PLANNER<br>&amp; CREATOR</p>
     <p class="pitch">AI를 활용해 아이디어를 기획하고 실제로 작동하는 형태까지 제작합니다.</p>
-    <p class="meta-line mono">23 Projects · 8 Categories · Updated 2026.10.01</p>
+    <p class="meta-line mono">27 Projects · 9 Categories · Updated 2026.10.15</p>
   </header>
 </div>
 
@@ -188,7 +189,7 @@
           </div>
           <h3 class="card-title">시사 서랍</h3>
           <p class="card-tags mono"><span>Kotlin</span><span>Python/FastAPI</span><span>Gemini API</span></p>
-          <p class="card-desc">마켓 서랍에서 시사 뉴스 기능만 분리한 Android 앱. 매시간 뉴스를 수집해 하루 세 번(오전 7시·낮 12시·저녁 6시) 안 읽은 기사를 모아 알림으로 요약해 보낸다.</p>
+          <p class="card-desc">마켓 서랍에서 시사 뉴스 기능만 분리한 Android 앱. 매시간 뉴스를 수집해 하루 세 번(오전 8시·낮 12시·저녁 6시) 안 읽은 기사를 모아 알림으로 요약해 보낸다.</p>
           <p class="card-more mono">자세히 보기 →</p>
         </a>
 
@@ -210,7 +211,7 @@
           </div>
           <h3 class="card-title">Market Drawer — 시사·주식 서랍 앱</h3>
           <p class="card-tags mono"><span>Kotlin</span><span>FastAPI</span><span>Firebase</span></p>
-          <p class="card-desc">세계 시사 정보와 국내 주식 데이터를 완전히 분리해서 수집하는 앱. 최초 관측 후 168시간 이상 실데이터가 쌓이고 조건을 통과한 종목에만 매수·매도 신호를 생성한다. 레드팀 리뷰 5라운드 전부 100/100.</p>
+          <p class="card-desc">세계 시사 정보와 국내 주식 데이터를 완전히 분리해서 수집하는 앱. 최초 관측 후 168시간 이상 실데이터가 쌓이고 조건을 통과한 종목에만 매수·매도 신호를 생성한다. 레드팀 리뷰 5라운드 전부 100/100. 실제 거래비용을 반영한 모의투자 전략 "칼"(중기 복리)과 "메스"(15분 단타)를 방어형/공격형 쌍으로 비교 검증 중.</p>
           <p class="card-more mono">자세히 보기 →</p>
         </a>
 
@@ -311,6 +312,17 @@
           <p class="card-more mono">자세히 보기 →</p>
         </a>
 
+        <a class="card" href="projects/desktop-cleanup.html">
+          <div class="card-top">
+            <span class="card-num mono">04</span>
+            <span class="status filled">완성</span>
+          </div>
+          <h3 class="card-title">바탕화면 정리</h3>
+          <p class="card-tags mono"><span>PowerShell</span><span>C# COM</span><span>작업 스케줄러</span></p>
+          <p class="card-desc">단축키 한 번(Ctrl+Space→S)으로 바탕화면 파일을 확장자·용도별 폴더로 옮기고 아이콘을 다시 정렬하는 도구. 휴지통·내 PC 같은 시스템 아이콘은 제자리에 둔다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
       </div>
     </section>
 
@@ -380,8 +392,8 @@
             <span class="status filled">운영중</span>
           </div>
           <h3 class="card-title">Pia 학습 데이터베이스</h3>
-          <p class="card-tags mono"><span>PostgreSQL</span><span>Railway</span></p>
-          <p class="card-desc">Pia의 음성·텍스트·레이블 학습 데이터를 보관하는 저장소. Railway에 미러 DB를 두어 외부 기기에서도 접속할 수 있다.</p>
+          <p class="card-tags mono"><span>PostgreSQL</span><span>Neon</span></p>
+          <p class="card-desc">Pia의 음성·텍스트·레이블 학습 데이터를 보관하는 저장소. 2026-10-05 클라우드 Neon으로 이전해 메인 PC가 꺼져 있어도 어느 기기에서든 같은 DB 하나에 접속한다.</p>
           <p class="card-more mono">자세히 보기 →</p>
         </a>
 
@@ -393,6 +405,55 @@
           <h3 class="card-title">AXton 백업 스크립트</h3>
           <p class="card-tags mono"><span>Python</span><span>psycopg2</span></p>
           <p class="card-desc">ax_ton 스키마를 JSON으로 덤프해 커밋하는 2차 백업 유틸리티. 운영 DB가 원본, 이 저장소는 스냅샷 미러 역할만 한다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="category" id="cat-study">
+      <div class="category-head">
+        <span class="cat-num mono">09</span>
+        <h2>학습 &amp; 교육</h2>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="projects/study-frame.html">
+          <div class="card-top">
+            <span class="card-num mono">01</span>
+            <span class="status filled">운영중</span>
+          </div>
+          <h3 class="card-title">스터디 프레임 — 학습 사이트 엔진</h3>
+          <p class="card-tags mono"><span>JavaScript</span><span>Vercel + Neon</span><span>GitHub Pages</span></p>
+          <p class="card-desc">원고(마크다운)와 문제(JSON)만 넣으면 단원 노트·필기·포스트잇·연습문제·모의고사가 갖춰진 학습 사이트가 만들어지는 틀. 기기 간 실시간 동기화. 지금 이 엔진으로 운영 중인 사이트:</p>
+          <ul class="card-sub mono">
+            <li>AI 해커톤 학습노트 - rlaalswo4942.github.io/ai-hackathon-notes</li>
+            <li>프로그래밍의 이해 학습노트 - rlaalswo4942.github.io/c-programming-notes</li>
+            <li>언어 학습노트 - rlaalswo4942.github.io/language-notes</li>
+            <li>안드로이드 학습노트 - rlaalswo4942.github.io/android-notes</li>
+          </ul>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+        <a class="card" href="projects/workbook-qna.html">
+          <div class="card-top">
+            <span class="card-num mono">02</span>
+            <span class="status filled">운영중</span>
+          </div>
+          <h3 class="card-title">바이브코딩 워크북 Q&amp;A</h3>
+          <p class="card-tags mono"><span>JavaScript</span><span>Supabase Realtime</span><span>GitHub Pages</span></p>
+          <p class="card-desc">워크북 장별 가이드에 익명 질문답변을 붙인 사이트. 본문을 드래그해 형광펜·메모지로 마킹하고 질문하면 실시간으로 공유되고, 본인 글만 지울 수 있다.</p>
+          <p class="card-more mono">자세히 보기 →</p>
+        </a>
+
+        <a class="card" href="projects/my-game.html">
+          <div class="card-top">
+            <span class="card-num mono">03</span>
+            <span class="status outline">진행중</span>
+          </div>
+          <h3 class="card-title">수업 웹 게임 — 사과게임</h3>
+          <p class="card-tags mono"><span>HTML</span><span>CSS</span><span>JavaScript</span></p>
+          <p class="card-desc">프로그래밍 입문 수업에서 주차별로 만들어 가는 웹 게임. 아이디어 3개 중 10×10 숫자 원에서 합이 10인 묶음을 찾아 없애는 사과게임을 골랐다. 자기소개 페이지와 GitHub 배포까지 완료.</p>
           <p class="card-more mono">자세히 보기 →</p>
         </a>
 
@@ -412,7 +473,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.10.01</span>
+      <span>Project Index — 2026.10.15</span>
     </div>
   </div>
 </footer>

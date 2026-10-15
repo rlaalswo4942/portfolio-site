@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스터디 프레임 — 학습 사이트 엔진 · 김민재</title>
+<meta name="description" content="원고와 문제만 넣으면 필기·포스트잇·연습문제·모의고사가 갖춰진 학습 사이트가 만들어지는 엔진.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%90%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="detail-nav">
+  <div class="catnav-inner">
+    <a class="back-link" href="../index.html">← Index</a>
+    <span class="mk-mark">MK</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="detail-head">
+    <p class="detail-tags">학습 &amp; 교육 · 2026 · <span class="status filled">운영중</span></p>
+    <h1>스터디 프레임 — 학습 사이트 엔진</h1>
+    <div class="detail-links">
+      <span class="placeholder">GitHub 링크 추가 예정</span>
+    </div>
+  </header>
+
+  <p class="hook">강의 자료를 넣으면, 바로 공부할 수 있는 사이트가 나온다 — 내용만 바꿔 과목마다 같은 엔진을 쓴다.</p>
+
+  <section class="d-block">
+    <h2>Main Features</h2>
+    <ul>
+      <li>원고 마크다운에서 단원·섹션·읽음 체크리스트·목표 자가점검을 자동 생성, 홈 카드에 읽음 진도와 정답률 표시</li>
+      <li>필기(펜·형광펜·가림펜·지우개)와 포스트잇 — 위치를 섹션 기준 비율로 저장해 기기가 달라도 같은 자리에 표시</li>
+      <li>태블릿용 펜 전용 모드: 손가락은 스크롤·버튼, 펜은 필기. 두 손가락 탭 실행취소, 세 손가락 탭 다시실행</li>
+      <li>연습문제(단원별·전 범위·오답 다시 풀기, 해설·출처), 코드 빈칸형 문제, 유형별 모의고사, 용어 사전</li>
+      <li>이름 로그인으로 개인별 기록, 동기화 코드로 기기 간 실시간 동기화(Vercel + Neon 서버 하나를 모든 사이트가 공유)</li>
+      <li>"스터디_프레임으로 OO 학습 사이트 만들어" 한마디로 새 사이트를 만드는 Claude 스킬까지 함께 관리</li>
+    </ul>
+  </section>
+
+  <section class="d-block site-list">
+    <h2>운영 중인 사이트</h2>
+    <ul>
+      <li><strong>AI 해커톤 학습노트</strong> - <a href="https://rlaalswo4942.github.io/ai-hackathon-notes/" target="_blank" rel="noopener">https://rlaalswo4942.github.io/ai-hackathon-notes/</a></li>
+      <li><strong>프로그래밍의 이해 학습노트</strong> - <a href="https://rlaalswo4942.github.io/c-programming-notes/" target="_blank" rel="noopener">https://rlaalswo4942.github.io/c-programming-notes/</a></li>
+      <li><strong>언어 학습노트</strong> - <a href="https://rlaalswo4942.github.io/language-notes/" target="_blank" rel="noopener">https://rlaalswo4942.github.io/language-notes/</a></li>
+      <li><strong>안드로이드 학습노트</strong> - <a href="https://rlaalswo4942.github.io/android-notes/" target="_blank" rel="noopener">https://rlaalswo4942.github.io/android-notes/</a></li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>엔진을 떼어 낸 과정</h2>
+    <p>처음엔 AI 해커톤 대비용 학습노트 한 개였다. 다른 과목에도 쓰고 싶어서 과목별 문구와 원고 해석 규칙을 설정 파일(content.js) 하나로 몰아내고, 나머지 엔진 파일은 모든 사이트에서 똑같이 유지하는 구조로 바꿨다. 한 사이트에서 고친 기능(형광펜을 곱하기 층으로 분리해 글자가 가려지지 않게 한 수정 등)을 같은 커밋으로 다른 사이트에도 반영하고, 사이트마다 저장 키를 다르게 둬서 동기화 서버를 같이 써도 기록이 섞이지 않는다.</p>
+  </section>
+
+  <section class="d-block">
+    <h2>Stack &amp; Role</h2>
+    <p class="stack-line mono">Vanilla JavaScript · Markdown · GitHub Pages · Vercel Serverless · Neon PostgreSQL</p>
+    <div class="role-tags">
+      <span>엔진 설계</span><span>학습 UX</span><span>실시간 동기화</span>
+    </div>
+    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업 · 엔진 저장소는 비공개</p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="mk-mark large">MK</span>
+    <p class="footer-role">AI/AX Planner &amp; Creator</p>
+    <div class="footer-links">
+      <a href="mailto:c.minjae.k@gmail.com">c.minjae.k@gmail.com</a>
+      <a href="https://mkim.vercel.app">mkim.vercel.app</a>
+    </div>
+    <div class="footer-bottom">
+      <span>김민재 · MinJae Kim</span>
+      <span>Project Index — 2026.10.15</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
