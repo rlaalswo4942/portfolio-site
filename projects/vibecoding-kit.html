@@ -22,7 +22,7 @@
     <p class="detail-tags">개발자 도구 · 2026 · <span class="status filled">배포중</span></p>
     <h1>바이브코딩 설치 키트</h1>
     <div class="detail-links" style="flex-direction: column; align-items: flex-start;">
-      <a href="../downloads/vibecoding-kit/바이브코딩_설치패키지.zip" download>전체 폴더 다운로드 (ZIP · 111KB) ↓</a>
+      <a href="../downloads/vibecoding-kit/바이브코딩_설치패키지.zip" download>전체 폴더 다운로드 (ZIP · 148KB) ↓</a>
       <a href="../downloads/vibecoding-kit/claude_code_skills_bundle_setup_prompt.md" download>스킬 번들 설치 프롬프트 (MD · 20KB) ↓</a>
     </div>
   </header>
@@ -32,10 +32,12 @@
   <section class="d-block">
     <h2>Main Features</h2>
     <ul>
-      <li>Windows: 관리자 권한으로 자동 재실행 후 winget으로 Git·VS Code를 설치하고, Claude Code 공식 설치 스크립트와 VS Code 확장까지 한 번에 설치</li>
+      <li>Windows: winget으로 Git·VS Code(우클릭 "Code로 열기"·PATH 포함)를 설치하고, Claude Code 공식 설치 스크립트와 VS Code 확장(Claude Code, Live Server)까지 한 번에 설치 — 빠진 것만 골라 설치하고 끝에 누락 여부를 점검</li>
+      <li>관리자 권한 없이 일반 사용자로 실행해 Claude·VS Code가 본인 계정에 설치되고, 관리자 승인은 Git 설치 때 한 번만 요청</li>
+      <li>Git 커밋용 이름·이메일 설정과 작업 폴더(문서ibe-coding) 생성까지 처리해, 워크북 1~2장을 막힘 없이 시작</li>
       <li>이미 설치된 PC에서는 설치 단계를 건너뛰고 VS Code와 Claude 로그인 창만 바로 띄움 — 다음부터는 같은 실행.bat이 런처 역할</li>
       <li>설정 프롬프트(한국어 답변, 가장 간단한 방법 우선, 되돌리기 어려운 작업 전 확인, 실행 검증)를 자동으로 클립보드에 복사</li>
-      <li>Mac: VS Code·Node.js 설치 여부를 확인하고, 확장 설치와 바탕화면 연습 폴더(my-first-app) 생성까지 자동화</li>
+      <li>Mac: VS Code 설치 여부를 확인하고, Git(Command Line Tools)·Claude Code·확장 설치와 작업 폴더(문서/vibe-coding) 생성까지 자동화</li>
       <li>자동화할 수 없는 로그인 단계와 winget 미설치, SmartScreen 경고, 압축 안 풀고 실행 같은 실패 사례를 사용법.txt와 PDF 가이드에 정리</li>
     </ul>
   </section>
@@ -63,7 +65,7 @@
   <section class="d-block">
     <h2>Known Issues · Next Steps</h2>
     <ul>
-      <li>Mac은 VS Code와 Node.js를 직접 설치해야 함 — Homebrew 기반 자동 설치는 미구현</li>
+      <li>Mac은 VS Code를 직접 설치해야 함 — Homebrew 기반 자동 설치는 미구현</li>
       <li>서명되지 않은 스크립트라 Windows SmartScreen·macOS Gatekeeper 경고가 뜸 (안내문으로 대응 중)</li>
     </ul>
   </section>

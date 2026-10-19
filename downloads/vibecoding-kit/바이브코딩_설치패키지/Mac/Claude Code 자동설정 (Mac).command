@@ -11,30 +11,42 @@ if ! command -v code >/dev/null 2>&1; then
     read -p $'\n엔터를 누르면 종료합니다 '
     exit 1
 fi
+echo "[1/4] VSCode 확인 완료"
+echo
 
-if ! command -v node >/dev/null 2>&1; then
-    echo "[오류] Node.js를 찾을 수 없습니다."
-    echo "가이드 2단계에서 Node.js를 먼저 설치해주세요."
-    read -p $'\n엔터를 누르면 종료합니다 '
-    exit 1
+# Git comes with the Command Line Tools; this pops the macOS install dialog if missing
+if ! xcode-select -p >/dev/null 2>&1; then
+    echo "[2/4] Git 설치 창을 띄웁니다. '설치'를 눌러주세요 (끝날 때까지 기다리지 않아도 됩니다)."
+    xcode-select --install
+else
+    echo "[2/4] Git 확인 완료"
 fi
-
-echo "[1/3] VSCode, Node.js 확인 완료"
 echo
 
-echo "[2/3] Claude Code 확장 설치 중..."
+export PATH="$HOME/.local/bin:$PATH"
+if ! command -v claude >/dev/null 2>&1; then
+    echo "[3/4] Claude Code 설치 중..."
+    curl -fsSL https://claude.ai/install.sh | bash
+    grep -q '.local/bin' "$HOME/.zshrc" 2>/dev/null || echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
+else
+    echo "[3/4] Claude Code 확인 완료"
+fi
+echo
+
+echo "[4/4] VS Code 확장(Claude Code, Live Server) 설치 중..."
 code --install-extension anthropic.claude-code
+code --install-extension ritwickdey.LiveServer
 echo
 
-PROJECT="$HOME/Desktop/my-first-app"
+PROJECT="$HOME/Documents/vibe-coding"
 mkdir -p "$PROJECT"
-echo "[3/3] 연습용 폴더 준비 완료: $PROJECT"
+echo "작업 폴더 준비 완료: $PROJECT"
 echo
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROMPT_FILE="$SCRIPT_DIR/../프롬프트.txt"
 if [ -f "$PROMPT_FILE" ] && command -v pbcopy >/dev/null 2>&1; then
-    pbcopy < "$PROMPT_FILE"
+    LANG=en_US.UTF-8 pbcopy < "$PROMPT_FILE"
     echo "설정용 프롬프트를 클립보드에 복사했습니다. Claude 대화창에서 Cmd+V로 붙여넣으세요."
     echo
 fi
