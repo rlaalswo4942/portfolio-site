@@ -1,4 +1,7 @@
 ﻿# Run as a normal user: winget asks for admin itself (Git), and Claude/VS Code must live in the user's own profile.
+# Log next to the script so a failed run on someone else's PC can be sent back as one file
+try { Start-Transcript -Path (Join-Path $PSScriptRoot "설치기록.txt") -Append | Out-Null } catch {}
+
 $Work = Join-Path ([Environment]::GetFolderPath("MyDocuments")) "vibe-coding"
 
 function Refresh-Path {
