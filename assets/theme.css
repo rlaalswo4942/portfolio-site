@@ -585,3 +585,24 @@ footer .footer-bottom {
   text-underline-offset: 3px;
   overflow-wrap: anywhere;
 }
+
+/* 상세 페이지 실제 스크린샷 (assets/img/<slug>/) */
+.room-shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+.room-shots figure { margin: 0; }
+.room-shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background: #1b1e26;
+}
+.room-shots figcaption {
+  font-size: 0.8rem;
+  color: var(--text-3);
+  margin-top: 0.4rem;
+}
