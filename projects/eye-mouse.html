@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시선 마우스 · 김민재</title>
+<meta name="description" content="웹캠 시선 추적으로 마우스를 대신하는 Windows 보조 프로그램. 마우스를 쓸 수 없는 상황을 상정했다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+
+<nav class="detail-nav">
+  <div class="catnav-inner">
+    <a class="back-link" href="../index.html">← Index</a>
+    <span class="mk-mark">MK</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="detail-head">
+    <p class="detail-tags">데스크톱 유틸리티 · 2026 · <span class="status outline">진행중</span></p>
+    <h1>시선 마우스</h1>
+    <div class="detail-links">
+      <span class="placeholder">GitHub 링크 추가 예정</span>
+    </div>
+  </header>
+
+  <p class="hook">손을 쓰지 않고, 눈으로 보고 깜빡여서 누른다 — 일반 웹캠 하나로 만드는 마우스 대체 프로그램.</p>
+
+  <section class="d-block">
+    <h2>Main Features</h2>
+    <ul>
+      <li>MediaPipe Face Landmarker로 얼굴 점 478개를 읽어 홍채 위치·눈 방향·머리 각도 등 특징 20개로 줄이고, 모니터별 릿지 회귀로 화면 좌표를 예측</li>
+      <li>마우스를 못 쓰는 상황을 상정해 로그인 시 대기 상태로 자동 시작 — 웹캠 쪽을 보고 눈을 1초 감았다 뜨면 켜지고 꺼짐</li>
+      <li>클릭은 누를 곳을 보고 두 번 깜빡이기. Windows UI Automation으로 근처 버튼에 맞춰 붙고(스냅), 커서를 움직이지 않고 누를 수 있어 실제 마우스와 따로 동작</li>
+      <li>보정: 화면 끝까지 퍼진 점 16개를 시선이 실제로 도착해 머물 때만 기록, 단계 사이 쉬는 시간과 효과음 안내. 웹캠이 조금 움직였을 때는 점 5개짜리 빠른 재조정</li>
+      <li>듀얼 모니터 지원(화면별 모델 + 어느 화면을 보는지 판별), One Euro 필터로 떨림 보정</li>
+      <li>외부 API 없이 PC 안에서만 동작, 화면 없는 논리 시험 54개·가짜 시선으로 실제 창을 누르는 전체 흐름 시험 42개</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>Known Issues · Next Steps</h2>
+    <ul>
+      <li>실측 보정 오차는 정면 모니터 약 100~250px, 옆 모니터 약 400~585px — 아직 작은 버튼을 바로 누르기엔 부족해 스냅으로 보완하는 중</li>
+      <li>저가 웹캠(640×480, 초당 15~19장)이 병목이고, 모니터 위에 달려 있어 화면 아래쪽을 보면 눈이 감긴 것처럼 찍힘 → 깜빡임을 고정 기준이 아닌 "최근 1.2초 대비 급변"으로 판정하도록 바꿈</li>
+      <li>Windows 커서는 하나뿐이라 진짜 두 번째 커서는 불가 — 시선 포인터는 화면 표시로만 존재</li>
+      <li>다음: 끌기·스크롤·오른쪽 클릭 추가, 실측 오차에 맞춘 스냅 반경 조정</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <h2>Stack &amp; Role</h2>
+    <p class="stack-line mono">Python · MediaPipe · OpenCV · NumPy · Windows UI Automation · Tkinter</p>
+    <div class="role-tags">
+      <span>시선 추적 구현</span><span>접근성 · HCI</span>
+    </div>
+    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
+  </section>
+
+  <section class="d-block todo-block">
+    <h2>Coming Soon</h2>
+    <p>실제 사용 영상과 보정 화면 스크린샷은 준비되는 대로 채워 넣을 예정입니다.</p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="mk-mark large">MK</span>
+    <p class="footer-role">AI/AX Planner &amp; Creator</p>
+    <div class="footer-links">
+      <a href="mailto:c.minjae.k@gmail.com">c.minjae.k@gmail.com</a>
+      <a href="https://mkim.vercel.app">mkim.vercel.app</a>
+    </div>
+    <div class="footer-bottom">
+      <span>김민재 · MinJae Kim</span>
+      <span>Project Index — 2026.11.27</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
