@@ -27,32 +27,32 @@
     </div>
   </header>
 
-  <p class="hook">직접 만든 프로그램을 '월 구독'으로 팔고 관리할 수 있는 웹사이트입니다. 시험용 사이트가 올라가 있어, 손님 계정으로 실제 흐름을 둘러볼 수 있습니다.</p>
+  <p class="hook">만든 프로그램을 월 구독으로 팔고 관리하는 웹사이트입니다.</p>
 
   <section class="d-block">
     <h2>한눈에 보기</h2>
     <div class="quad-grid">
       <div>
         <h3>무엇인가요</h3>
-        <p>넷플릭스가 영상을 구독으로 제공하듯, 프로그램을 구독해서 내려받아 쓰게 하는 판매·관리 웹사이트입니다.</p>
+        <p>넷플릭스처럼, 프로그램을 구독해서 내려받아 쓰게 하는 사이트입니다.</p>
       </div>
       <div>
         <h3>누가 쓰나요</h3>
-        <p>파는 사람(관리자)은 상품·가격·새 버전을 올리고, 쓰는 사람은 구독하고 내려받습니다. 설치된 프로그램은 이 사이트에 "계속 써도 되나요?"를 물어 확인합니다.</p>
+        <p>파는 사람은 상품을 올리고, 쓰는 사람은 구독하고 내려받습니다.</p>
       </div>
       <div>
         <h3>어떻게 움직이나요</h3>
-        <p>매달 결제를 확인하고, 결제가 끊기면 경고를 3번 보낸 뒤 사용을 막습니다. 다시 구독하면 예전 자료를 되살려 줍니다.</p>
+        <p>결제가 끊기면 경고 3번 뒤 막고, 다시 구독하면 되살려 줍니다.</p>
       </div>
       <div>
         <h3>지금 상태 · 데모 배포됨</h3>
-        <p>시험용 사이트는 올라가 있지만, 실제 결제 연결은 아직이라 판매할 수 있는 단계는 아닙니다.</p>
+        <p>시험용 사이트는 열려 있고, 실제 결제 연결은 아직입니다.</p>
       </div>
     </div>
   </section>
 
-  <section class="d-block">
-    <h2>주요 기능</h2>
+  <details class="d-block more">
+    <summary>기능 자세히</summary>
     <ul>
       <li><strong>핵심 흐름</strong> — 매달 결제 확인 → 결제가 끊기면 3번 경고 후 사용 차단 → 다시 구독하면 기존 자료 복원</li>
       <li><strong>상품마다 가격 방식 선택</strong> — 무료 / 한 번 구매 / 구독. GitHub에 새 버전을 올리면 '안정판'과 '시험판(베타)'으로 자동 분류하고, 꼭 업데이트해야 할 때는 강제 업데이트 표시</li>
@@ -60,10 +60,10 @@
       <li><strong>설치된 프로그램과 대화하는 창구(API)</strong> — 사용 자격 확인, 최신 버전 확인, 사용 기록 수집</li>
       <li><strong>시험용 사이트</strong> — Vercel과 Neon으로 올려 두어, 손님 계정으로 실제 서비스 흐름을 체험 가능</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>보안 점검 3번</h2>
+  <details class="d-block more">
+    <summary>보안 점검 3번</summary>
     <p>스스로 세 번 보안 점검을 해서 모두 14건을 고쳤습니다.</p>
     <ul>
       <li><strong>1차 (7건)</strong> — 허락되지 않은 폴더의 파일을 꺼내 볼 수 있는 구멍(경로 탐색), 비밀번호를 끝없이 시도할 수 있는 문제, 가입된 이메일인지 알아낼 수 있는 문제 등</li>
@@ -71,18 +71,18 @@
       <li><strong>3차</strong> — 내려받기 기능이 파일 전체를 한 번에 메모리에 올려서, 누군가 계속 내려받으면 서버가 멈출 수 있던 위험을 조금씩 흘려보내는 방식(스트리밍)으로 바꿈</li>
     </ul>
     <p>매번 위험한 정도를 매겨 급한 것부터 고쳤고, 코드 자동 검사를 붙여 같은 문제가 다시 생기지 않게 했습니다.</p>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>남은 문제와 다음 할 일</h2>
+  <details class="d-block more">
+    <summary>남은 문제와 다음 할 일</summary>
     <ul>
       <li>1차(사이트와 배포), 2차(가격 방식·화면 편집기) 계획은 끝났습니다. 3차(실제 결제 연결)는 아직 시작하지 않아 판매용으로는 미완성입니다.</li>
       <li>자료 저장소(데이터베이스)는 "개발 중엔 내 컴퓨터 → 출시할 땐 Oracle Cloud의 무료 서버"로 옮겨, 5년 동안 드는 비용을 최소로 하는 계획을 세워 두었습니다.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>어려운 말 풀이</h2>
+  <details class="d-block more">
+    <summary>어려운 말 풀이</summary>
     <dl class="glossary">
       <dt>구독</dt><dd>매달 돈을 내고 계속 쓰는 방식.</dd>
       <dt>데모</dt><dd>실제 서비스 전에 보여 주기용으로 올린 시험 사이트.</dd>
@@ -92,21 +92,16 @@
       <dt>베타</dt><dd>정식 출시 전의 시험 버전.</dd>
       <dt>보안 점검(감사)</dt><dd>해킹당할 만한 빈틈을 일부러 찾아보는 점검.</dd>
     </dl>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>사용한 기술과 맡은 일</h2>
+  <details class="d-block more">
+    <summary>사용한 기술 · 맡은 일</summary>
     <p class="stack-line mono">Next.js · Prisma · PostgreSQL · NextAuth · Vercel + Neon</p>
     <div class="role-tags">
       <span>서비스 기획</span><span>화면부터 서버까지 구현</span><span>보안 점검</span><span>배포</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
-  </section>
-
-  <section class="d-block todo-block">
-    <h2>준비 중</h2>
-    <p>실제 화면 사진, 자세한 사용 흐름, 검증 자료는 준비되는 대로 채울 예정입니다.</p>
-  </section>
+  </details>
 </div>
 
 <footer>

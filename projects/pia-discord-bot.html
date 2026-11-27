@@ -26,71 +26,66 @@
     </div>
   </header>
 
-  <p class="hook">Pia가 사람 말을 더 잘 알아듣도록, 사람들이 자연스럽게 말하고 글을 남기게 만드는 디스코드 대화 봇입니다. 모인 대화가 Pia를 가르치는 자료가 됩니다.</p>
+  <p class="hook">대화하면서 Pia가 배울 자료를 모으는 디스코드 봇입니다.</p>
 
   <section class="d-block">
     <h2>한눈에 보기</h2>
     <div class="quad-grid">
       <div>
         <h3>무엇인가요</h3>
-        <p>디스코드(여럿이 채팅·음성 통화를 하는 단체 대화 앱) 안에서 사람과 대화하는 AI 봇입니다.</p>
+        <p>디스코드(단체 채팅 앱)에서 사람과 대화하는 AI 봇입니다.</p>
       </div>
       <div>
         <h3>왜 필요한가요</h3>
-        <p>받아 적기(STT) 정확도를 높이려면 실제 사람의 말과 글이 많이 필요합니다. 봇과 이야기하다 보면 그 기록이 자연스럽게 쌓이도록 했습니다.</p>
+        <p>받아 적기 정확도를 높이려면 실제 사람의 말이 많이 필요해서입니다.</p>
       </div>
       <div>
         <h3>어떻게 쓰나요</h3>
-        <p>디스코드 서버에서 봇의 호출어를 부르면 전용 채널이 만들어지고, 거기서 글이나 음성으로 대화하면 됩니다.</p>
+        <p>봇을 부르면 대화방이 생기고, 거기서 말하거나 쓰면 됩니다.</p>
       </div>
       <div>
         <h3>지금 상태 · 운영 중</h3>
-        <p>무료 AI 서비스를 쓰다 보니 사용량 한도, 답변 정확도, 말투가 고르지 않은 문제가 있어 개선 방법을 찾고 있습니다.</p>
+        <p>운영 중. 무료 AI라서 생기는 사용량·말투 문제를 고치는 중입니다.</p>
       </div>
     </div>
   </section>
 
-  <section class="d-block">
-    <h2>주요 기능</h2>
+  <details class="d-block more">
+    <summary>기능 자세히</summary>
     <ul>
       <li><strong>AI와 대화하며 자료 모으기</strong> — 구글의 AI(Gemini)로 대답하고, 오간 음성과 글을 자료로 모읍니다.</li>
       <li><strong>전용 채널 자동 생성</strong> — 호출어에 반응해 대화용 채널을 알아서 만듭니다.</li>
       <li><strong>Pia 학습으로 연결</strong> — 모은 자료를 Pia를 가르치는 과정으로 넘깁니다.</li>
       <li><strong>받아 적기 보조</strong> — 따로 떼어 낸 STT 프로그램의 정확도를 높이는 자료 공급 역할을 합니다.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>남은 문제와 다음 할 일</h2>
+  <details class="d-block more">
+    <summary>남은 문제와 다음 할 일</summary>
     <ul>
       <li>무료 AI 서비스라 사용량 한도, 정확도, 말투에서 문제가 보였습니다. Gemini 무료 한도를 넘기면 다른 AI(Groq)가 대신 답하도록 해 두었지만, 두 AI의 답변 품질 차이는 그대로 남아 있습니다.</li>
       <li>이를 보완할 방법을 찾고 있습니다.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>어려운 말 풀이</h2>
+  <details class="d-block more">
+    <summary>어려운 말 풀이</summary>
     <dl class="glossary">
       <dt>디스코드</dt><dd>채팅과 음성 통화를 하는 단체 대화 앱. 게임 이용자와 개발자 모임에서 많이 씁니다.</dd>
       <dt>봇</dt><dd>정해진 규칙이나 AI로 자동으로 대답하고 행동하는 프로그램 계정.</dd>
       <dt>API · 무료 티어</dt><dd>다른 서비스의 기능을 빌려 쓰는 창구 · 그중 무료로 쓸 수 있는 사용량 범위.</dd>
       <dt>폴백</dt><dd>원래 방법이 막혔을 때 대신 쓰는 예비 방법.</dd>
     </dl>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>사용한 기술과 맡은 일</h2>
+  <details class="d-block more">
+    <summary>사용한 기술 · 맡은 일</summary>
     <p class="stack-line mono">discord.py · Gemini API · Groq API(폴백)</p>
     <div class="role-tags">
       <span>봇 기획</span><span>자료 수집 과정 설계</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
-  </section>
-
-  <section class="d-block todo-block">
-    <h2>준비 중</h2>
-    <p>실제 화면 사진, 자세한 사용 흐름, 검증 자료는 준비되는 대로 채울 예정입니다.</p>
-  </section>
+  </details>
 </div>
 
 <footer>

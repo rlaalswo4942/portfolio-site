@@ -26,43 +26,43 @@
     </div>
   </header>
 
-  <p class="hook">원본 데이터베이스의 한 구역을 그대로 복사해 GitHub에 기록으로 남겨 두는 보조 백업 도구입니다. 원본은 따로 있고, 이 도구는 사진첩 같은 사본만 남깁니다.</p>
+  <p class="hook">데이터베이스 내용을 날짜별 사본으로 남겨 두는 백업 도구입니다.</p>
 
   <section class="d-block">
     <h2>한눈에 보기</h2>
     <div class="quad-grid">
       <div>
         <h3>무엇인가요</h3>
-        <p>데이터베이스의 'ax_ton'이라는 구역을 사람이 읽을 수 있는 글자 파일(JSON)로 뽑아 저장소에 올려 두는 작은 프로그램입니다.</p>
+        <p>데이터베이스의 한 구역을 글자 파일로 뽑아 보관합니다.</p>
       </div>
       <div>
         <h3>왜 필요한가요</h3>
-        <p>원본이 망가졌을 때를 대비해 날짜별 사본(스냅샷)을 따로 남겨 두려는 것입니다. 원본은 항상 운영 중인 데이터베이스이고, 이 저장소는 사본 보관만 합니다.</p>
+        <p>원본이 망가졌을 때 되살릴 사본을 두기 위해서입니다.</p>
       </div>
       <div>
         <h3>지금 상태 · 완성</h3>
-        <p>도구는 완성했지만, 'AXton'이라는 제품 방향이 아직 정해지지 않아 백업할 내용은 비어 있습니다. 내용이 생기면 바로 백업할 수 있게 길만 먼저 닦아 둔 상태입니다.</p>
+        <p>도구는 완성. 아직 백업할 내용이 없어서 길만 닦아 둔 상태입니다.</p>
       </div>
     </div>
   </section>
 
-  <section class="d-block">
-    <h2>주요 기능</h2>
+  <details class="d-block more">
+    <summary>기능 자세히</summary>
     <ul>
       <li>ax_ton 구역의 내용을 JSON 파일로 뽑아내기</li>
       <li>뽑은 결과를 그대로 저장소에 기록(커밋)해 날짜별 사본 이력 관리</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>남은 문제와 다음 할 일</h2>
+  <details class="d-block more">
+    <summary>남은 문제와 다음 할 일</summary>
     <ul>
       <li>'AXton'이라는 제품 자체의 방향이 아직 정해지지 않아, 지금 그 구역에는 표가 하나도 없습니다. 이 도구는 빈 구역을 대상으로 백업 길만 미리 만들어 둔 것입니다.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>어려운 말 풀이</h2>
+  <details class="d-block more">
+    <summary>어려운 말 풀이</summary>
     <dl class="glossary">
       <dt>스키마</dt><dd>데이터베이스 안을 나눈 구역, 또는 그 안의 표 구조.</dd>
       <dt>JSON</dt><dd>사람도 읽을 수 있는 자료 저장 형식.</dd>
@@ -70,21 +70,16 @@
       <dt>스냅샷</dt><dd>특정 순간의 상태를 사진 찍듯 남긴 사본.</dd>
       <dt>커밋</dt><dd>변경 내용을 저장소에 기록으로 남기는 것.</dd>
     </dl>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>사용한 기술과 맡은 일</h2>
+  <details class="d-block more">
+    <summary>사용한 기술 · 맡은 일</summary>
     <p class="stack-line mono">Python · psycopg2</p>
     <div class="role-tags">
       <span>백업 도구 구현</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
-  </section>
-
-  <section class="d-block todo-block">
-    <h2>준비 중</h2>
-    <p>실행 기록과 화면 사진은 준비되는 대로 채울 예정입니다.</p>
-  </section>
+  </details>
 </div>
 
 <footer>

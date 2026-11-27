@@ -26,32 +26,32 @@
     </div>
   </header>
 
-  <p class="hook">손을 쓰지 않고, 눈으로 보고 두 번 깜빡여서 누릅니다. 흔한 웹캠 하나로 만드는 마우스 대체 프로그램입니다.</p>
+  <p class="hook">눈으로 보고, 두 번 깜빡여 클릭하는 마우스 대체 프로그램입니다.</p>
 
   <section class="d-block">
     <h2>한눈에 보기</h2>
     <div class="quad-grid">
       <div>
         <h3>무엇인가요</h3>
-        <p>웹캠으로 내 눈이 화면의 어디를 보는지 알아내, 그 자리를 마우스처럼 누를 수 있게 해 주는 윈도우 보조 프로그램입니다.</p>
+        <p>웹캠으로 눈이 화면 어디를 보는지 알아내 그곳을 눌러 줍니다.</p>
       </div>
       <div>
         <h3>누구를 위한 건가요</h3>
-        <p>손으로 마우스를 쓸 수 없는 상황을 생각하고 만들었습니다. 그래서 켜고 끄는 것까지 손을 쓰지 않고 할 수 있습니다.</p>
+        <p>손으로 마우스를 쓸 수 없는 상황을 위해 만들었습니다.</p>
       </div>
       <div>
         <h3>어떻게 쓰나요</h3>
-        <p>컴퓨터에 로그인하면 기다리는 상태로 저절로 시작합니다. 웹캠을 보고 눈을 1초 감았다 뜨면 켜지고, 누르고 싶은 곳을 보면서 두 번 깜빡이면 클릭됩니다.</p>
+        <p>눈을 1초 감았다 뜨면 켜지고, 보면서 두 번 깜빡이면 클릭됩니다.</p>
       </div>
       <div>
         <h3>지금 상태 · 진행 중</h3>
-        <p>정면 모니터 기준으로 100~250픽셀 정도 빗나갑니다. 가까운 버튼에 자동으로 붙여 주는 기능으로 보완하며 정확도를 높이고 있습니다.</p>
+        <p>만드는 중. 아직 조금 빗나가서, 가까운 버튼에 붙여 주며 보완하고 있습니다.</p>
       </div>
     </div>
   </section>
 
-  <section class="d-block">
-    <h2>주요 기능</h2>
+  <details class="d-block more">
+    <summary>기능 자세히</summary>
     <ul>
       <li><strong>눈이 보는 곳 계산</strong> — 얼굴의 점 478개(MediaPipe)를 읽어 눈동자 위치·눈 방향·머리 각도 같은 특징 20개로 줄이고, 모니터마다 따로 익힌 계산식(릿지 회귀)으로 화면 위 위치를 예측</li>
       <li><strong>손 없이 켜고 끄기</strong> — 로그인하면 기다리는 상태로 자동 시작. 웹캠을 보고 눈을 1초 감았다 뜨면 켜지고 꺼짐</li>
@@ -60,20 +60,20 @@
       <li><strong>모니터 두 대 지원</strong> — 화면마다 따로 계산하고 어느 화면을 보는지 판별. 시선 점이 덜덜 떨리지 않게 부드럽게 다듬는 필터(One Euro) 사용</li>
       <li><strong>내 컴퓨터 안에서만 동작</strong> — 외부 인터넷 서비스를 쓰지 않음. 화면 없이 계산만 확인하는 시험 54개, 가짜 시선으로 실제 창을 눌러 보는 전체 흐름 시험 42개</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>남은 문제와 다음 할 일</h2>
+  <details class="d-block more">
+    <summary>남은 문제와 다음 할 일</summary>
     <ul>
       <li>실제로 재 본 오차는 정면 모니터 약 100~250픽셀, 옆 모니터 약 400~585픽셀입니다. 아직 작은 버튼을 바로 누르기엔 부족해, 가까운 버튼에 붙여 주는 기능으로 보완하고 있습니다.</li>
       <li>값싼 웹캠(640×480 화질, 초당 15~19장)이 가장 큰 걸림돌입니다. 웹캠이 모니터 위에 달려 있어 화면 아래쪽을 보면 눈이 감긴 것처럼 찍힙니다. 그래서 깜빡임을 '정해진 기준보다 눈이 작아졌는가'가 아니라 '최근 1.2초와 비교해 갑자기 변했는가'로 판단하게 바꿨습니다.</li>
       <li>윈도우는 마우스 커서가 하나뿐이라 진짜 두 번째 커서는 만들 수 없습니다. 시선 위치는 화면에 표시만 됩니다.</li>
       <li>다음 할 일: 끌어 옮기기·스크롤·오른쪽 클릭 추가, 실제 오차에 맞춰 자동으로 붙는 범위 조정.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>어려운 말 풀이</h2>
+  <details class="d-block more">
+    <summary>어려운 말 풀이</summary>
     <dl class="glossary">
       <dt>시선 추적</dt><dd>눈이 어디를 보는지 알아내는 기술.</dd>
       <dt>보정(캘리브레이션)</dt><dd>사람마다 다른 눈 모양과 앉은 위치에 맞춰, 처음에 기준을 맞추는 과정.</dd>
@@ -83,21 +83,16 @@
       <dt>UI Automation</dt><dd>화면 속 버튼·입력칸의 위치와 종류를 프로그램이 알 수 있게 해 주는 윈도우의 접근성 기능.</dd>
       <dt>필터</dt><dd>튀는 값을 걸러 움직임을 부드럽게 만드는 계산.</dd>
     </dl>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>사용한 기술과 맡은 일</h2>
+  <details class="d-block more">
+    <summary>사용한 기술 · 맡은 일</summary>
     <p class="stack-line mono">Python · MediaPipe · OpenCV · NumPy · Windows UI Automation · Tkinter</p>
     <div class="role-tags">
       <span>시선 추적 구현</span><span>접근성 · 사람-컴퓨터 상호작용</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
-  </section>
-
-  <section class="d-block todo-block">
-    <h2>준비 중</h2>
-    <p>실제 사용 영상과 보정 화면 사진은 준비되는 대로 채울 예정입니다.</p>
-  </section>
+  </details>
 </div>
 
 <footer>

@@ -27,42 +27,42 @@
     </div>
   </header>
 
-  <p class="hook">새 장비를 설치하지 않고, 이미 있는 가로등만으로 밤길을 걷는 사람 앞을 밝혀 주는 캠퍼스 안전 서비스입니다. 기술뿐 아니라 법·운영·사업성까지 함께 검토한 해커톤 시험작입니다.</p>
+  <p class="hook">밤길을 걷는 사람 앞의 가로등을 미리 밝혀 주는 캠퍼스 안전 서비스입니다.</p>
 
   <section class="d-block">
     <h2>한눈에 보기</h2>
     <div class="quad-grid">
       <div>
         <h3>무엇인가요</h3>
-        <p>밤에 캠퍼스를 걸을 때, 내가 가는 길 앞쪽 가로등이 미리 밝아지고 지나간 곳은 원래대로 돌아가게 하는 서비스입니다.</p>
+        <p>내가 걷는 길 앞쪽 가로등만 미리 밝아지게 하는 서비스입니다.</p>
       </div>
       <div>
         <h3>왜 필요한가요</h3>
-        <p>사람이 없는 시간에 가로등을 한꺼번에 끄거나 어둡게 하면 전기는 아끼지만 밤길이 무섭습니다. 필요한 곳만 그때그때 밝혀 안전과 절약을 함께 노립니다.</p>
+        <p>가로등을 다 끄면 무섭고, 다 켜 두면 전기가 아깝기 때문입니다.</p>
       </div>
       <div>
         <h3>어떻게 쓰나요</h3>
-        <p>휴대폰에서 출발지와 목적지를 고르면 걷는 길이 계산되고, 그 길을 따라 앞쪽 가로등이 차례로 켜지는 모습을 지도에서 볼 수 있습니다.</p>
+        <p>출발지와 목적지를 고르면, 길을 따라 가로등이 켜지는 모습을 지도에서 봅니다.</p>
       </div>
       <div>
         <h3>지금 상태 · 프로토타입</h3>
-        <p>실제 가로등을 움직이지는 않고, 화면 속 모의 실행만 되는 시험판입니다.</p>
+        <p>해커톤 시험판. 실제 가로등은 아직 연결하지 않았습니다.</p>
       </div>
     </div>
   </section>
 
-  <section class="d-block">
-    <h2>주요 기능</h2>
+  <details class="d-block more">
+    <summary>기능 자세히</summary>
     <ul>
       <li>출발지·목적지를 고르면 걷는 길을 계산(OSRM)</li>
       <li>가는 길 앞쪽 가로등을 차례로 밝히고, 지나간 구간은 자동으로 원래대로</li>
       <li>고장·깜빡임 같은 시설 문제 신고와 안전 시설 지도</li>
       <li>전기를 얼마나 아낄 수 있는지 계산해 보는 모의 실험 포함</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>자료 · 방법 · 검증 · 한계</h2>
+  <details class="d-block more">
+    <summary>자료 · 방법 · 검증 · 한계</summary>
     <div class="quad-grid">
       <div>
         <h3>자료</h3>
@@ -81,20 +81,20 @@
         <p>실제 가로등 장비와 연결되지 않았습니다. 여러 사람이 동시에 걸을 때 가로등이 깜빡거리지 않게 하는 방법은 아직 검토 단계입니다.</p>
       </div>
     </div>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>남은 문제와 다음 할 일</h2>
+  <details class="d-block more">
+    <summary>남은 문제와 다음 할 일</summary>
     <ul>
       <li>처음엔 바닥 센서와 작은 제어 장치(ESP32 등)로 실제 가로등을 조정하는 방향을 검토했지만, 설치비와 허가 부담 때문에 "새 장비 없이 기존 가로등과 무료 서비스만 쓴다"로 방향을 바꿨습니다. 설명서(README)는 아직 바꾸기 전 설계를 설명하고 있어 실제 코드(관리자가 켜고 끄는 방식)와 맞지 않습니다.</li>
       <li>가로등 위치는 실제 공개 지도 자료만 쓰고, 자료가 없으면 0개라고 그대로 보여 줍니다. 처음엔 길을 따라 가상의 가로등을 만들어 넣었다가 실제 자료로 바꿨습니다.</li>
       <li>흔히 쓰는 공개 길 찾기 서버의 '보행자용' 주소가 실제로는 자동차 경로와 완전히 같은 값을 준다는 걸 직접 확인해 발견했습니다. 실제 걷는 속도를 쓰는 다른 서버(FOSSGIS)로 바꿨습니다.</li>
       <li>'긴급 조명 강제 켜기' 버튼은 실제로 그 기능을 부르는 곳이 없어 눌러도 동작하지 않습니다. 아직 고치지 않았습니다.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>어려운 말 풀이</h2>
+  <details class="d-block more">
+    <summary>어려운 말 풀이</summary>
     <dl class="glossary">
       <dt>해커톤</dt><dd>짧은 기간 안에 팀을 이뤄 아이디어를 시험판으로 만드는 대회.</dd>
       <dt>스마트캠퍼스</dt><dd>정보 기술로 캠퍼스 시설을 더 똑똑하게 운영하는 것.</dd>
@@ -103,16 +103,16 @@
       <dt>피벗</dt><dd>처음 계획한 방향을 바꾸는 것.</dd>
       <dt>죽은 코드</dt><dd>만들어 두었지만 어디서도 실행되지 않는 코드.</dd>
     </dl>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>사용한 기술과 맡은 일</h2>
+  <details class="d-block more">
+    <summary>사용한 기술 · 맡은 일</summary>
     <p class="stack-line mono">React · TypeScript · Vite · PWA · Capacitor · Leaflet · OSRM · Nominatim</p>
     <div class="role-tags">
       <span>문제 정의</span><span>실현 가능성 검토</span><span>법률 검토</span><span>사업 모델</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
-  </section>
+  </details>
 </div>
 
 <footer>

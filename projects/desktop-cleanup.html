@@ -26,49 +26,49 @@
     </div>
   </header>
 
-  <p class="hook">바탕화면이 어지러워지면, 단축키 한 번으로 파일을 종류별 폴더에 넣고 아이콘을 가지런히 다시 세웁니다.</p>
+  <p class="hook">단축키 한 번으로 바탕화면을 정리하는 도구입니다.</p>
 
   <section class="d-block">
     <h2>한눈에 보기</h2>
     <div class="quad-grid">
       <div>
         <h3>무엇인가요</h3>
-        <p>바탕화면에 흩어진 파일들을 종류·용도별 폴더로 옮겨 주고, 남은 아이콘을 깔끔하게 다시 줄 세우는 윈도우 도구입니다.</p>
+        <p>흩어진 파일을 종류별 폴더로 옮기고 아이콘을 다시 줄 세웁니다.</p>
       </div>
       <div>
         <h3>어떻게 쓰나요</h3>
-        <p>Ctrl+Space를 누른 뒤 S를 누르면 바로 정리됩니다. 창을 띄워 직접 정리하거나, 예약해 두고 자동으로 정리되게 할 수도 있습니다.</p>
+        <p>Ctrl+Space를 누르고 S를 누르면 끝입니다.</p>
       </div>
       <div>
         <h3>무엇은 그대로 두나요</h3>
-        <p>휴지통·내 PC·작업 관리자 같은 시스템 아이콘은 제자리에 그대로 둡니다.</p>
+        <p>휴지통·내 PC 같은 기본 아이콘은 그대로 둡니다.</p>
       </div>
       <div>
         <h3>지금 상태 · 완성</h3>
-        <p>컴퓨터를 켠 직후 단축키가 안 먹거나, 한 번 눌렀는데 두 번 정리되던 문제까지 고쳤습니다.</p>
+        <p>완성. 컴퓨터를 켜자마자 안 되던 문제까지 고쳤습니다.</p>
       </div>
     </div>
   </section>
 
-  <section class="d-block">
-    <h2>주요 기능</h2>
+  <details class="d-block more">
+    <summary>기능 자세히</summary>
     <ul>
       <li>Ctrl+Space→S 단축키로 바탕화면 파일을 확장자(파일 종류)·용도별 폴더로 옮김. 창에서 직접 정리하는 방식과, 예약해 두고 자동으로 정리하는 방식 제공</li>
       <li>Assets와 ProjectSettings 폴더가 들어 있는 폴더는 게임 제작 도구 '유니티' 프로젝트로 알아보고 따로 분류</li>
       <li>휴지통·내 PC·작업 관리자 같은 시스템 아이콘은 제자리에 두고, 나머지만 왼쪽부터 줄 세움</li>
       <li>정렬 후 '자동 정렬'은 끄고 '칸에 맞추기'는 다시 켜서, 이후 아이콘을 손으로 옮겨도 엉뚱한 곳으로 튀지 않고 칸에 맞춰 놓임</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>윈도우와 씨름한 부분</h2>
+  <details class="d-block more">
+    <summary>윈도우와 씨름한 부분</summary>
     <p>아이콘 하나 옮기는 것부터 막혔습니다. 바탕화면 아이콘 목록은 윈도우 탐색기가 직접 관리하고 있어서, 다른 프로그램이 흔히 쓰는 방법으로 "여기로 옮겨"라고 말해도 무시당했습니다. 결국 윈도우 내부 기능(COM의 IFolderView2::SelectAndPositionItems)을 직접 불러야 했습니다. 인터넷에 흔히 알려진 설정 값(0x08)이 아니라 0x80을 써야 했고, '칸에 맞추기'가 켜져 있으면 윈도우가 "성공했다"고 답하면서도 실제로는 아무것도 옮기지 않았습니다.</p>
     <p>컴퓨터를 켠 직후 단축키가 안 먹는 문제는 로그인 뒤 20초 기다렸다가 다시 시도하게 해서 풀었습니다. 예약 작업과 시작 프로그램이 동시에 켜져서 한 번 누르면 두 번 정리되던 문제는, 이미 하나가 돌고 있으면 다른 하나는 실행되지 않도록 '이름 붙인 잠금(뮤텍스)'을 걸어 해결했습니다(2026-10-11).</p>
     <p>시험은 탐색기를 껐다 켜지 않고 실제 쓰는 바탕화면에서 단계별로 했고, 탐색기 번호(PID)가 바뀌지 않는 것, 즉 탐색기가 한 번도 죽지 않는 것을 성공 기준으로 삼았습니다.</p>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>어려운 말 풀이</h2>
+  <details class="d-block more">
+    <summary>어려운 말 풀이</summary>
     <dl class="glossary">
       <dt>확장자</dt><dd>파일 이름 뒤의 .jpg, .pdf처럼 파일 종류를 나타내는 꼬리표.</dd>
       <dt>탐색기</dt><dd>윈도우에서 폴더·파일과 바탕화면을 보여 주는 기본 프로그램.</dd>
@@ -77,16 +77,16 @@
       <dt>뮤텍스</dt><dd>같은 프로그램이 동시에 두 번 실행되지 않게 거는 잠금.</dd>
       <dt>PID</dt><dd>실행 중인 프로그램마다 윈도우가 붙이는 번호. 바뀌었다면 프로그램이 꺼졌다 켜졌다는 뜻입니다.</dd>
     </dl>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>사용한 기술과 맡은 일</h2>
+  <details class="d-block more">
+    <summary>사용한 기술 · 맡은 일</summary>
     <p class="stack-line mono">PowerShell 5.1 · C# (Add-Type) · Windows Shell COM · 작업 스케줄러</p>
     <div class="role-tags">
       <span>도구 기획</span><span>윈도우 내부 기능 연동</span><span>안정화</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업 · 코드는 비공개</p>
-  </section>
+  </details>
 </div>
 
 <footer>

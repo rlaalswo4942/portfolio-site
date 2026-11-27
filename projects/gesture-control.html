@@ -26,32 +26,32 @@
     </div>
   </header>
 
-  <p class="hook">마우스도 키보드도 없이, 손짓만으로 컴퓨터에 명령을 내리는 프로그램입니다. 아직 만들고 있습니다.</p>
+  <p class="hook">손짓만으로 컴퓨터를 다루는 프로그램입니다.</p>
 
   <section class="d-block">
     <h2>한눈에 보기</h2>
     <div class="quad-grid">
       <div>
         <h3>무엇인가요</h3>
-        <p>컴퓨터 웹캠이 내 손을 보고, 손 모양과 움직임을 알아들어 슬라이드 넘기기·마우스 움직이기·단축키 누르기 등을 대신해 주는 프로그램입니다.</p>
+        <p>웹캠이 손 모양을 보고 명령으로 바꿔 줍니다.</p>
       </div>
       <div>
         <h3>어디에 쓰나요</h3>
-        <p>발표 슬라이드(PPT·PDF)를 손짓으로 넘기거나, 마우스와 키보드를 쓰지 않고 컴퓨터를 다룰 때 씁니다.</p>
+        <p>발표 슬라이드를 넘기거나, 마우스 없이 컴퓨터를 다룰 때 씁니다.</p>
       </div>
       <div>
         <h3>어떻게 쓰나요</h3>
-        <p>손바닥을 카메라에 잠시 보여 주면 켜집니다. 검지를 세우면 마우스 모드, 주먹을 쥐면 둥근 메뉴가 열립니다. 나만의 손동작을 녹화해 새 명령으로 등록할 수도 있습니다.</p>
+        <p>손바닥을 보이면 켜지고, 검지를 세우면 마우스, 주먹을 쥐면 메뉴입니다.</p>
       </div>
       <div>
         <h3>지금 상태 · 진행 중</h3>
-        <p>인식 정확도와 움직임 보정을 다듬고 있습니다.</p>
+        <p>만드는 중. 인식 정확도를 높이고 있습니다.</p>
       </div>
     </div>
   </section>
 
-  <section class="d-block">
-    <h2>주요 기능</h2>
+  <details class="d-block more">
+    <summary>기능 자세히</summary>
     <ul>
       <li>손 마디의 위치(MediaPipe)를 실시간으로 읽어 PPT·PDF 슬라이드 넘기기, 마우스 조작, 단축키 실행, 둥근 메뉴 열기까지 지원</li>
       <li>손 모양에 따라 상태가 바뀜: 기다림 → 손바닥을 유지하면 켜짐 → 그다음 '새 동작 등록(카운트다운 → 녹화 → 저장)' / 검지는 마우스 모드 / 주먹은 둥근 메뉴</li>
@@ -59,24 +59,24 @@
       <li>손동작 실행 기록은 따로 떼어 낸 작업이 중앙 데이터베이스에 저장. 카메라 처리가 저장 작업 때문에 느려지지 않게 분리</li>
       <li>설치용 실행 파일(exe)로도, 코드를 직접 실행해서도 쓸 수 있음</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>남은 문제와 다음 할 일</h2>
+  <details class="d-block more">
+    <summary>남은 문제와 다음 할 일</summary>
     <ul>
       <li>아직 만드는 중이라 인식 정확도와 움직임 보정 등 보완할 점이 있습니다.</li>
       <li>나만의 손동작을 넣을 칸 10개가 아직 모두 비어 있습니다.</li>
       <li>한 손동작이 다른 손동작을 가리키는 '별명' 기능에서, 서로를 계속 가리키면 끝없이 돌 수 있습니다. 이미 지나온 이름을 기억해 두었다가 다시 만나면 멈추도록 막아 두었습니다.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>함께 조사한 것 — 손으로 3D 조각하기</h2>
+  <details class="d-block more">
+    <summary>함께 조사한 것 — 손으로 3D 조각하기</summary>
     <p>마우스나 그림 태블릿 대신, 손의 움직임 그대로를 3D 찰흙 빚기 같은 입력으로 쓰는 아이디어입니다. 핸드모션의 손 추적을 넓혀 본 조사로, 카메라 여러 대로 같은 손을 찍어 거리(깊이)를 계산하고 손가락끼리 가려지는 문제를 푸는 방법을 알아봤습니다. 맨손·장갑·표식 붙이기·가상 표식 등 손을 따라가는 방법들을 비교한 단계이며, 별도 프로젝트가 아니라 핸드모션의 조사 갈래로 둡니다.</p>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>어려운 말 풀이</h2>
+  <details class="d-block more">
+    <summary>어려운 말 풀이</summary>
     <dl class="glossary">
       <dt>웹캠</dt><dd>컴퓨터에 달린 작은 카메라.</dd>
       <dt>랜드마크</dt><dd>손가락 마디처럼 AI가 찾아내는 몸의 기준점.</dd>
@@ -86,21 +86,16 @@
       <dt>HCI</dt><dd>사람과 컴퓨터가 주고받는 방식을 연구하는 분야.</dd>
       <dt>삼각측량</dt><dd>두 곳 이상에서 본 각도로 거리를 계산하는 방법.</dd>
     </dl>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>사용한 기술과 맡은 일</h2>
+  <details class="d-block more">
+    <summary>사용한 기술 · 맡은 일</summary>
     <p class="stack-line mono">Python · OpenCV · MediaPipe · pystray · PyInstaller · psycopg2</p>
     <div class="role-tags">
       <span>손동작 인식 구현</span><span>사람-컴퓨터 상호작용 조사</span>
     </div>
     <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
-  </section>
-
-  <section class="d-block todo-block">
-    <h2>준비 중</h2>
-    <p>실제 화면 사진과 자세한 사용 흐름은 준비되는 대로 채울 예정입니다.</p>
-  </section>
+  </details>
 </div>
 
 <footer>

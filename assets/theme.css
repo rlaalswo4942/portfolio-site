@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
 :root {
   --bg: #FFFFFF;
   --ink: #111111;
@@ -658,6 +660,59 @@ footer .footer-bottom {
   .glossary dd { margin-bottom: 0.7rem; }
   .legend li { flex-direction: column; gap: 0.3rem; }
 }
+
+/* ---------- 읽기 쉽게 (2026-11-27): 진하고 큰 한글, 긴 내용은 접기 ---------- */
+:root { --text-2: #222222; --text-3: #555555; }
+body { font-weight: 450; }
+nav.catnav a, nav.detail-nav .back-link, .detail-tags, .card-more, .d-block h2, .quad-grid h3 {
+  font-family: "Pretendard Variable", "Pretendard", -apple-system, "Malgun Gothic", sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.status, .detail-links a, .detail-links .placeholder, .process-strip {
+  font-family: "Pretendard Variable", "Pretendard", -apple-system, "Malgun Gothic", sans-serif;
+  letter-spacing: 0;
+}
+.status { font-size: 0.72rem; font-weight: 700; }
+.detail-links a, .detail-links .placeholder { font-size: 0.85rem; font-weight: 600; }
+.process-strip { font-size: 0.88rem; font-weight: 600; }
+nav.catnav a { font-size: 0.82rem; font-weight: 600; }
+nav.detail-nav .back-link { font-size: 0.85rem; font-weight: 600; }
+.detail-tags { font-size: 0.85rem; font-weight: 500; }
+.card-title { font-size: 1.05rem; font-weight: 800; }
+.card-desc { font-size: 0.95rem; font-weight: 500; line-height: 1.6; }
+.card-more { font-size: 0.8rem; font-weight: 600; }
+.cat-desc, .guide p, .legend li { font-size: 0.95rem; font-weight: 500; }
+.guide-note { color: var(--text-3) !important; font-size: 0.85rem !important; }
+.d-block h2 { font-size: 1.15rem; font-weight: 800; color: var(--ink); margin-bottom: 1rem; }
+.quad-grid h3 { font-size: 0.85rem; font-weight: 700; color: var(--text-3); margin-bottom: 0.45rem; }
+.quad-grid p { font-size: 1rem; font-weight: 500; color: var(--ink); line-height: 1.6; }
+.d-block li, .d-block p, .glossary dd { font-size: 0.97rem; font-weight: 450; }
+
+details.more.d-block { padding: 0; }
+details.more > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+details.more > summary::-webkit-details-marker { display: none; }
+details.more > summary::after {
+  content: "펼치기 +";
+  flex: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-3);
+}
+details.more[open] > summary::after { content: "접기 −"; }
+details.more > summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+details.more[open] { padding-bottom: 1.6rem; }
 
 /* 상세 페이지 실제 스크린샷 (assets/img/<slug>/) */
 .room-shots {

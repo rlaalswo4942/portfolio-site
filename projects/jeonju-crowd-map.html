@@ -27,50 +27,32 @@
     </div>
   </header>
 
-  <p class="hook">"전주대 근처에서 지금 어디가 붐비고, 어디가 한산할까?" 수업 시간표·현재 위치·주변 가게 정보를 엮어, 지금 가기 좋은 곳을 추천하는 지도 서비스입니다(팀 프로젝트). 가게 검색과 길 찾기는 9월부터 실제 자료로 바꿨고, 붐빔 정도는 아직 시연용 자료입니다.</p>
-
-  <div class="stat-grid">
-    <div>
-      <div class="stat-num">6개</div>
-      <div class="stat-label">붐빔 정도를 보여 주는 구역</div>
-      <div class="stat-ref mono">mockBlocks.ts</div>
-    </div>
-    <div>
-      <div class="stat-num">3종</div>
-      <div class="stat-label">합쳐서 계산하는 자료 (통신사 50%·GPS 30%·센서 20%)</div>
-      <div class="stat-ref mono">CrowdFusionService.ts</div>
-    </div>
-    <div>
-      <div class="stat-num">4단계</div>
-      <div class="stat-label">붐빔 정도 구분</div>
-      <div class="stat-ref mono">utils/congestion.ts</div>
-    </div>
-  </div>
+  <p class="hook">"공강에 지금 어디 갈까?"에 답하는 전주대 생활권 지도입니다(팀 프로젝트).</p>
 
   <section class="d-block">
     <h2>한눈에 보기</h2>
     <div class="quad-grid">
       <div>
         <h3>무엇인가요</h3>
-        <p>전주대 학생이 "공강 시간에 어디 가지?"를 고민할 때, 근처 가게와 붐빔 정도와 걸어가는 길을 지도 하나로 보여 주는 웹사이트(와 앱)입니다.</p>
+        <p>근처 가게, 붐비는 정도, 걸어가는 길을 지도 하나로 보여 줍니다.</p>
       </div>
       <div>
         <h3>어떻게 쓰나요</h3>
-        <p>시간표 사진을 올리면 빈 시간을 읽어 내고, 지금 위치와 붐빔 정도를 바탕으로 갈 만한 곳을 추천합니다. 가게 이름이나 메뉴로 찾고, 걸어가는 길을 볼 수 있습니다.</p>
+        <p>시간표 사진을 올리면 빈 시간에 갈 만한 곳을 추천합니다.</p>
       </div>
       <div>
         <h3>붐빔은 어떻게 계산하나요</h3>
-        <p>통신사 자료(50%), 휴대폰 위치 자료(30%), 공공 센서(20%) 세 가지를 비율대로 합쳐 0~100점을 내고, 그 점수를 4단계로 나눠 보여 줍니다.</p>
+        <p>통신사·위치·센서 자료를 합쳐 붐비는 정도를 4단계로 보여 줍니다.</p>
       </div>
       <div>
         <h3>지금 상태 · 진행 중</h3>
-        <p>가게 검색·길 찾기는 실제 자료입니다. 붐빔 정도는 아직 시연용 가짜 자료이고, 화면에도 "시연"이라고 표시합니다.</p>
+        <p>가게 검색·길 찾기는 실제 자료, 붐비는 정도는 아직 시연용입니다.</p>
       </div>
     </div>
   </section>
 
-  <section class="d-block">
-    <h2>주요 기능</h2>
+  <details class="d-block more">
+    <summary>기능 자세히</summary>
     <ul>
       <li>지도에서 장소를 찾아보고 구역별 붐빔 정도 확인</li>
       <li>가게 이름·메뉴 검색과 종류별 필터. 9월부터 카카오 지도 정보(Kakao Local API)로 실제 상호·위치·업종을 가져옴. 이때 필요한 비밀 열쇠(API 키)가 이용자에게 보이지 않도록 중간 서버(Cloudflare)를 거침</li>
@@ -79,10 +61,10 @@
       <li>시간표 사진은 색깔과 칸을 직접 읽어 내고, 과목 이름만 글자 읽기(OCR, tesseract.js)로 인식</li>
       <li>안드로이드 앱도 함께 개발(Capacitor). 웹사이트를 그대로 불러오는 방식이라 웹을 고치면 앱도 바로 바뀜</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>자료 · 방법 · 검증 · 한계</h2>
+  <details class="d-block more">
+    <summary>자료 · 방법 · 검증 · 한계</summary>
     <div class="quad-grid">
       <div>
         <h3>자료</h3>
@@ -101,19 +83,19 @@
         <p>붐빔 지표는 아직 가짜 자료입니다. 실제 배포된 사이트에 카카오 키가 제대로 설정돼 있는지는 관리 화면에서 직접 확인해야 합니다(코드만 봐서는 확실하지 않음).</p>
       </div>
     </div>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>남은 문제와 지나온 일</h2>
+  <details class="d-block more">
+    <summary>남은 문제와 지나온 일</summary>
     <ul>
       <li>실제로 없는 가게 15곳을 발견해 모두 지우고, 공개 지도(OSM) 대조·주소 역추적·팀원들의 상권 조사로 확인된 곳만 차례로 넣고 있습니다. 위치를 믿을 수 없는 가게는 지어내지 않고 보류합니다.</li>
       <li>걸어가는 길이 건물을 뚫고 지나가는 문제를 두 번 겪었습니다. ① 공개 서버가 사실 자동차 길을 주고 있던 문제 → 진짜 보행자용 서버로 교체. ② 마지막 구간을 직선으로 이어 벽을 관통하던 문제 → 벽에 부딪히는 지점에서 선을 끊도록 수정.</li>
       <li>지도 바탕 그림(타일)을 어디서 받아 올지가 두 번 바뀌었습니다(OSM 기본 → CARTO 무료 → 다시 OSM 기본).</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>어려운 말 풀이</h2>
+  <details class="d-block more">
+    <summary>어려운 말 풀이</summary>
     <dl class="glossary">
       <dt>API · API 키</dt><dd>다른 서비스의 기능을 빌려 쓰는 창구 · 그 창구를 쓰기 위한 비밀 열쇠.</dd>
       <dt>Mock(시연용 자료)</dt><dd>실제 자료가 없을 때 화면과 기능을 시험하려고 넣은 임시 자료.</dd>
@@ -124,16 +106,16 @@
       <dt>폴백</dt><dd>원래 방법이 실패했을 때 쓰는 예비 방법.</dd>
       <dt>레드팀 리뷰</dt><dd>일부러 공격하는 입장에서 약점을 찾는 검토.</dd>
     </dl>
-  </section>
+  </details>
 
-  <section class="d-block">
-    <h2>사용한 기술과 맡은 일</h2>
+  <details class="d-block more">
+    <summary>사용한 기술 · 맡은 일</summary>
     <p class="stack-line mono">React 19 · TypeScript · Vite · Tailwind v4 · Zustand · Leaflet · OSRM · Kakao Local API · Tesseract.js · Capacitor · Cloudflare Pages</p>
     <div class="role-tags">
       <span>문제 정의</span><span>구역 나누기</span><span>붐빔 계산 규칙</span><span>코드 점검</span><span>의사결정</span>
     </div>
     <p class="role-caption">팀 프로젝트(JJPG) · 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
-  </section>
+  </details>
 </div>
 
 <footer>
