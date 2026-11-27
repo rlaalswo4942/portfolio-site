@@ -586,6 +586,79 @@ footer .footer-bottom {
   overflow-wrap: anywhere;
 }
 
+/* ---------- 쉬운 설명: 첫 화면 안내 · 카테고리 설명 · 용어 풀이 ---------- */
+.work-note {
+  font-size: 0.86rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  max-width: 42rem;
+  margin: 1.1rem 0 0;
+}
+.guide {
+  padding: 2.2rem 0 0.4rem;
+}
+.guide h2 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 800;
+  margin: 0 0 0.9rem;
+}
+.guide p {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  max-width: 42rem;
+  margin: 0 0 1rem;
+}
+.legend {
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.legend li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  font-size: 0.86rem;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+.legend .status { min-width: 5.6rem; text-align: center; }
+.cat-desc {
+  font-size: 0.86rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  max-width: 42rem;
+  margin: -0.2rem 0 1.4rem;
+}
+.glossary {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(7rem, max-content) 1fr;
+  gap: 0.6rem 1.3rem;
+}
+.glossary dt {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.glossary dd {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.d-block p + p { margin-top: 0.8rem; }
+.d-block p + ul, .d-block ul + p { margin-top: 0.8rem; }
+@media (max-width: 520px) {
+  .glossary { grid-template-columns: 1fr; gap: 0.1rem; }
+  .glossary dd { margin-bottom: 0.7rem; }
+  .legend li { flex-direction: column; gap: 0.3rem; }
+}
+
 /* 상세 페이지 실제 스크린샷 (assets/img/<slug>/) */
 .room-shots {
   display: grid;

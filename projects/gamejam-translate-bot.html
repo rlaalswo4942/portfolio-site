@@ -12,7 +12,7 @@
 
 <nav class="detail-nav">
   <div class="catnav-inner">
-    <a class="back-link" href="../index.html">← Index</a>
+    <a class="back-link" href="../index.html">← 전체 목록</a>
     <span class="mk-mark">MK</span>
   </div>
 </nav>
@@ -26,38 +26,71 @@
     </div>
   </header>
 
-  <p class="hook">한국어로 쓰면, 다른 언어 채널에는 자동으로 번역돼서 올라갔다 — 지금은 확인 결과 작동하지 않는 상태.</p>
+  <p class="hook">여러 나라 사람이 모인 게임잼 디스코드에서, 한국어로 쓴 글이 다른 언어 채널에는 자동으로 번역돼 올라가게 해 주던 봇입니다. 지금은 작동하지 않는 상태입니다.</p>
 
   <section class="d-block">
-    <h2>Main Features</h2>
+    <h2>한눈에 보기</h2>
+    <div class="quad-grid">
+      <div>
+        <h3>무엇인가요</h3>
+        <p>디스코드(단체 채팅 앱)에 언어별 채널을 만들어 두고, 한 채널에 쓴 글을 다른 언어 채널로 번역해 옮겨 주는 자동 프로그램(봇)입니다.</p>
+      </div>
+      <div>
+        <h3>왜 만들었나요</h3>
+        <p>다국어 게임잼 행사에서, 서로 쓰는 언어가 달라도 같은 대화를 나눌 수 있게 하려고 만들었습니다.</p>
+      </div>
+      <div>
+        <h3>어떻게 움직였나요</h3>
+        <p>예를 들어 한국어 채널에 글을 쓰면, 일본어·중국어·네덜란드어·영어 채널에 각 언어로 번역된 글이 쓴 사람의 이름과 프로필 사진 그대로 올라갔습니다.</p>
+      </div>
+      <div>
+        <h3>지금 상태 · 작동 안 함</h3>
+        <p>봇을 올려 두던 서버(Railway)에서 실행이 내려간 것을 확인했고, 다시 살릴 예정입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-block">
+    <h2>주요 기능</h2>
     <ul>
-      <li>언어별(ko/ja/zh-cn/zh-tw/nl/en) 채널 자동 생성</li>
-      <li>웹훅으로 이름·아바타를 유지한 채 메시지 중계</li>
-      <li>MyMemory 무료 번역 API로 자동 번역</li>
-      <li>QR코드 초대 생성 기능 포함</li>
+      <li>언어별 채널 자동 생성: 한국어, 일본어, 중국어(간체·번체), 네덜란드어, 영어</li>
+      <li>원래 글쓴이의 이름과 프로필 사진을 그대로 살려 번역 글 전달(웹훅 사용)</li>
+      <li>무료 번역 서비스(MyMemory)로 자동 번역</li>
+      <li>초대용 QR코드 만들기 기능</li>
     </ul>
   </section>
 
   <section class="d-block">
-    <h2>Known Issues · Next Steps</h2>
+    <h2>남은 문제와 다음 할 일</h2>
     <ul>
-      <li>현재는 작동하지 않음을 확인함 — Railway에 서비스 자체는 남아있으나 배포가 내려간 상태로 확인됨</li>
-      <li>다시 작동하도록 수정할 예정</li>
+      <li>지금은 작동하지 않습니다. 봇을 올려 두던 서버 서비스(Railway)에 자리는 남아 있지만 실행이 내려간 상태입니다.</li>
+      <li>다시 작동하도록 고칠 예정입니다.</li>
     </ul>
   </section>
 
   <section class="d-block">
-    <h2>Stack &amp; Role</h2>
+    <h2>어려운 말 풀이</h2>
+    <dl class="glossary">
+      <dt>게임잼</dt><dd>짧은 기간 안에 게임을 만드는 대회·행사.</dd>
+      <dt>봇</dt><dd>자동으로 글을 읽고 쓰는 프로그램 계정.</dd>
+      <dt>웹훅</dt><dd>다른 프로그램이 채널에 글을 대신 올릴 수 있게 해 주는 통로. 올리는 이름과 사진을 바꿀 수 있습니다.</dd>
+      <dt>API</dt><dd>다른 서비스의 기능을 빌려 쓰는 창구.</dd>
+      <dt>배포</dt><dd>만든 프로그램을 서버에 올려 실제로 돌아가게 하는 것.</dd>
+    </dl>
+  </section>
+
+  <section class="d-block">
+    <h2>사용한 기술과 맡은 일</h2>
     <p class="stack-line mono">Node.js · discord.js · MyMemory API</p>
     <div class="role-tags">
-      <span>봇 구현</span><span>다국어 중계 설계</span>
+      <span>봇 구현</span><span>다국어 전달 설계</span>
     </div>
-    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
+    <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
   </section>
 
   <section class="d-block todo-block">
-    <h2>Coming Soon</h2>
-    <p>실제 스크린샷과 상세 사용 흐름은 준비되는 대로 채워 넣을 예정입니다.</p>
+    <h2>준비 중</h2>
+    <p>실제 화면 사진과 자세한 사용 흐름은 준비되는 대로 채울 예정입니다.</p>
   </section>
 </div>
 
@@ -71,7 +104,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.09.27</span>
+      <span>Project Index — 2026.11.27</span>
     </div>
   </div>
 </footer>

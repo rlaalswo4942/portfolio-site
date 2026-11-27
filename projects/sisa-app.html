@@ -12,7 +12,7 @@
 
 <nav class="detail-nav">
   <div class="catnav-inner">
-    <a class="back-link" href="../index.html">← Index</a>
+    <a class="back-link" href="../index.html">← 전체 목록</a>
     <span class="mk-mark">MK</span>
   </div>
 </nav>
@@ -26,40 +26,77 @@
     </div>
   </header>
 
-  <p class="hook">하루 종일 뉴스를 들여다보지 않아도, 안 읽은 것만 하루 세 번 정리해서 알려준다 — 실제 갤럭시 S22에서 매일 쓰는 중이다.</p>
+  <p class="hook">하루 종일 뉴스를 들여다보지 않아도, 아직 안 읽은 뉴스만 하루 세 번 모아서 요약해 알려 주는 휴대폰 앱입니다. 지금 실제로 매일 쓰고 있습니다(갤럭시 S22).</p>
 
   <section class="d-block">
-    <h2>Main Features</h2>
+    <h2>한눈에 보기</h2>
+    <div class="quad-grid">
+      <div>
+        <h3>무엇인가요</h3>
+        <p>세계 시사 뉴스를 대신 모아 짧게 요약하고, 정해진 시간에 알림으로 보내 주는 안드로이드 앱입니다.</p>
+      </div>
+      <div>
+        <h3>어디서 나왔나요</h3>
+        <p>뉴스와 주식을 함께 다루던 'Market Drawer' 앱에서 뉴스 기능만 떼어 내 따로 만든 앱입니다.</p>
+      </div>
+      <div>
+        <h3>어떻게 쓰나요</h3>
+        <p>앱을 설치해 두면 오전 8시·낮 12시·저녁 6시에 알림이 옵니다. 새 소식이 없으면 알림도 오지 않습니다.</p>
+      </div>
+      <div>
+        <h3>지금 상태 · 진행 중</h3>
+        <p>컴퓨터를 꺼 둬도 자동으로 돌아가도록 바꿨고, 남은 정리 작업을 하고 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-block">
+    <h2>주요 기능</h2>
     <ul>
-      <li>Market Drawer에서 주식 서랍을 걷어내고 시사 서랍만 남긴 포크</li>
-      <li>매시간 세계 뉴스를 자동 수집, Gemini로 기사 요약</li>
-      <li>하루 세 번(오전 8시·낮 12시·저녁 6시) 안 읽은 기사만 모아 알림 발송 — 새 소식 없으면 알림도 안 보냄</li>
-      <li>PC를 켜두지 않아도 완전히 자동으로 동작 (아래 참고)</li>
-      <li>앱 안 진단 로그 화면 — USB·adb 연결 없이도 휴대폰에서 바로 로그를 보고 클립보드로 복사</li>
+      <li>Market Drawer에서 주식 기능을 걷어 내고 뉴스(시사) 기능만 남긴 앱</li>
+      <li>매시간 세계 뉴스를 자동으로 모으고, 구글 AI(Gemini)로 기사를 요약</li>
+      <li>하루 세 번(오전 8시·낮 12시·저녁 6시) 안 읽은 기사만 모아 알림. 새 소식이 없으면 알림도 보내지 않음</li>
+      <li>컴퓨터를 켜 두지 않아도 완전히 자동으로 동작(아래 설명 참고)</li>
+      <li>앱 안에서 바로 보는 문제 기록 화면: 컴퓨터에 선을 연결하지 않아도 휴대폰에서 기록을 보고 복사할 수 있음</li>
     </ul>
   </section>
 
   <section class="d-block">
-    <h2>PC 없이 돌아가게 만들기</h2>
-    <p>처음엔 PC에서 서버·스케줄러·터널 프로그램 3개를 계속 띄워둬야 했고, 실제로 아침 7시 브리핑을 한 번 놓친 사고가 있었다. 그래서 전체를 Cloudflare Workers + D1(서버리스 SQLite)으로 옮겼는데, 이 샌드박스 환경에서만 겪는 문제들이 이어졌다: 암호화 라이브러리가 아예 작동하지 않아 푸시 인증에 필요한 서명을 표준 라이브러리만으로 직접 구현해야 했고, 요청 하나당 처리 가능한 작업 수 제한 때문에 대량 삽입 로직을 다시 짰고, Google이 Cloudflare의 공유 IP 대역 자체를 차단하고 있어서 뉴스 수집과 AI 요약은 결국 GitHub Actions 쪽으로 옮겼다. 지금은 "수집·요약은 GitHub Actions, 조회·알림·크론은 Cloudflare Worker"로 역할을 나눠 PC 없이도 완전 자동으로 돈다. 수집기는 공개 저장소(sisa-collector)로 분리했다 — Worker가 매시간 40분에 수집을 호출하고, 그 토큰이 만료돼도 6시간마다 자체 스케줄로 도는 안전망이 있으며, 새 기사가 없으면 브라우저 설치 같은 무거운 단계는 건너뛴다.</p>
+    <h2>컴퓨터 없이 돌아가게 만들기</h2>
+    <p>처음에는 뉴스를 모으고 알림을 보내려면 내 컴퓨터에서 프로그램 3개(서버, 예약 실행기, 바깥과 연결해 주는 통로)를 계속 켜 둬야 했습니다. 실제로 아침 7시 브리핑을 한 번 놓친 일이 있었습니다.</p>
+    <p>그래서 전부 인터넷 위의 서비스(Cloudflare Workers와 그 안의 작은 데이터베이스 D1)로 옮겼는데, 그곳만의 제약 때문에 문제가 이어졌습니다. ① 흔히 쓰는 암호화 도구가 작동하지 않아, 알림을 보낼 때 필요한 인증 서명을 기본 도구만으로 직접 만들었습니다. ② 요청 한 번에 처리할 수 있는 작업 수가 제한돼 있어, 기사를 한꺼번에 넣는 방식을 다시 짰습니다. ③ 구글이 Cloudflare의 공용 인터넷 주소 자체를 막고 있어서, 뉴스 수집과 AI 요약은 결국 GitHub Actions 쪽으로 옮겼습니다.</p>
+    <p>지금은 역할을 나눠 맡깁니다. 모으고 요약하는 일은 GitHub Actions가, 조회·알림·시간 맞춰 실행하기는 Cloudflare가 합니다. 그래서 컴퓨터 없이도 완전히 자동으로 돕니다. 뉴스 수집기는 공개 저장소(sisa-collector)로 분리했습니다. 매시간 40분에 수집을 부르고, 그 호출 권한이 만료돼도 6시간마다 스스로 도는 안전장치가 있으며, 새 기사가 없으면 무거운 준비 단계는 건너뜁니다.</p>
   </section>
 
   <section class="d-block">
-    <h2>Known Issues · Next Steps</h2>
+    <h2>남은 문제와 다음 할 일</h2>
     <ul>
-      <li>Market Drawer와 Firebase 패키지명을 그대로 재사용 중이라, 같은 기기에 두 앱을 동시에 설치할 수 없음 — 분리 필요</li>
-      <li>캐시가 계속 쌓이던 문제와 일일 초기화 누락은 진단 후 수정함(2026-09-28), 아침 브리핑은 실사용에 맞춰 8시로 옮김(2026-10-01)</li>
-      <li>README가 아직 예전 PC 운영 방식을 기준으로 쓰여 있어, Cloudflare 이전 이후의 실제 구조와 어긋나 있음</li>
+      <li>Market Drawer와 앱 식별 이름이 같아서 한 휴대폰에 두 앱을 함께 설치할 수 없습니다. 분리가 필요합니다.</li>
+      <li>임시 저장 자료가 계속 쌓이던 문제와 하루 단위 초기화가 빠졌던 문제는 원인을 찾아 고쳤습니다(2026-09-28). 아침 브리핑은 실제 생활에 맞춰 8시로 옮겼습니다(2026-10-01).</li>
+      <li>설명서(README)가 아직 예전 '컴퓨터에서 돌리던 방식' 기준이라 지금 구조와 맞지 않습니다.</li>
     </ul>
   </section>
 
   <section class="d-block">
-    <h2>Stack &amp; Role</h2>
+    <h2>어려운 말 풀이</h2>
+    <dl class="glossary">
+      <dt>안드로이드</dt><dd>삼성 갤럭시 등 많은 휴대폰이 쓰는 운영체제.</dd>
+      <dt>서버 · 서버리스</dt><dd>요청을 받아 처리하는 컴퓨터 · 그런 컴퓨터를 직접 켜 두지 않고, 필요할 때만 클라우드 회사가 대신 실행해 주는 방식.</dd>
+      <dt>Cloudflare Workers</dt><dd>짧은 프로그램을 인터넷 위에서 대신 돌려 주는 서비스.</dd>
+      <dt>크론</dt><dd>정해진 시간마다 작업을 자동으로 실행하는 예약 기능.</dd>
+      <dt>푸시 알림 · FCM</dt><dd>앱을 열지 않아도 휴대폰에 뜨는 알림 · 그 알림을 보내 주는 구글 서비스.</dd>
+      <dt>GitHub Actions</dt><dd>GitHub에서 정해 둔 작업을 자동으로 돌려 주는 기능.</dd>
+      <dt>저장소</dt><dd>프로젝트의 코드와 변경 기록을 보관하는 곳.</dd>
+    </dl>
+  </section>
+
+  <section class="d-block">
+    <h2>사용한 기술과 맡은 일</h2>
     <p class="stack-line mono">Kotlin/Compose (Android) · Cloudflare Workers + D1 · GitHub Actions · Gemini API · Firebase FCM</p>
     <div class="role-tags">
-      <span>서비스 기획</span><span>서버리스 아키텍처 전환</span><span>Android 앱 구현</span>
+      <span>서비스 기획</span><span>컴퓨터 없이 도는 구조로 전환</span><span>안드로이드 앱 구현</span>
     </div>
-    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
+    <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
   </section>
 </div>
 
@@ -73,7 +110,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.10.15</span>
+      <span>Project Index — 2026.11.27</span>
     </div>
   </div>
 </footer>

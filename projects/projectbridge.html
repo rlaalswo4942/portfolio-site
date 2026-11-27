@@ -12,7 +12,7 @@
 
 <nav class="detail-nav">
   <div class="catnav-inner">
-    <a class="back-link" href="../index.html">← Index</a>
+    <a class="back-link" href="../index.html">← 전체 목록</a>
     <span class="mk-mark">MK</span>
   </div>
 </nav>
@@ -26,31 +26,66 @@
     </div>
   </header>
 
-  <p class="hook">코드가 아니라, "지금 어디까지 했는지"를 여러 PC에 동기화하는 도구.</p>
+  <p class="hook">코드가 아니라 "어디까지 했고, 무엇을 정했고, 다음에 뭘 할지"를 여러 컴퓨터 사이에 이어 주는 도구입니다.</p>
 
   <section class="d-block">
-    <h2>Main Features</h2>
+    <h2>한눈에 보기</h2>
+    <div class="quad-grid">
+      <div>
+        <h3>무엇인가요</h3>
+        <p>AI 코딩 도우미 Claude Code에 붙여 쓰는 추가 기능(플러그인)입니다. 작업 메모를 GitHub에 올려 두고, 다른 컴퓨터에서 그대로 이어받게 해 줍니다.</p>
+      </div>
+      <div>
+        <h3>왜 필요한가요</h3>
+        <p>집 컴퓨터와 노트북을 오가며 일하면 코드는 옮겨져도 "왜 이렇게 했는지, 다음에 뭘 할지" 같은 맥락은 사라집니다. AI 도우미도 새 컴퓨터에서는 이전 대화를 모릅니다.</p>
+      </div>
+      <div>
+        <h3>어떻게 쓰나요</h3>
+        <p>짧은 명령어를 입력합니다. 작업 중간에는 checkpoint(중간 저장), 자리를 뜰 때는 handoff(넘겨주기), 다른 컴퓨터에서는 takeover(이어받기)를 씁니다.</p>
+      </div>
+      <div>
+        <h3>지금 상태 · v1.0.0 배포됨</h3>
+        <p>첫 정식 버전(1.0.0)을 내놓았습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-block">
+    <h2>주요 기능</h2>
     <ul>
-      <li>결정사항·TODO·인수인계 같은 작업 맥락을 GitHub로 동기화</li>
-      <li>init/start/checkpoint/handoff/takeover/status 등 슬래시 커맨드 제공</li>
-      <li>강제 푸시 금지, git add -A 금지 등 안전장치 내장</li>
-      <li>커밋 전 비밀정보 자동 스캔</li>
-      <li>GitHub compare-and-swap 기반 기기 간 잠금 처리</li>
+      <li>결정사항·할 일 목록(TODO)·인수인계 메모 같은 작업 맥락을 GitHub로 동기화</li>
+      <li>짧은 명령어 제공: init(처음 설정), start(작업 시작), checkpoint(중간 저장), handoff(넘겨주기), takeover(이어받기), status(현재 상태 보기)</li>
+      <li>실수 방지 장치: 저장소의 기존 기록을 덮어쓰는 '강제 올리기' 금지, 폴더 안 파일을 한꺼번에 몽땅 올리기(git add -A) 금지</li>
+      <li>올리기 전에 비밀번호·열쇠 같은 비밀 정보가 섞였는지 자동 검사</li>
+      <li>두 컴퓨터가 동시에 기록을 고치지 않도록 잠금: "내가 마지막으로 본 상태와 같을 때만 고친다"(compare-and-swap) 방식</li>
     </ul>
   </section>
 
   <section class="d-block">
-    <h2>Stack &amp; Role</h2>
+    <h2>어려운 말 풀이</h2>
+    <dl class="glossary">
+      <dt>Claude Code</dt><dd>대화하면서 코드를 함께 짜 주는 Anthropic의 AI 코딩 도우미.</dd>
+      <dt>플러그인</dt><dd>기존 프로그램에 기능을 덧붙이는 추가 부품.</dd>
+      <dt>GitHub</dt><dd>코드와 작업 기록을 인터넷에 보관하고 함께 관리하는 서비스.</dd>
+      <dt>동기화</dt><dd>여러 곳의 내용을 똑같이 맞추는 것.</dd>
+      <dt>커밋 · 푸시</dt><dd>변경 내용을 기록으로 남기기 · 그 기록을 인터넷 저장소에 올리기.</dd>
+      <dt>강제 푸시</dt><dd>저장소의 기존 기록을 무시하고 내 것으로 덮어쓰는 위험한 올리기.</dd>
+      <dt>compare-and-swap</dt><dd>"지금 값이 내가 아는 값과 같을 때만 바꾼다"는 충돌 방지 방법.</dd>
+    </dl>
+  </section>
+
+  <section class="d-block">
+    <h2>사용한 기술과 맡은 일</h2>
     <p class="stack-line mono">Claude Code Plugin · GitHub · Shell</p>
     <div class="role-tags">
-      <span>플러그인 설계</span><span>동시성/안전장치 구현</span><span>v1.0.0 릴리스</span>
+      <span>플러그인 설계</span><span>동시 작업·안전장치 구현</span><span>첫 정식 버전 출시</span>
     </div>
-    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
+    <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
   </section>
 
   <section class="d-block todo-block">
-    <h2>Coming Soon</h2>
-    <p>실제 스크린샷과 상세 사용 흐름은 준비되는 대로 채워 넣을 예정입니다.</p>
+    <h2>준비 중</h2>
+    <p>실제 화면 사진과 자세한 사용 흐름은 준비되는 대로 채울 예정입니다.</p>
   </section>
 </div>
 
@@ -64,7 +99,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.09.27</span>
+      <span>Project Index — 2026.11.27</span>
     </div>
   </div>
 </footer>

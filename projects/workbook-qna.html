@@ -12,7 +12,7 @@
 
 <nav class="detail-nav">
   <div class="catnav-inner">
-    <a class="back-link" href="../index.html">← Index</a>
+    <a class="back-link" href="../index.html">← 전체 목록</a>
     <span class="mk-mark">MK</span>
   </div>
 </nav>
@@ -27,37 +27,72 @@
     </div>
   </header>
 
-  <p class="hook">궁금한 문장에 바로 형광펜을 긋고 질문한다 — 질문은 같은 워크북을 보는 사람들과 실시간으로 나누고, 메모는 나만 본다.</p>
+  <p class="hook">궁금한 문장에 바로 형광펜을 긋고 질문합니다. 질문은 같은 워크북을 보는 사람들과 실시간으로 나누고, 메모는 나만 봅니다.</p>
 
   <section class="d-block">
-    <h2>Main Features</h2>
+    <h2>한눈에 보기</h2>
+    <div class="quad-grid">
+      <div>
+        <h3>무엇인가요</h3>
+        <p>바이브코딩 수업 교재(워크북)를 장별로 정리해 올리고, 그 위에서 질문·답변·메모를 할 수 있게 만든 수업용 웹사이트입니다.</p>
+      </div>
+      <div>
+        <h3>누가 쓰나요</h3>
+        <p>같은 워크북으로 공부하는 사람들입니다. 모르는 문장을 표시해 물으면 다른 사람이 실시간으로 답할 수 있습니다.</p>
+      </div>
+      <div>
+        <h3>어떻게 쓰나요</h3>
+        <p>사이트에 들어가 이름만 정하면 바로 시작합니다. 본문을 드래그해 형광펜을 칠하고 질문을 남기면 됩니다. 비밀번호는 없습니다.</p>
+      </div>
+      <div>
+        <h3>지금 상태 · 운영 중</h3>
+        <p>위의 '사이트' 버튼으로 바로 들어가 볼 수 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-block">
+    <h2>주요 기능</h2>
     <ul>
-      <li>워크북 18개 문서를 장별 가이드로 정리하고, 실습 Step 78개마다 "어디서(13개 장소) · 어떻게 · 무엇이 보이면 성공"을 안내하는 작업 지도</li>
-      <li>본문을 드래그해 형광펜·메모지로 마킹하고 질문 — 상단 칩과 좌측 트리에 색으로 표시돼 바로 이동</li>
-      <li>Supabase Realtime으로 질문·답변·마킹이 실시간 공유되고, 연결될 때마다 서버와 다시 동기화</li>
-      <li>이름 = 고유 아이디(비밀번호·인원 제한 없음) — 같은 이름이면 어느 기기에서든 내 글로 인식하고 본인 글만 수정·삭제</li>
-      <li>장별 메모장과 "나만 보기" 마킹은 아이디 공간에만 저장 — 서버 함수가 비밀 해시를 확인한 뒤에만 읽고 씀</li>
-      <li>참가자가 자기 GitHub 저장소·배포 링크를 제출하고 검색하는 저장소 폴더</li>
-      <li>원본 워크북에서 장별 데이터를 다시 만드는 빌드 스크립트 + Step 개수 검사 스크립트 — 공개본에서는 체크 표시 초기화</li>
+      <li>워크북 문서 18개를 장별 안내로 정리. 실습 단계(Step) 78개마다 "어디서(13곳 중 어느 화면에서) · 어떻게 · 무엇이 보이면 성공인지"를 알려 주는 작업 지도</li>
+      <li>본문을 드래그해 형광펜·메모지로 표시하고 질문. 위쪽 표시 칩과 왼쪽 목차에 색으로 나타나 바로 이동</li>
+      <li>질문·답변·표시가 모든 사람 화면에 실시간으로 공유(Supabase Realtime). 다시 연결될 때마다 서버와 맞춰 빠진 것이 없게 함</li>
+      <li>이름 = 내 아이디(비밀번호·인원 제한 없음). 같은 이름이면 어느 기기에서든 내 글로 알아보고, 내 글만 고치고 지울 수 있음</li>
+      <li>장별 메모장과 '나만 보기' 표시는 내 아이디 공간에만 저장. 서버가 비밀 확인값을 검사한 뒤에만 읽고 씀</li>
+      <li>참가자가 자기 GitHub 저장소·배포 주소를 올리고 서로 찾아볼 수 있는 저장소 모음</li>
+      <li>원본 워크북에서 장별 자료를 다시 만들어 내는 자동 스크립트와 Step 개수 검사 스크립트. 공개본에서는 체크 표시를 초기화</li>
     </ul>
   </section>
 
   <section class="d-block">
-    <h2>Known Issues · Next Steps</h2>
+    <h2>남은 문제와 다음 할 일</h2>
     <ul>
-      <li>비밀번호가 없어 이름을 아는 사람은 그 이름으로 들어올 수 있음 — 입력 화면에서 "이름+숫자"를 권장</li>
-      <li>개인 메모는 최신값 우선이라 두 기기에서 동시에 편집하면 나중 것이 남음</li>
-      <li>마킹 연속 변경 경합과 SQL 재실행 시 realtime 중복 등록 에러(42710)는 수정함 — 실사용 규모가 커지면 관리용 삭제를 대시보드 밖으로 옮길 필요가 있음</li>
+      <li>비밀번호가 없어서 이름을 아는 사람은 그 이름으로 들어올 수 있습니다. 그래서 입력 화면에서 "이름+숫자"처럼 쓰기를 권합니다.</li>
+      <li>개인 메모는 가장 최근 저장이 이기는 방식이라, 두 기기에서 동시에 고치면 나중에 저장한 것만 남습니다.</li>
+      <li>표시를 빠르게 연속으로 바꿀 때 생기던 충돌과, 설정을 다시 실행할 때 실시간 기능이 중복 등록되던 오류(42710)는 고쳤습니다. 사용자가 많아지면 관리용 삭제 기능을 관리 화면 밖으로 옮길 필요가 있습니다.</li>
     </ul>
   </section>
 
   <section class="d-block">
-    <h2>Stack &amp; Role</h2>
+    <h2>어려운 말 풀이</h2>
+    <dl class="glossary">
+      <dt>워크북</dt><dd>수업에서 따라 하며 실습하는 교재.</dd>
+      <dt>실시간(Realtime)</dt><dd>새로고침하지 않아도 다른 사람의 변화가 바로 내 화면에 나타나는 것.</dd>
+      <dt>Supabase</dt><dd>데이터베이스·로그인·실시간 기능을 빌려 주는 온라인 서비스.</dd>
+      <dt>해시</dt><dd>원래 값을 알아볼 수 없게 바꾼 확인용 값.</dd>
+      <dt>권한 설계(RLS)</dt><dd>누가 어떤 자료를 읽고 쓸 수 있는지 규칙으로 정하는 것.</dd>
+      <dt>스크립트</dt><dd>반복 작업을 자동으로 처리하는 짧은 프로그램.</dd>
+      <dt>E2E 테스트</dt><dd>실제 사용자처럼 브라우저를 움직여 처음부터 끝까지 확인하는 자동 검사(Playwright 사용).</dd>
+    </dl>
+  </section>
+
+  <section class="d-block">
+    <h2>사용한 기술과 맡은 일</h2>
     <p class="stack-line mono">Vanilla JavaScript · Supabase (Postgres + Realtime + RLS + RPC) · Node.js 빌드 스크립트 · Playwright E2E · GitHub Pages</p>
     <div class="role-tags">
-      <span>서비스 기획</span><span>실시간 협업 UI</span><span>권한 설계</span><span>학습 동선 설계</span>
+      <span>서비스 기획</span><span>실시간으로 함께 쓰는 화면</span><span>권한 설계</span><span>공부 순서 설계</span>
     </div>
-    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
+    <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
   </section>
 </div>
 
@@ -71,7 +106,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.10.15</span>
+      <span>Project Index — 2026.11.27</span>
     </div>
   </div>
 </footer>

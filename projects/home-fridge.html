@@ -12,7 +12,7 @@
 
 <nav class="detail-nav">
   <div class="catnav-inner">
-    <a class="back-link" href="../index.html">← Index</a>
+    <a class="back-link" href="../index.html">← 전체 목록</a>
     <span class="mk-mark">MK</span>
   </div>
 </nav>
@@ -26,35 +26,68 @@
     </div>
   </header>
 
-  <p class="hook">"냉장고에 뭐가 있지?"가 아니라 "지금 뭘 먼저 먹어야 하지?"로 질문을 바꿨다.</p>
+  <p class="hook">"냉장고에 뭐가 있지?"가 아니라 "지금 뭘 먼저 먹어야 하지?"에 답하도록 질문을 바꾼 식재료 관리 서비스입니다.</p>
 
   <section class="d-block">
-    <h2>Main Features</h2>
+    <h2>한눈에 보기</h2>
+    <div class="quad-grid">
+      <div>
+        <h3>무엇인가요</h3>
+        <p>장 본 식재료가 실제로 요리돼 먹힐 때까지 챙겨 주는 AI 도우미 웹 서비스입니다.</p>
+      </div>
+      <div>
+        <h3>왜 필요한가요</h3>
+        <p>냉장고 관리 앱은 재료를 하나하나 직접 입력해야 해서 금방 손이 안 가게 됩니다. 그래서 "입력하지 않아도 되는 재고 관리"를 목표로 정했습니다.</p>
+      </div>
+      <div>
+        <h3>어떻게 움직이나요 (설계)</h3>
+        <p>영수증을 찍으면 산 재료가 자동으로 등록되고, 유통기한이 가까운 재료부터 먹으라고 추천합니다. 요리를 마치면 쓴 재료가 자동으로 빠집니다.</p>
+      </div>
+      <div>
+        <h3>지금 상태 · 프로토타입</h3>
+        <p>시험용 가짜 자료로 전체 흐름을 만들어 보는 단계입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-block">
+    <h2>주요 기능</h2>
     <ul>
-      <li>영수증 OCR 기반 구매 정보 자동 등록 검토</li>
-      <li>소비기한 임박 재료를 우선 추천하는 로직 설계</li>
-      <li>조리 완료 시 재고 자동 차감·식사 기록 연결</li>
-      <li>사용자가 직접 입력하지 않아도 되는 Zero-Input Inventory로 방향 재정의</li>
+      <li>영수증 사진을 글자로 읽어(OCR) 산 물건을 자동 등록하는 방법 검토</li>
+      <li>소비기한이 가까운 재료부터 추천하는 규칙 설계</li>
+      <li>요리를 마치면 재고에서 자동으로 빼고 식사 기록과 연결</li>
+      <li>사용자가 직접 입력하지 않아도 되는 '입력 없는 재고 관리(Zero-Input Inventory)'로 방향을 다시 정함</li>
     </ul>
   </section>
 
   <section class="d-block">
-    <h2>Iteration</h2>
-    <p>처음엔 재고·레시피·가계부·나눔까지 포함한 대규모 서비스로 기획했으나, 기능이 많아질수록 핵심 가치가 흐려져 "지금 무엇을 먼저 먹는 것이 좋은가"라는 질문 하나로 범위를 좁혔다.</p>
+    <h2>범위를 좁힌 과정</h2>
+    <p>처음에는 재고·레시피·가계부·이웃과 나누기까지 담은 큰 서비스로 기획했습니다. 하지만 기능이 많아질수록 이 서비스가 정말 해 주는 일이 흐려졌습니다. 그래서 "지금 무엇을 먼저 먹는 게 좋을까?"라는 질문 하나에 답하는 데 집중하도록 범위를 좁혔습니다.</p>
   </section>
 
   <section class="d-block">
-    <h2>Stack &amp; Role</h2>
+    <h2>어려운 말 풀이</h2>
+    <dl class="glossary">
+      <dt>AI 에이전트</dt><dd>사람 대신 상황을 판단해 할 일을 처리해 주는 AI 도우미.</dd>
+      <dt>OCR</dt><dd>사진 속 글자를 읽어 내는 기술.</dd>
+      <dt>재고</dt><dd>지금 가지고 있는 물건(여기서는 식재료)의 목록과 양.</dd>
+      <dt>Mock 데이터</dt><dd>실제 자료 대신 시험용으로 넣은 가짜 자료.</dd>
+      <dt>Supabase</dt><dd>회원 관리와 자료 저장 기능을 빌려 주는 온라인 서비스.</dd>
+    </dl>
+  </section>
+
+  <section class="d-block">
+    <h2>사용한 기술과 맡은 일</h2>
     <p class="stack-line mono">Next.js · TypeScript · Tailwind CSS · Supabase · OCR · Mock 데이터 기반 개발</p>
     <div class="role-tags">
-      <span>서비스 재정의</span><span>기능 스코프 조정</span><span>프로토타입 설계</span>
+      <span>서비스 방향 재정의</span><span>기능 범위 조정</span><span>시험판 설계</span>
     </div>
-    <p class="role-caption">개인 프로젝트 · 기획 및 코드 구현 · Claude Code 협업</p>
+    <p class="role-caption">개인 프로젝트 · 기획과 코드 작성 · AI 코딩 도우미(Claude Code)와 함께 작업</p>
   </section>
 
   <section class="d-block todo-block">
-    <h2>Coming Soon</h2>
-    <p>실제 스크린샷과 상세 사용 흐름, 검증 데이터는 준비되는 대로 채워 넣을 예정입니다.</p>
+    <h2>준비 중</h2>
+    <p>실제 화면 사진, 자세한 사용 흐름, 검증 자료는 준비되는 대로 채울 예정입니다.</p>
   </section>
 </div>
 
@@ -68,7 +101,7 @@
     </div>
     <div class="footer-bottom">
       <span>김민재 · MinJae Kim</span>
-      <span>Project Index — 2026.09.27</span>
+      <span>Project Index — 2026.11.27</span>
     </div>
   </div>
 </footer>
